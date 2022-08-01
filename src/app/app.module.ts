@@ -15,6 +15,8 @@ import { FavoriteComponent } from './pages/favorite/favorite.component';
 import { SliderComponent } from './pages/home/slider/slider.component';
 import { CategoryComponent } from './pages/home/category/category.component';
 import { ProviderComponent } from './pages/home/provider/provider.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { OrderComponent } from './pages/order/order.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { ProviderComponent } from './pages/home/provider/provider.component';
     SliderComponent,
     CategoryComponent,
     ProviderComponent,
+    PageNotFoundComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,

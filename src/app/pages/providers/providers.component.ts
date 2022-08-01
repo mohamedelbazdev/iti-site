@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./providers.component.css']
 })
 export class ProvidersComponent implements OnInit {
-
+  featuredproviders!: any[];
   constructor() { }
 
   ngOnInit(): void {

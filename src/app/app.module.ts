@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,14 +18,18 @@ import { CategoryComponent } from './pages/home/category/category.component';
 import { ProviderComponent } from './pages/home/provider/provider.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { OrderComponent } from './pages/order/order.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HeaderInterceptor } from "./header.interceptor";
+
 import { ProviderDetailsComponent } from './pages/provider-details/provider-details.component';
 import { ChatComponent } from './pages/chat/chat.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProviderOrderComponent } from './pages/provider-order/provider-order.component';
 import { EditUserProfileComponent } from './pages/edit-user-profile/edit-user-profile.component';
 import { EditProviderProfileComponent } from './pages/edit-provider-profile/edit-provider-profile.component';
 import { ProviderProfileComponent } from './pages/provider-profile/provider-profile.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -50,13 +55,22 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
     EditProviderProfileComponent,
     ProviderProfileComponent,
     UserProfileComponent,
+
   ],
-  imports:[
+
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },  // register interceptor for project
+
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

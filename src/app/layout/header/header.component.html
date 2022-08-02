@@ -73,8 +73,8 @@
                              <i class="fas fa-user text-primary fa-lg"></i>
                           </a>
                           <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                              <a routerLink="/login" routerLinkActive="active" class="nav-item nav-link text-dark"> Login </a>
-                              <a routerLink="/register" routerLinkActive="active" class="nav-item nav-link text-dark"> Register</a>
+                              <a *ngIf="!isLogin()" routerLink="/login" routerLinkActive="active" class="nav-item nav-link text-dark"> Login </a>
+                              <a *ngIf="!isLogin()" routerLink="/register" routerLinkActive="active" class="nav-item nav-link text-dark"> Register</a>
                               <ul class="account-menu__links">
                                 <!--        <li>-->
                                 <!--            <a routerLink="/account/login" (click)="closeMenu.emit()">Logout</a>-->

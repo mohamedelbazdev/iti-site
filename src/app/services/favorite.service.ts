@@ -6,10 +6,8 @@ import {HttpClient} from "@angular/common/http";
 })
 export class FavoriteService {
 
-
-
-    public favUrl = "http://127.0.0.1:8000/api/users/favorites";
-    public removeUrl = "http://127.0.0.1:8000/api/users/favorites/destroy";
+  public favUrl = "http://127.0.0.1:8000/api/users/favorites";
+  public removeUrl = "http://127.0.0.1:8000/api/users/favorites/destroy";
 
   constructor(private http:HttpClient) { }
 

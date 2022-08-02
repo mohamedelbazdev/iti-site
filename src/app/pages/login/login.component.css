@@ -1,5 +1,5 @@
 .main-content{
-	width: 53%;
+	width: 45%;
 	border-radius: 20px;
 	box-shadow: 0 5px 5px rgba(0,0,0,.4);
 	margin: 5em auto;
@@ -49,7 +49,7 @@ form{
 	padding: 0 3em;
 }
 .form__input{
-	width: 500px;
+	width: 400px;
 	border:0 solid transparent;
 	border-radius: 0;
 	border-bottom: 1px solid #aaa;

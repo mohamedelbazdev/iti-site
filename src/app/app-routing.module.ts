@@ -39,7 +39,7 @@ const routes: Routes = [
   { path: 'provider-profile', component: ProviderProfileComponent },
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'chat', component: ChatComponent },
-  { path: '**', component: PageNotFoundComponent, },
+  { path: '**', component: PageNotFoundComponent },
 
 ];
 

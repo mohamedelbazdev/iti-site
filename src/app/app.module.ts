@@ -18,6 +18,8 @@ import { ProviderComponent } from './pages/home/provider/provider.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { OrderComponent } from './pages/order/order.component';
 import { ProviderDetailsComponent } from './pages/provider-details/provider-details.component';
+import { ChatComponent } from './pages/chat/chat.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -37,10 +39,12 @@ import { ProviderDetailsComponent } from './pages/provider-details/provider-deta
     PageNotFoundComponent,
     OrderComponent,
     ProviderDetailsComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./provider-details.component.css']
 })
 export class ProviderDetailsComponent implements OnInit {
-
+  currentRate = 0;
   constructor() { }
 
   ngOnInit(): void {

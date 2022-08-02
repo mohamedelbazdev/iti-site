@@ -17,6 +17,10 @@ import { CategoryComponent } from './pages/home/category/category.component';
 import { ProviderComponent } from './pages/home/provider/provider.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { OrderComponent } from './pages/order/order.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HeaderInterceptor } from "./header.interceptor";
+
 
 @NgModule({
   declarations: [
@@ -37,10 +41,16 @@ import { OrderComponent } from './pages/order/order.component';
     OrderComponent,
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },  // register interceptor for project
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,41 @@
-<app-header></app-header>
-<!-- Login Form -->
 
-<app-footer></app-footer>
+
+	<!-- Main Content -->
+	<div class="container-fluid">
+		<div class="row main-content bg-success text-center">
+      <div class="col-md-4 text-center company__info">
+				<span class="company__logo"><img src="assets/img/1.png" alt=""></span>
+			</div>
+			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+				<div class="container-fluid">
+					<div class="row">
+						<h2>Log In</h2>
+					</div>
+					<div class="row">
+						<form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate control="" class="form-group">
+							<div class="row">
+                <label> Email address </label>
+								<input type="email" name="email" id="email" formControlName="email"  class="form__input" placeholder="Enter email">
+							</div>
+							<div class="row">
+                <label>Password</label>
+								<input type="password" name="password" id="password" formControlName="password" class="form__input" placeholder="Password">
+							</div>
+							<div class="row">
+								<input type="checkbox" name="remember_me" id="remember_me" class="">
+								<label class="mar" for="remember_me">Remember Me!</label>
+							</div>
+							<div class="row">
+								<input  class="submit"  type="submit" value="Submit" class="btn">
+							</div>
+						</form>
+					</div>
+					<div class="row">
+            <div class="cer">
+              <p>Don't have an account? <a  routerLink="Register">Register Here</a></p>
+            </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

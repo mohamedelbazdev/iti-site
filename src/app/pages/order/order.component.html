@@ -23,7 +23,7 @@
               <th class="cart-table__column cart-table__column--product">User</th>
               <th class="cart-table__column cart-table__column--product">Location</th>
               <!-- <th class="cart-table__column cart-table__column--quantity">Required hours</th> -->
-              <th class="cart-table__column cart-table__column--total">Action</th>
+              <th class="cart-table__column cart-table__column--total">status</th>
               <th class="cart-table__column cart-table__column--remove"></th>
             </tr>
         </thead>
@@ -32,19 +32,10 @@
             <td class="cart-table__column cart-table__column--image">
                 <img src="{{ order.image }}" alt="" style="width: 50px;"> </td>
                 <td class="cart-table__column cart-table__column--image">{{ order.name }}</td>
-                <td class="cart-table__column cart-table__column--image">{{ order.lat }}{{ order.lng }}</td>
-                <!-- <td class="cart-table__column cart-table__column--image">2</td> -->
+                <td class="cart-table__column cart-table__column--image"> {{ order.lat }}{{ order.lng }}</td>
+
               <td class="cart-table__column cart-table__column--image text-success">
-                  <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      choose
-                      </button>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Waiting</a>
-                      <a class="dropdown-item text-success" href="#">Accept</a>
-                      <a class="dropdown-item text-danger" href="#">Refuse</a>
-                      </div>
-                  </div>
+                {{ order.status }}
               </td>
               <td class="cart-table__column cart-table__column--image"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
           </tr>

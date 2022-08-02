@@ -17,6 +17,7 @@ import { CategoryComponent } from './pages/home/category/category.component';
 import { ProviderComponent } from './pages/home/provider/provider.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { OrderComponent } from './pages/order/order.component';
+import { ProviderDetailsComponent } from './pages/provider-details/provider-details.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { OrderComponent } from './pages/order/order.component';
     ProviderComponent,
     PageNotFoundComponent,
     OrderComponent,
+    ProviderDetailsComponent,
   ],
   imports: [
     BrowserModule,

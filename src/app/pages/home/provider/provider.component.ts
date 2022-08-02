@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-provider',
@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./provider.component.css']
 })
 export class ProviderComponent implements OnInit {
-  featuredproviders!: any[];
+  @Input() providers: any[] = [];
+
   constructor() { }
 
-
   ngOnInit(): void {
-    this.featuredproviders = [{
+    this.providers = [{
       "id": 2,
       "name": "provider",
       "image":  "assets/img/product-1.jpg",
@@ -25,9 +25,6 @@ export class ProviderComponent implements OnInit {
       "created_at": null,
       "updated_at": null,
       "providers": []
-  }]
-
-
+    }]
   }
-
 }

@@ -7,9 +7,18 @@ import { HomeService } from 'src/app/services/home.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor() { }
+  categories!: any[];
+  providers!: any[];
+
+  constructor(private home: HomeService) { }
 
   ngOnInit(): void {
+    this.home.getCategories().subscribe(res => {
+      this.categories = res.data
+    })
+    this.home.getProviders().subscribe(res => {
+      this.providers = res.data
+    })
   }
 
 }

@@ -6,7 +6,6 @@ import {HttpClient} from "@angular/common/http";
 })
 export class ChatService {
 
-
   public createRoomUrl = "http://127.0.0.1:8000/api/chats/create_room";
   public chatRoomsUrl = "http://127.0.0.1:8000/api/chats/my_rooms";
   public chatUserRoomsUrl = "http://127.0.0.1:8000/api/chats/user/rooms/{userId}";

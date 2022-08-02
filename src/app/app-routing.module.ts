@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
 import { OrderComponent } from './pages/order/order.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { RegisterComponent } from './pages/register/register.component';
 import { ProvidersComponent } from './pages/providers/providers.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { FavoriteComponent } from './pages/favorite/favorite.component';
@@ -20,9 +23,14 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'order', component: OrderComponent },
+  { path: 'order', component: OrderComponent }, // canActivate:[AuthGuard]
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+
+
+
   { path: 'providers', component: ProvidersComponent },
-  { path: 'catgories', component: CategoriesComponent },
+  { path: 'categories', component: CategoriesComponent },
   { path: 'Favorites', component: FavoriteComponent },
   { path: 'provider-details', component: ProviderDetailsComponent },
   { path: 'provider-order', component: ProviderOrderComponent },
@@ -31,7 +39,7 @@ const routes: Routes = [
   { path: 'provider-profile', component: ProviderProfileComponent },
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'chat', component: ChatComponent },
-  { path: '**', component: PageNotFoundComponent, },
+  { path: '**', component: PageNotFoundComponent },
 
 ];
 

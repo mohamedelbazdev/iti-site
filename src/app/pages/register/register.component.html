@@ -1,0 +1,59 @@
+
+<div class=" container">
+	<!-- Main Content -->
+	<div class="container-fluid">
+		<div class="row main-content bg-success text-center">
+			<div class="col-md-4 text-center company__info">
+				<span class="company__logo"><img src="assets/img/1.png" alt=""></span>
+			</div>
+			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+				<div class="container-fluid">
+					<div class="row">
+						<h2>Register</h2>
+					</div>
+					<div class="row">
+
+						<form [formGroup]="registerForm" (ngSubmit)="register()" novalidate class="form-group">
+
+							<div class="row">
+                <label>Name</label>
+								<input type="text" name="username" id="username" class="form__input" formControlName="name" placeholder="Enter Name">
+							</div>
+
+              <div class="row">
+                <label>Email address</label>
+                <input type="email" class="form__input"  formControlName="email" id="email" placeholder="Enter email">
+            </div>
+
+							<div class="row">
+                <label>Password</label>
+								<input type="password" name="password" id="password" class="form__input" formControlName="password" placeholder="Password">
+							</div>
+
+              <div class="row">
+                <label>Repeat Password</label>
+                <input type="password" name="confirmedPassword" id="confirmedPassword" class="form__input" formControlName="confirmedPassword" placeholder="Password">
+            </div>
+
+							<div class="row">
+								<input type="checkbox" name="remember_me" id="remember_me">
+								<label for="remember_me" class="mar">Remember Me!</label>
+							</div>
+
+							<div class="row">
+								<input type="submit" value="Submit" class="btn">
+							</div>
+
+						</form>
+					</div>
+					<div class="row">
+            <div class="cer">
+              <p>Do you have an account? <a routerLink="/register">Login</a></p>
+            </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer -->
+</div>

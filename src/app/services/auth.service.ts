@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {HttpClient} from "@angular/common/http";
+import {parseJson} from "@angular/cli/src/utilities/json-file";
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +25,17 @@ export class AuthService {
         return localStorage.setItem('token', token)
     }
 
+    setUser(user:object) {
+        return localStorage.setItem('user', JSON.stringify(user))
+    }
+
+    getUser() {
+      return JSON.parse(localStorage.getItem('user') ?? '')
+    }
+
     logoutUser() {
       localStorage.removeItem('token')
+      localStorage.removeItem('user')
       this.router.navigateByUrl('/login')
     }
 

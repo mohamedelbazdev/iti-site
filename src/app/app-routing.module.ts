@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'providers', component: ProvidersComponent },
   { path: 'categories', component: CategoriesComponent },
   { path: 'Favorites', component: FavoriteComponent },
-  { path: 'provider-details', component: ProviderDetailsComponent },
+  { path: 'provider-details/:id', component: ProviderDetailsComponent },
   { path: 'provider-order', component: ProviderOrderComponent },
   { path: 'edit-user-profile', component: EditUserProfileComponent },
   { path: 'edit-provider-profile', component: EditProviderProfileComponent },

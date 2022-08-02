@@ -39,6 +39,7 @@ export class LoginComponent{
           this.auth.loginUser(this._v()).subscribe(res => {
               console.log(res)
               this.auth.setToken(res.token)
+              this.auth.setUser(res.data)
               // this.router.navigate('/');
               this.router.navigateByUrl('/')
           })

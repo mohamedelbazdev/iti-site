@@ -23,7 +23,12 @@ import { HeaderInterceptor } from "./header.interceptor";
 
 import { ProviderDetailsComponent } from './pages/provider-details/provider-details.component';
 import { ChatComponent } from './pages/chat/chat.component';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProviderOrderComponent } from './pages/provider-order/provider-order.component';
+import { EditUserProfileComponent } from './pages/edit-user-profile/edit-user-profile.component';
+import { EditProviderProfileComponent } from './pages/edit-provider-profile/edit-provider-profile.component';
+import { ProviderProfileComponent } from './pages/provider-profile/provider-profile.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -44,18 +49,25 @@ import { ChatComponent } from './pages/chat/chat.component';
     OrderComponent,
     ProviderDetailsComponent,
     ChatComponent,
+    ProviderOrderComponent,
+    EditUserProfileComponent,
+    EditProviderProfileComponent,
+    ProviderProfileComponent,
+    UserProfileComponent,
+
   ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
+    NgbModule,
+
 
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },  // register interceptor for project
 
-    // NgbModule,
   ],
   bootstrap: [AppComponent]
 })

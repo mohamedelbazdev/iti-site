@@ -1,5 +1,4 @@
 
-
 	<!-- Main Content -->
 	<div class="container-fluid">
 		<div class="row main-content bg-success text-center">
@@ -12,7 +11,9 @@
 						<h2>Log In</h2>
 					</div>
 					<div class="row">
-						<form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate control="" class="form-group">
+            <form  control="" class="form-group">
+
+						<!-- <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate control="" class="form-group"> -->
 							<div class="row">
                 <label> Email address </label>
 								<input type="email" name="email" id="email" formControlName="email"  class="form__input" placeholder="Enter email">
@@ -32,7 +33,7 @@
 					</div>
 					<div class="row">
             <div class="cer">
-              <p>Don't have an account? <a  routerLink="Register">Register Here</a></p>
+              <p>Don't have an account? <a  routerLink="/Register">Register Here</a></p>
             </div>
 					</div>
 				</div>

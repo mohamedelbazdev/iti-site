@@ -20,6 +20,11 @@ import { OrderComponent } from './pages/order/order.component';
 import { ProviderDetailsComponent } from './pages/provider-details/provider-details.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProviderOrderComponent } from './pages/provider-order/provider-order.component';
+import { EditUserProfileComponent } from './pages/edit-user-profile/edit-user-profile.component';
+import { EditProviderProfileComponent } from './pages/edit-provider-profile/edit-provider-profile.component';
+import { ProviderProfileComponent } from './pages/provider-profile/provider-profile.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +45,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     OrderComponent,
     ProviderDetailsComponent,
     ChatComponent,
+    ProviderOrderComponent,
+    EditUserProfileComponent,
+    EditProviderProfileComponent,
+    ProviderProfileComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

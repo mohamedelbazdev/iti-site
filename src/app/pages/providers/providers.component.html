@@ -1,3 +1,63 @@
 <app-header></app-header>
 
+
+<!-- Products Start -->
+<!-- <div
+    class="conversation"
+    *ngFor="let prov of featuredproviders"
+>
+    <div class="content">
+        <div class="conversationHeader">
+            <div class="name">{{ prov.name|json  }}</div>
+        </div>
+    </div>
+</div> -->
+<!-- Products Start -->
+<div class="container-fluid pt-5 pb-3">
+  <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Providers</span></h2>
+  <div class="row px-xl-5">
+      <div class="col-lg-3 col-md-4 col-sm-6 pb-1"  *ngFor="let prov of featuredproviders">
+          <div class="product-item bg-light mb-4">
+              <div class="product-img position-relative overflow-hidden">
+                  <img
+                  class="img-fluid w-100"
+                  src="{{prov.image}}"
+                  alt=""
+                  style="object-fit: cover;"
+                />
+
+                  <div class="product-action">
+                      <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                      <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                      <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                      <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
+                  </div>
+              </div>
+              <div class="text-center py-4">
+                  <a class="h6 text-decoration-none text-truncate" href="">{{prov.name}}</a>
+                  <!-- <div class="d-flex align-items-center justify-content-center mt-2">
+
+                  </div> -->
+                  <div class="d-flex align-items-center justify-content-center mb-1">
+                      <small class="fa fa-star text-primary mr-1"></small>
+                      <small class="fa fa-star text-primary mr-1"></small>
+                      <small class="fa fa-star text-primary mr-1"></small>
+                      <small class="far fa-star text-primary mr-1"></small>
+                      <small class="far fa-star text-primary mr-1"></small>
+
+                      <a class="h6 text-decoration-none text-truncate" href="">{{prov.mobile}}</a>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Products End -->
+
+
+
+
 <app-footer></app-footer>
+
+

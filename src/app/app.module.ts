@@ -21,6 +21,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HeaderInterceptor } from "./header.interceptor";
 
+import { ProviderDetailsComponent } from './pages/provider-details/provider-details.component';
+import { ChatComponent } from './pages/chat/chat.component';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,8 @@ import { HeaderInterceptor } from "./header.interceptor";
     ProviderComponent,
     PageNotFoundComponent,
     OrderComponent,
+    ProviderDetailsComponent,
+    ChatComponent,
   ],
   imports: [
     FormsModule,
@@ -50,6 +55,7 @@ import { HeaderInterceptor } from "./header.interceptor";
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },  // register interceptor for project
 
+    // NgbModule,
   ],
   bootstrap: [AppComponent]
 })

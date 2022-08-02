@@ -38,7 +38,8 @@ export class FavoriteComponent implements OnInit {
   // addedToCartProducts: Product[] = [];
   // removedProducts: Product[] = [];
 
-  // addToBook(product: Product): void {
+  addToBook() {
+console.log("hello fevoret");
 
     // if (this.addedToCartProducts.includes(product)) {
     //     return;
@@ -50,10 +51,11 @@ export class FavoriteComponent implements OnInit {
     //         this.addedToCartProducts = this.addedToCartProducts.filter(eachProduct => eachProduct !== product);
     //     }
     // });
-// }
+}
 
 
-removed(id: any){
+removed(){
+  console.log("hello fevoret");
   // this.fav.removefav(id).subscribe( res=>{
   //     let index = this.featuredfavorites.findIndex(cat => cat.id === id)
   //     this.featuredfavorites.splice(index,1)

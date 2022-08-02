@@ -22,7 +22,7 @@
               <th class="wishlist__column wishlist__column--remove"></th>
           </tr>
       </thead>
-      <tbody class="align-middle">
+      <tbody class="align-middle bg-dark">
           <tr
               *ngFor="let fav of  featuredfavorites"
               class="wishlist__row"
@@ -42,54 +42,53 @@
 
 
 
-              <td class="wishlist__column wishlist__column--product">
+              <td class="wishlist__column wishlist__column--product pt-5">
                   <a
                       class="wishlist__product-name"
                       >{{ fav.providers.name }}</a
                   >
                   <div class="wishlist__product-rating">
 
-                      <div class="wishlist__product-rating-legend">
+                      <div class="wishlist__product-rating-legend pt-5">
                           {{ fav.providers.reviews }}
                       </div>
                   </div>
               </td>
-              <td class="wishlist__column wishlist__column--product">
+              <td class="wishlist__column wishlist__column--product pt-5">
                   <a
-                      class="wishlist__product-name"
+                      class="wishlist__product-name "
                       >{{ fav.providers.mobile }}</a
                   >
 
+
+              </td>
+              <td class="wishlist__column wishlist__column--stock pt-5" >
+                  <ng-container class="wishlist__column wishlist__column--stock pt-5" *ngIf=" fav.providers.status === 1; then first else second"></ng-container>
+                  <ng-template #first>active</ng-template>
+                  <ng-template #second>inactive</ng-template>
+
               </td>
 
-              <td class="wishlist__column wishlist__column--stock">
-                  <div class="badge badge-success"> {{ fav.providers.status }}</div>
-              </td>
 
-              <td class="wishlist__column wishlist__column--tocart">
-                  <!-- <button
+              <td class="wishlist__column wishlist__column--tocart pt-5">
+                  <button
                       type="button"
                       class="btn btn-primary btn-sm"
-                      (click)="addToBook(fav.providers)"
-                      [ngClass]="{
-                          'btn-loading':
-                              addedToCartProducts.includes(fav.providers)
-                      }"
+                      (click)="addToBook()"
+
                   >
                       Book
-                  </button> -->
+                  </button>
               </td>
-              <td class="wishlist__column wishlist__column--remove">
-                   <!-- <button
+              <td class="wishlist__column wishlist__column--remove pt-5">
+                   <button
                       type="button"
                       class="btn btn-light btn-sm btn-svg-icon"
-                      (click)="removed(fav.providers.id)"
-                      [ngClass]="{
-                          'btn-loading': removedProducts.includes(fav.providers)
-                      }"
+                      (click)="removed()"
                   >
-                      <app-icon name="cross-12" size="12"></app-icon>
-                  </button> -->
+                  Esc
+                  <i class="bi bi-prescription2"></i>
+                  </button>
               </td>
           </tr>
       </tbody>

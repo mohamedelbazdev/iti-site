@@ -1,23 +1,26 @@
 <app-header></app-header>
 <!-- Cart Start -->
 <div class="container-fluid">
-    <div class="row px-xl-5">
-        <div class="col-lg-8 table-responsive mb-5">
-            <table class="table table-light table-borderless table-hover text-center mb-0">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>providers</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                        <th>Remove</th>
-                    </tr>
+  <div class="row px-xl-5">
+    <div class="col-lg-8 table-responsive mb-5">
+      <table class="col cart__table cart-table">
+          <thead class="cart-table__head">
+            <tr class="cart-table__row">
+              <th class="cart-table__column cart-table__column--image">Image</th>
+              <th class="cart-table__column cart-table__column--product">brovider</th>
+              <th class="cart-table__column cart-table__column--price"> Price in hour</th>
+              <th class="cart-table__column cart-table__column--quantity">working hours</th>
+              <th class="cart-table__column cart-table__column--total">Total</th>
+              <th class="cart-table__column cart-table__column--remove"></th>
+          </tr>
                 </thead>
-                <tbody class="align-middle">
+                <tbody class="cart-table__body" >
                     <tr>
-                        <td class="align-middle"><img src="assets/assets/img/product-1.jpg" alt="" style="width: 50px;"> Provider Name</td>
-                        <td class="align-middle">$150</td>
-                        <td class="align-middle">
+                      <td class="cart-table__column cart-table__column--image">
+                          <img src="assets/img/cat-1.jpg" alt="" style="width: 50px;"> </td>
+                          <td class="cart-table__column cart-table__column--image">Provider Name</td>
+                          <td class="cart-table__column cart-table__column--image">$150</td>
+                          <td class="cart-table__column cart-table__column--image">
                             <div class="input-group quantity mx-auto" style="width: 100px;">
                                 <div class="input-group-btn">
                                     <button class="btn btn-sm btn-primary btn-minus" >
@@ -32,95 +35,55 @@
                                 </div>
                             </div>
                         </td>
-                        <td class="align-middle">$150</td>
-                        <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
+                        <td class="cart-table__column cart-table__column--image">$150</td>
+                        <td class="cart-table__column cart-table__column--image"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
                     </tr>
-                    <tr>
-                        <td class="align-middle"><img src="assets/img/product-2.jpg" alt="" style="width: 50px;"> Provider Name</td>
-                        <td class="align-middle">$150</td>
-                        <td class="align-middle">
-                            <div class="input-group quantity mx-auto" style="width: 100px;">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-primary btn-minus" >
-                                    <i class="fa fa-minus"></i>
-                                    </button>
-                                </div>
-                                <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-primary btn-plus">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">$150</td>
-                        <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td class="align-middle"><img src="assets/img/product-3.jpg" alt="" style="width: 50px;"> Provider Name</td>
-                        <td class="align-middle">$150</td>
-                        <td class="align-middle">
-                            <div class="input-group quantity mx-auto" style="width: 100px;">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-primary btn-minus" >
-                                    <i class="fa fa-minus"></i>
-                                    </button>
-                                </div>
-                                <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-primary btn-plus">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">$150</td>
-                        <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td class="align-middle"><img src="assets/img/product-4.jpg" alt="" style="width: 50px;"> Provider Name</td>
-                        <td class="align-middle">$150</td>
-                        <td class="align-middle">
-                            <div class="input-group quantity mx-auto" style="width: 100px;">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-primary btn-minus" >
-                                    <i class="fa fa-minus"></i>
-                                    </button>
-                                </div>
-                                <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-primary btn-plus">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">$150</td>
-                        <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td class="align-middle"><img src="assets/img/product-5.jpg" alt="" style="width: 50px;"> Provider Name</td>
-                        <td class="align-middle">$150</td>
-                        <td class="align-middle">
-                            <div class="input-group quantity mx-auto" style="width: 100px;">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-primary btn-minus" >
-                                    <i class="fa fa-minus"></i>
-                                    </button>
-                                </div>
-                                <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-primary btn-plus">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">$150</td>
-                        <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                    </tr>
+
+
+
+
+                     <!-- <div class="cart block" >
+                      <div class="container">
+                          <table class="cart__table cart-table">
+
+                              <tbody class="cart-table__body">
+                              <tr *ngFor="let item of items" class="cart-table__row">
+                                  <td class="cart-table__column cart-table__column--image">
+                                      <div *ngIf="item.cartItem.product.images?.length" class="product-image">
+                                          <a [routerLink]="root.product(item.cartItem.product)" class="product-image__body">
+                                              <img class="product-image__img" [src]="item.cartItem.product.images[0]" alt="">
+                                          </a>
+                                      </div>
+                                  </td>
+                                  <td class="cart-table__column cart-table__column--product">
+                                      <a [routerLink]="root.product(item.cartItem.product)" class="cart-table__product-name">{{ item.cartItem.product.name }}</a>
+                                      <ul *ngIf="item.cartItem.options.length" class="cart-table__options">
+                                          <li *ngFor="let option of item.cartItem.options">{{ option.name }}: {{ option.value }}</li>
+                                      </ul>
+                                  </td>
+                                  <td class="cart-table__column cart-table__column--price" data-title="Price">{{ item.cartItem.product.price| currency:'EGP' }}</td>
+                                  <td class="cart-table__column cart-table__column--quantity" data-title="Quantity">
+                                      <app-input-number [formControl]="item.quantityControl" [min]="1"></app-input-number>
+                                  </td>
+                                  <td class="cart-table__column cart-table__column--total" data-title="Total">{{ item.cartItem.product.price * item.quantity| currency:'EGP' }}</td>
+                                  <td class="cart-table__column cart-table__column--remove">
+                                      <button type="button" class="btn btn-light btn-sm btn-svg-icon" (click)="remove(item.cartItem)" [ngClass]="{'btn-loading': removedItems.includes(item.cartItem)}">
+                                          <app-icon name="cross-12" size="12"></app-icon>
+                                      </button>
+                                  </td>
+                              </tr>
+                              </tbody>
+                          </table>
+                        </div>
+                        </div> -->
+
+
+
+
+
                 </tbody>
             </table>
+
         </div>
         <div class="col-lg-4">
             <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Order Summary</span></h5>
@@ -145,7 +108,9 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
+
+
 <!-- Cart End -->
 
 <app-footer></app-footer>

@@ -6,13 +6,15 @@ import { OrderComponent } from './pages/order/order.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ProvidersComponent } from './pages/providers/providers.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
+import { FavoriteComponent } from './pages/favorite/favorite.component';
 const routes: Routes = [
 
   { path: '', component: HomeComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'order', component: OrderComponent },
-  { path: 'provider', component: ProvidersComponent },
+  { path: 'providers', component: ProvidersComponent },
   { path: 'catgories', component: CategoriesComponent },
+  { path: 'Favorites', component: FavoriteComponent },
   { path: '**', component: PageNotFoundComponent, },
 
 ];

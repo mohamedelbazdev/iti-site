@@ -17,6 +17,7 @@ import { EditUserProfileComponent } from './pages/edit-user-profile/edit-user-pr
 import { EditProviderProfileComponent } from './pages/edit-provider-profile/edit-provider-profile.component';
 import { ProviderProfileComponent } from './pages/provider-profile/provider-profile.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import {GuestGuard} from "./guards/guest.guard";
 
 
 
@@ -24,8 +25,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'order', component: OrderComponent }, // canActivate:[AuthGuard]
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent, canActivate:[GuestGuard] },
+  { path: 'register', component: RegisterComponent, canActivate:[GuestGuard] },
 
 
 

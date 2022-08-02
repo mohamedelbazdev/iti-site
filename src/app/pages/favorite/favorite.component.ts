@@ -31,7 +31,33 @@ export class FavoriteComponent implements OnInit {
           "updated_at": null
       }
   }]
+  }
 
 
+
+  // addedToCartProducts: Product[] = [];
+  // removedProducts: Product[] = [];
+
+  // addToBook(product: Product): void {
+
+    // if (this.addedToCartProducts.includes(product)) {
+    //     return;
+    // }
+
+    // this.addedToCartProducts.push(product);
+    // this.cart.add(product, 1).subscribe({
+    //     complete: () => {
+    //         this.addedToCartProducts = this.addedToCartProducts.filter(eachProduct => eachProduct !== product);
+    //     }
+    // });
+// }
+
+
+removed(id: any){
+  // this.fav.removefav(id).subscribe( res=>{
+  //     let index = this.featuredfavorites.findIndex(cat => cat.id === id)
+  //     this.featuredfavorites.splice(index,1)
+  // })
 }
+
 }

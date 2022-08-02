@@ -10,18 +10,18 @@
               <th class="cart-table__column cart-table__column--image">Image</th>
               <th class="cart-table__column cart-table__column--product">User</th>
               <th class="cart-table__column cart-table__column--product">Location</th>
-              <th class="cart-table__column cart-table__column--quantity">Required hours</th>
+              <!-- <th class="cart-table__column cart-table__column--quantity">Required hours</th> -->
               <th class="cart-table__column cart-table__column--total">Action</th>
               <!-- <th class="cart-table__column cart-table__column--remove"></th> -->
           </tr>
                 </thead>
-                <tbody class="cart-table__body border" >
+                <tbody class="cart-table__body border" *ngFor="let order of featuredorders">
                     <tr>
                       <td class="cart-table__column cart-table__column--image">
-                          <img src="assets/img/cat-1.jpg" alt="" style="width: 50px;"> </td>
-                          <td class="cart-table__column cart-table__column--image">User Name</td>
-                          <td class="cart-table__column cart-table__column--image">location</td>
-                          <td class="cart-table__column cart-table__column--image">2</td>
+                        <img src="{{ order.image }}" alt="" style="width: 50px;"> </td>
+                        <td class="cart-table__column cart-table__column--image">{{ order.name }}</td>
+                        <td class="cart-table__column cart-table__column--image">{{ order.lat }}{{ order.lng }}</td>
+                         <!-- <td class="cart-table__column cart-table__column--image">2</td> -->
                         <td class="cart-table__column cart-table__column--image text-success">
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

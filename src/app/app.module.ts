@@ -51,10 +51,10 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
     ProviderProfileComponent,
     UserProfileComponent,
   ],
-  imports: [
+  imports:[
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

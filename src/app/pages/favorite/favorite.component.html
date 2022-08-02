@@ -22,7 +22,7 @@
               <th class="wishlist__column wishlist__column--remove"></th>
           </tr>
       </thead>
-      <tbody class="align-middle">
+      <tbody class="align-middle bg-dark">
           <tr
               *ngFor="let fav of  featuredfavorites"
               class="wishlist__row"
@@ -42,31 +42,31 @@
 
 
 
-              <td class="wishlist__column wishlist__column--product">
+              <td class="wishlist__column wishlist__column--product pt-5">
                   <a
                       class="wishlist__product-name"
                       >{{ fav.providers.name }}</a
                   >
                   <div class="wishlist__product-rating">
 
-                      <div class="wishlist__product-rating-legend">
+                      <div class="wishlist__product-rating-legend pt-5">
                           {{ fav.providers.reviews }}
                       </div>
                   </div>
               </td>
-              <td class="wishlist__column wishlist__column--product">
+              <td class="wishlist__column wishlist__column--product pt-5">
                   <a
-                      class="wishlist__product-name"
+                      class="wishlist__product-name "
                       >{{ fav.providers.mobile }}</a
                   >
-                 
+
               </td>
 
-              <td class="wishlist__column wishlist__column--stock">
+              <td class="wishlist__column wishlist__column--stock pt-5">
                   <div class="badge badge-success"> {{ fav.providers.status }}</div>
               </td>
 
-              <td class="wishlist__column wishlist__column--tocart">
+              <td class="wishlist__column wishlist__column--tocart pt-5">
                   <!-- <button
                       type="button"
                       class="btn btn-primary btn-sm"
@@ -79,7 +79,7 @@
                       Book
                   </button> -->
               </td>
-              <td class="wishlist__column wishlist__column--remove">
+              <td class="wishlist__column wishlist__column--remove pt-5">
                    <!-- <button
                       type="button"
                       class="btn btn-light btn-sm btn-svg-icon"

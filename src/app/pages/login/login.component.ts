@@ -13,7 +13,6 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent{
   loginForm: FormGroup;
 
-
   constructor
   (
       private router: Router,

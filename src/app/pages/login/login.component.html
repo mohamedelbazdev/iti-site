@@ -11,9 +11,7 @@
 						<h2>Log In</h2>
 					</div>
 					<div class="row">
-            <form  control="" class="form-group">
-
-						<!-- <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate control="" class="form-group"> -->
+						 <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate  class="form-group">
 							<div class="row">
                 <label> Email address </label>
 								<input type="email" name="email" id="email" formControlName="email"  class="form__input" placeholder="Enter email">
@@ -27,7 +25,7 @@
 								<label class="mar" for="remember_me">Remember Me!</label>
 							</div>
 							<div class="row">
-								<input  class="submit"  type="submit" value="Submit" class="btn">
+								<input  class="btn submit"  type="submit" value="Submit">
 							</div>
 						</form>
 					</div>

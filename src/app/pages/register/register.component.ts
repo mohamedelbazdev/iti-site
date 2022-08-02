@@ -9,7 +9,6 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./register.component.css']
 })
 
-
 export class RegisterComponent  {
 
     registerForm: FormGroup;
@@ -20,8 +19,6 @@ export class RegisterComponent  {
         private auth: AuthService
     )
     {
-
-
         this.registerForm = new FormGroup({
             name: new FormControl('', [Validators.required]),
             email: new FormControl('', [Validators.required, Validators.email]),
@@ -33,7 +30,6 @@ export class RegisterComponent  {
     }
 
     onSubmit() {}
-
 
     register(){
         if(this.registerForm.valid) {

@@ -34,8 +34,11 @@
                 <td class="cart-table__column cart-table__column--image">{{ order.name }}</td>
                 <td class="cart-table__column cart-table__column--image"> {{ order.lat }}{{ order.lng }}</td>
 
-              <td class="cart-table__column cart-table__column--image text-success">
-                {{ order.status }}
+                <td class="cart-table__column cart-table__column--image" >
+                  <ng-container class="wishlist__column wishlist__column--stock " *ngIf=" order.status === 1; then first else second"></ng-container>
+                  <ng-template #first>active</ng-template>
+                  <ng-template #second>inactive</ng-template>
+
               </td>
               <td class="cart-table__column cart-table__column--image"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
           </tr>

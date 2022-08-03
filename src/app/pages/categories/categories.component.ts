@@ -1,24 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input } from '@angular/core';
+import { CategoryService } from "../../services/category.service";
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
-  featuredcategories!: any[];
-  constructor() { }
+  @Input() categories: any[] = [];
+  constructor(private categorie: CategoryService) { }
 
   ngOnInit(): void {
-    this.featuredcategories = [{
 
-        "id": 1,
-        "name": "Carpenter",
-        "created_at": "2022-08-01T09:38:03.000000Z",
-        "updated_at": "2022-08-01T09:38:03.000000Z",
-        "image": "assets/img/cat-1.jpg"
-
-  }]
+    this.categorie.getCategories().subscribe(res => {
+      this.categories = res.data
+    })
   }
 
 }

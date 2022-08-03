@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FavoriteService } from '../../services/favorite.service'
 @Component({
   selector: 'app-favorite',
   templateUrl: './favorite.component.html',
@@ -7,36 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoriteComponent implements OnInit {
   featuredfavorites!: any[];
-  constructor() { }
+  constructor(private favorite : FavoriteService) { }
 
   ngOnInit(): void {
-    this.featuredfavorites = [{
-      "id": 1,
-      "provider_id": 1,
-      "user_id": 2,
-      "created_at": null,
-      "updated_at": null,
-      "providers": {
-          "id": 2,
-          "name": "provider",
-          "image": "assets/img/cat-1.jpg",
-          "email": "provider@provider.com",
-          "mobile": "01553524888",
-          "email_verified_at": null,
-          "lat": null,
-          "lng": null,
-          "status": 1,
-          "role_id": 2,
-          "created_at": null,
-          "updated_at": null
-      }
-  }]
-  }
+    this.favorite.getfavorites().subscribe(res => {
+        this.featuredfavorites = res.data
+       
+    })
+}
 
 
 
-  // addedToCartProducts: Product[] = [];
-  // removedProducts: Product[] = [];
+
 
   addToBook() {
 console.log("hello fevoret");

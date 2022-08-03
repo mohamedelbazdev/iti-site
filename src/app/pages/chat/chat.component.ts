@@ -25,7 +25,10 @@ export class ChatComponent implements OnInit {
     { "content": "lorem ipsem", "time": "06:58 pm", "date": "today" },
   ]
 
-
+  // chatRooms = [];
+  // chatUserRooms = [];
+  // SpecificRooms = [];
+  // chatMakeRead: any;
   constructor() { }
 
 

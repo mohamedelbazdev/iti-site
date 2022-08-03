@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-
+import { ProviderService } from "../../../services/provider.service";
 @Component({
   selector: 'app-provider',
   templateUrl: './provider.component.html',
@@ -8,23 +8,12 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ProviderComponent implements OnInit {
   @Input() providers: any[] = [];
 
-  constructor() { }
+  constructor(private provider: ProviderService) { }
 
   ngOnInit(): void {
-    this.providers = [{
-      "id": 2,
-      "name": "provider",
-      "image":  "assets/img/product-1.jpg",
-      "email": "provider@provider.com",
-      "mobile": "01553524888",
-      "email_verified_at": null,
-      "lat": null,
-      "lng": null,
-      "status": 1,
-      "role_id": 2,
-      "created_at": null,
-      "updated_at": null,
-      "providers": []
-    }]
+
+    this.provider.getProviders().subscribe(res => {
+      this.providers = res.data
+    })
   }
 }

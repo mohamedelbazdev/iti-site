@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ProviderService } from "../../services/provider.service";
+import { FavoriteService } from "../../services/favorite.service";
 @Component({
   selector: 'app-providers',
   templateUrl: './providers.component.html',
@@ -7,24 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProvidersComponent implements OnInit {
   featuredproviders!: any[];
-  constructor() { }
+
+
+
+  constructor(
+              private provider: ProviderService,
+              private favorite: FavoriteService
+              ) { }
 
   ngOnInit(): void {
-    this.featuredproviders = [{
-      "id": 2,
-      "name": "provider",
-      "image":  "assets/img/product-1.jpg",
-      "email": "provider@provider.com",
-      "mobile": "01553524888",
-      "email_verified_at": null,
-      "lat": null,
-      "lng": null,
-      "status": 1,
-      "role_id": 2,
-      "created_at": null,
-      "updated_at": null,
-      "providers": []
-  }]
 
-}
+    this.provider.getProviders().subscribe(res => {
+      this.featuredproviders = res.data
+    })
+  }
+
+
+
 }

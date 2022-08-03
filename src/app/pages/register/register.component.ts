@@ -13,6 +13,46 @@ export class RegisterComponent  {
 
     registerForm: FormGroup;
 
+    // start google map
+    center: google.maps.LatLngLiteral = {
+      lat: 24,
+      lng: 12
+    };
+
+    zoom = 4;
+
+    markerOptions: google.maps.MarkerOptions = {
+      draggable: true
+    };
+
+    markerPosition: google.maps.LatLngLiteral = {
+      lat: 24,
+      lng: 12
+    };
+
+    moveMap(event: google.maps.MapMouseEvent) {
+      if (event.latLng != null) this.center = (event.latLng.toJSON());
+    }
+
+    // move(event: google.maps.MapMouseEvent) {
+    //   if (event.latLng != null) this.display = event.latLng.toJSON();
+    // }
+    move(event: google.maps.MapMouseEvent) {
+      if (event.latLng != null) {
+        this.registerForm.patchValue({
+          lat: event.latLng.lat(),
+          lng: event.latLng.lng(),
+        });
+      }
+    }
+    // end google map
+
+
+    // markerPositions: google.maps.LatLngLiteral[] = [];
+    // addMarker(event: google.maps.MapMouseEvent) {
+    //   if (event.latLng != null) this.markerPositions.push(event.latLng.toJSON());
+    // }
+
     constructor
     (
         private router: Router,
@@ -29,10 +69,19 @@ export class RegisterComponent  {
         });
     }
 
+
+
     onSubmit() {}
 
     register(){
         if(this.registerForm.valid) {
+          // let register = {
+          //   name: this.registerForm.controls['name'].value,
+          //   email: this.registerForm.controls['email'].value,
+          //   password: this.registerForm.controls['password'].value,
+          //   name: this.registerForm.controls['name'].value,
+          //   name: this.registerForm.controls['name'].value,
+          // }
             this.auth.registerUser(this.registerForm.value).subscribe(res => {
                 console.log(res)
                 this.router.navigateByUrl('/')
@@ -45,6 +94,7 @@ export class RegisterComponent  {
   //   _v() {
   //     return this.loginForm.value;
   // }
+
 
 
 }

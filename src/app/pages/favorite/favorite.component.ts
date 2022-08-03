@@ -12,7 +12,7 @@ export class FavoriteComponent implements OnInit {
   ngOnInit(): void {
     this.favorite.getfavorites().subscribe(res => {
         this.featuredfavorites = res.data
-        console.log(res.data)
+       
     })
 }
 

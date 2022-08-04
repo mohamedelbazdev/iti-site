@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'order', component: OrderComponent }, // canActivate:[AuthGuard]
   { path: 'login', component: LoginComponent, canActivate: [GuestGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [GuestGuard] },
-  { path: 'contact', component: ContactUsComponent }
+  { path: 'contact', component: ContactUsComponent },
 
 
 

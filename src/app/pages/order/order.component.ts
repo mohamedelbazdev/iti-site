@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { OrderService } from '../../services/order.service'
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -7,28 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderComponent implements OnInit {
   featuredorders!: any[];
-  constructor() { }
+  constructor(private order :OrderService ) { }
 
   ngOnInit(): void {
-    this.featuredorders = [{
-      "id": 2,
-      "name": "provider",
-      "image":  "assets/img/product-1.jpg",
-      "email": "provider@provider.com",
-      "mobile": "01553524888",
-      "email_verified_at": null,
-      "lat": null,
-      "lng": null,
-      "status": 1,
-      "role_id": 2,
-      "created_at": null,
-      "updated_at": null,
-      "providers": []
-  }]
+    this.order.geTorders().subscribe(res => {
+        this.featuredorders = res.data
+
+    })
+
 }
 
 
 
+removed(){
+  console.log("hello fevoret");
+  // this.fav.removefav(id).subscribe( res=>{
+  //     let index = this.featuredfavorites.findIndex(cat => cat.id === id)
+  //     this.featuredfavorites.splice(index,1)
+  // })
+}
 
 
 }

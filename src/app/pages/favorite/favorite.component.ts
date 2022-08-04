@@ -6,13 +6,13 @@ import { FavoriteService } from '../../services/favorite.service'
   styleUrls: ['./favorite.component.css']
 })
 export class FavoriteComponent implements OnInit {
-  featuredfavorites!: any[];
+  favorites!: any[];
   constructor(private favorite : FavoriteService) { }
 
   ngOnInit(): void {
     this.favorite.getfavorites().subscribe(res => {
-        this.featuredfavorites = res.data
-       
+        this.favorites = res.data
+
     })
 }
 

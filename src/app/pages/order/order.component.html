@@ -40,7 +40,12 @@
                   <ng-template #second>inactive</ng-template>
 
               </td>
-              <td class="cart-table__column cart-table__column--image"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
+              <td class="cart-table__column cart-table__column--image"> <button
+                type="button"
+                class="btn btn-light btn-sm btn-svg-icon"
+                (click)="removed()"
+            >
+          <i class="fa fa-times"></i></button></td>
           </tr>
 
 

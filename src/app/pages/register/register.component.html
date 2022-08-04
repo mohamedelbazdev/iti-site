@@ -35,18 +35,9 @@
                 <input type="password" name="confirmedPassword" id="confirmedPassword" class="form__input" formControlName="confirmedPassword" placeholder="Password">
             </div>
 
-            <div class="row">
-              <label for="phone">Enter your phone number:</label>
-              <input type="tel" id="phone" formControlName="phone"  class="form__input" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Phone">
-            </div>
+
 
             <div class="row">
-                <label>Enter Your Image</label>
-                <input type="file"  formControlName="Image" id="image" name="image" class="form__input"  placeholder="your Image">
-            </div>
-
-
-            <!-- <div class="row">
               <google-map
               height="400px"
               width="750px"
@@ -62,12 +53,25 @@
 
             </google-map>
 
-          </div> -->
+          </div>
+
+
+            <div class="row">
+              <label for="phone">Enter your phone number:</label>
+              <input type="tel" id="phone" formControlName="phone"  class="form__input" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Phone">
+            </div>
+
+            <div class="row">
+                <label>Enter Your Image</label>
+                <input type="file"  formControlName="Image" id="image" name="image" class="form__input"  placeholder="your Image">
+            </div>
 
 
 
 
-              <google-map
+
+
+              <!-- <google-map
                 height="400px"
                 width="750px"
                 [center]="center"
@@ -80,7 +84,7 @@
                 >
                 </map-marker>
 
-              </google-map>
+              </google-map> -->
 
 							<div class="row">
 								<input type="checkbox" name="remember_me" id="remember_me">

@@ -18,6 +18,7 @@ import { EditProviderProfileComponent } from './pages/edit-provider-profile/edit
 import { ProviderProfileComponent } from './pages/provider-profile/provider-profile.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { GuestGuard } from "./guards/guest.guard";
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 
 
 
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'order', component: OrderComponent }, // canActivate:[AuthGuard]
   { path: 'login', component: LoginComponent, canActivate: [GuestGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [GuestGuard] },
+  { path: 'contact', component: ContactUsComponent }
 
 
 

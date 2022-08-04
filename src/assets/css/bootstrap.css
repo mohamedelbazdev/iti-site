@@ -5,7 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
-  --blue: #007bff;
+  --blue: #008080;
   --indigo: #6610f2;
   --purple: #6f42c1;
   --pink: #e83e8c;
@@ -18,7 +18,7 @@
   --white: #fff;
   --gray: #050506;
   --gray-dark: #343a40;
-  --primary: #007bff;
+  --primary: #008080;
   --secondary: #050506;
   --success: #28a745;
   --info: #17a2b8;
@@ -151,7 +151,7 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #008080;
   text-decoration: none;
   background-color: transparent;
 }
@@ -2315,8 +2315,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #008080;
+  border-color: #008080;
 }
 
 .btn-primary:hover {
@@ -2334,8 +2334,8 @@ fieldset:disabled a.btn {
 
 .btn-primary.disabled, .btn-primary:disabled {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #008080;
+  border-color: #008080;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,

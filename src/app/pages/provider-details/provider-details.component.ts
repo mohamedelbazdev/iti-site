@@ -24,7 +24,7 @@ export class ProviderDetailsComponent implements OnInit {
   reviews = [
     {
       "id": 2,
-      "created_at": "2022-08-03T16:45:02.000000Z",
+      "created_at": "2022-08-02T09:45:02.000000Z",
       "updated_at": "2022-08-03T16:45:02.000000Z",
       "user_id": 3,
       "provider_id": 5,
@@ -47,7 +47,7 @@ export class ProviderDetailsComponent implements OnInit {
     },
     {
       "id": 3,
-      "created_at": "2022-08-04T11:48:49.000000Z",
+      "created_at": "2022-08-03T11:48:49.000000Z",
       "updated_at": "2022-08-04T11:48:49.000000Z",
       "user_id": 7,
       "provider_id": 5,

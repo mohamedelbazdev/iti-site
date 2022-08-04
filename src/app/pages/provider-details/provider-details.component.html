@@ -19,7 +19,7 @@
                 <div class="d-flex mb-3">
                     <ngb-rating class="fs-5 text-warning" [rate]="providerObject.providers?.rate" [readonly] = true [max]="5"></ngb-rating>
                     <small class="pt-1">(99 Reviews)</small>
-                    <!-- <small class="pt-1">{{providerObject|json}}</small> -->
+                    <small class="pt-1">{{providerObject|json}}</small>
                 </div>
                 <h5 class="font-weight-semi-bold mb-4">Price In Hour : <span class="text-success">${{ providerObject.providers?.price }}</span></h5>
                 <h3>Description</h3>

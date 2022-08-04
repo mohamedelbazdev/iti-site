@@ -3,7 +3,7 @@
 
 <div
     class="conversation"
-    *ngFor="let order of featuredorders"
+    *ngFor="let order of fetchOrders"
 >
     <div class="content">
         <div class="conversationHeader">
@@ -27,7 +27,7 @@
               <th class="cart-table__column cart-table__column--remove"></th>
             </tr>
         </thead>
-        <tbody class="cart-table__body border"  *ngFor="let order of featuredorders">
+        <tbody class="cart-table__body border"  *ngFor="let order of fetchOrders">
           <tr>
             <td class="cart-table__column cart-table__column--image">
                 <img src="{{ order.image }}" alt="" style="width: 50px;"> </td>

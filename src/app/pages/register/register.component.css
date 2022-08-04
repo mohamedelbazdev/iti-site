@@ -1,4 +1,4 @@
-.main-content{
+/* .main-content{
 	width: 85%;
 	border-radius: 20px;
 	box-shadow: 0 5px 5px rgba(0,0,0,.4);
@@ -56,7 +56,7 @@ form{
 	padding: 1em .5em .5em;
 	padding-left: 2em;
 	outline:none;
-	/* margin:1.5em auto; */
+	margin:1.5em auto;
   margin-bottom: 2em;
 	transition: all .5s ease;
 }
@@ -82,7 +82,7 @@ form{
 	color:#fff;
 }
 label{
-  /* padding: 2px; */
+  padding: 2px;
   color:#FFD333;
 }
 p {
@@ -97,4 +97,16 @@ a {
 .mar{
   margin-left: .5rem;
   margin-bottom: .1rem;
+} */
+
+/* .map-style {
+	width: 250px !important;
+	height: 200px !important;
 }
+
+@media only screen and (min-width: 600px) {
+	.map-style {
+		width: 100% !important;
+		height: 200px !important;
+	}
+  } */

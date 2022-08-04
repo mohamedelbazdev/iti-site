@@ -6,26 +6,26 @@ import { OrderService } from '../../services/order.service'
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-  featuredorders!: any[];
-  constructor(private order :OrderService ) { }
+  fetchOrders!: any[];
+  constructor(private order: OrderService) { }
 
   ngOnInit(): void {
-    this.order.geTorders().subscribe(res => {
-        this.featuredorders = res.data
+    this.order.getOrders().subscribe(res => {
+      this.fetchOrders = res.data
 
     })
 
-}
+  }
 
 
 
-removed(){
-  console.log("hello fevoret");
-  // this.fav.removefav(id).subscribe( res=>{
-  //     let index = this.featuredfavorites.findIndex(cat => cat.id === id)
-  //     this.featuredfavorites.splice(index,1)
-  // })
-}
+  removed() {
+    console.log("hello fevoret");
+    // this.fav.removefav(id).subscribe( res=>{
+    //     let index = this.featuredfavorites.findIndex(cat => cat.id === id)
+    //     this.featuredfavorites.splice(index,1)
+    // })
+  }
 
 
 }

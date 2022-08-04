@@ -9,6 +9,7 @@ export class ProviderService {
   public showProviderUrl = "http://127.0.0.1:8000/api/users/providers/details";
   public setRateUrl = "http://127.0.0.1:8000/api/users/rateprovider";
 
+
   constructor(private http: HttpClient) { }
 
   getProviders() {
@@ -19,7 +20,7 @@ export class ProviderService {
    *
    * @param id
    */
-  showProvider(id:number) {
+  showProvider(id: number) {
     return this.http.post<any>(this.showProviderUrl, { user_id: id })
   }
 
@@ -27,10 +28,8 @@ export class ProviderService {
    *
    * @param data
    */
-  setRate(data:object) {
+  setRate(data: object) {
     return this.http.post<any>(this.setRateUrl, data)
   }
-
-
 
 }

@@ -17,14 +17,9 @@
             <div class="h-100 bg-light p-30">
                 <h3>{{ providerObject['name'] }}</h3>
                 <div class="d-flex mb-3">
-                    <div class="text-primary mr-2">
-                        <small class="fas fa-star"></small>
-                        <small class="fas fa-star"></small>
-                        <small class="fas fa-star"></small>
-                        <small class="fas fa-star-half-alt"></small>
-                        <small class="far fa-star"></small>
-                    </div>
+                    <ngb-rating class="fs-5 text-warning" [rate]="providerObject.providers?.rate" [readonly] = true [max]="5"></ngb-rating>
                     <small class="pt-1">(99 Reviews)</small>
+                    <!-- <small class="pt-1">{{providerObject|json}}</small> -->
                 </div>
                 <h5 class="font-weight-semi-bold mb-4">Price In Hour : <span class="text-success">${{ providerObject.providers?.price }}</span></h5>
                 <h3>Description</h3>
@@ -34,17 +29,7 @@
                 <div class="d-flex align-items-center mb-4 pt-2">
                     <h5>The number of hours : </h5>
                     <div class="input-group quantity mr-3" style="width: 130px;">
-                        <div class="input-group-btn">
-                            <button class="btn btn-primary btn-minus">
-                                <i class="fa fa-minus"></i>
-                            </button>
-                        </div>
-                        <input type="text" class="form-control bg-secondary border-0 text-center" value="1">
-                        <div class="input-group-btn">
-                            <button class="btn btn-primary btn-plus">
-                                <i class="fa fa-plus"></i>
-                            </button>
-                        </div>
+                        <input type="text" class="form-control  border-0 text-center" value="1">
                     </div>
                     <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i>Book</button>
                 </div>
@@ -65,13 +50,14 @@
                                 <img src="assets/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                                 <div class="media-body">
                                     <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
-                                    <div class="text-primary mb-2">
+                                    <!-- <div class="text-primary mb-2">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star-half-alt"></i>
                                         <i class="far fa-star"></i>
-                                    </div>
+                                    </div> -->
+                                    <ngb-rating class="fs-2 text-warning" [rate]="3" [readonly] = true [max]="5"></ngb-rating>
                                     <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.</p>
                                 </div>
                             </div>
@@ -88,9 +74,9 @@
                                     <i class="far fa-star"></i>
                                     <i class="far fa-star"></i>
                                 </div> -->
-                                <ngb-rating [(rate)]="currentRate" [max]="5"></ngb-rating>
+                                <ngb-rating class="fs-2 text-warning" [(rate)]="currentRate" [max]="5"></ngb-rating>
                                 <hr>
-                                <pre>Rate: <b>{{currentRate}}</b></pre>
+                                <pre class="fs-4 mx-3 mt-2">Rate: <b>{{currentRate}}</b></pre>
                             </div>
                           <form  [formGroup]="rateForm" (ngSubmit)="setRate()" novalidate  class="form-group">
                                 <div class="form-group">

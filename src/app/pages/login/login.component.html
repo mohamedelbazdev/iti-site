@@ -1,6 +1,6 @@
 
 	<!-- Main Content -->
-	<div class="container-fluid">
+	<!-- <div class="container-fluid">
 		<div class="row main-content bg-success text-center">
       <div class="col-md-4 text-center company__info">
 				<span class="company__logo"><img src="assets/img/1.png" alt=""></span>
@@ -37,4 +37,44 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
+  <div class="container pt-5"  >
+
+    <div class="row m-auto mt-2 shadow p-sm-5">
+    <div class="col-12 col-sm-4 m-auto" ><img class="w-100 mt-5" src="assets/img/1.png" alt=""></div>
+    <div class="col-12 col-sm-8  rounded-pill" style="background-color:#008080;">
+      <div class="row">
+        <div class="col-1 col-sm-2"></div>
+        <div class="col-10 col-sm-8 py-5">
+
+            <h2 class="text-center my-2 " style="color: white;"> Log In </h2>
+            <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate  class="form-group ">
+
+              <label class="form-label mt-3">Email address : </label>
+              <input type="email" class=" form-control"  formControlName="email" id="email" placeholder="Enter email">
+
+
+              <label class="form-label mt-3">Password : </label>
+              <input type="password" name="password" id="password" class=" form-control" formControlName="password" placeholder="Password">
+
+
+              <label class="form-label mt-3" for="remember_me">Remember Me!</label>
+              <input type="checkbox" name="remember_me" id="remember_me">
+
+
+              <input  type="submit" value="Submit" class="btn  mt-5 float-end" style="background-color: #fff ;">
+
+            </form>
+
+
+              <p>Don't have an account? <a  routerLink="/register">Register Here</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-1 col-sm-2"></div>
+      </div>
+
+    </div>
+
+
+

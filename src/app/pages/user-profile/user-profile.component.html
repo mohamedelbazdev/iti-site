@@ -9,7 +9,7 @@
                       <div class="d-flex flex-column align-items-center text-center">
                         <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                         <div class="mt-3">
-                          <h4>John Doe</h4>
+                          <h4>{{myProfile.name}}</h4>
                         </div>
                       </div>
                     </div>
@@ -21,10 +21,10 @@
                     <div class="card-body">
                       <div class="row">
                         <div class="col-sm-3">
-                          <h6 class="mb-0">Full Name</h6>
+                          <h6 class="mb-0">Name</h6>
                         </div>
                         <div class="col-sm-9 ">
-                          Kenneth Valdez
+                          {{myProfile.name}}
                         </div>
                       </div>
                       <hr>
@@ -33,7 +33,7 @@
                           <h6 class="mb-0">Email</h6>
                         </div>
                         <div class="col-sm-9 ">
-                          fip@jukmuh.al
+                          {{myProfile.email}}
                         </div>
                       </div>
                       <hr>
@@ -42,7 +42,7 @@
                           <h6 class="mb-0">Phone</h6>
                         </div>
                         <div class="col-sm-9 ">
-                          (239) 816-9029
+                          {{myProfile.phone}}
                         </div>
                       </div>
                       <hr>
@@ -51,7 +51,7 @@
                           <h6 class="mb-0">Mobile</h6>
                         </div>
                         <div class="col-sm-9 ">
-                          (320) 380-4539
+                          {{myProfile.phone}}
                         </div>
                       </div>
                       <hr>
@@ -60,7 +60,19 @@
                           <h6 class="mb-0">Address</h6>
                         </div>
                         <div class="col-sm-9 ">
-                          Bay Area, San Francisco, CA
+                          <google-map
+                            height="400px"
+                            width="500px"
+                            [center]="center"
+                            [zoom]="zoom"
+                          >
+                            <map-marker
+                              [position]="markerPosition"
+                              [options]="markerOptions"
+                            >
+                            </map-marker>
+
+                          </google-map>
                         </div>
                       </div>
                       <hr>

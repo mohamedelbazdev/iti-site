@@ -6,12 +6,11 @@ import { Injectable } from '@angular/core';
 })
 export class RateService {
 
-  public getOneRateUrl = "http://127.0.0.1:8000/api/users/viewers/";
+  public getOneRateUrl = "http://127.0.0.1:8000/api/users/viewers";
 
   constructor(private http: HttpClient) { }
 
-
-  // getOneRate(id: any) {
-  //   return this.http.post<any>(this.getOneRateUrl + id, );
-  // }
+  getOneRate(id: number) {
+    return this.http.post<any>(this.getOneRateUrl, {provider_id: id});
+  }
 }

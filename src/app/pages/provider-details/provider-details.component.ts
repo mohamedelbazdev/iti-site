@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../../services/auth.service";
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { RateService } from 'src/app/services/rate.service';
+import {OrderService} from "../../services/order.service";
 
 @Component({
   selector: 'app-provider-details',
@@ -15,89 +16,29 @@ import { RateService } from 'src/app/services/rate.service';
 
 export class ProviderDetailsComponent implements OnInit {
   rateForm: FormGroup;
+  orderForm: FormGroup;
 
-  currentRate = 0;
+  currentRate = 1;
   providerObject: any = {}
   rateObject: any = {}
   id: any;
+  hours:number = 1
 
-  reviews = [
-    {
-      "id": 2,
-      "created_at": "2022-08-02T09:45:02.000000Z",
-      "updated_at": "2022-08-03T16:45:02.000000Z",
-      "user_id": 3,
-      "provider_id": 5,
-      "rate": 3,
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nemo beatae hic consequuntempore ullam laborum cum aut",
-      "user": {
-        "id": 3,
-        "name": "user",
-        "image": null,
-        "email": "user@user.com",
-        "mobile": "01089812536",
-        "email_verified_at": null,
-        "lat": null,
-        "lng": null,
-        "status": 1,
-        "role_id": 3,
-        "created_at": "2022-08-03T16:45:02.000000Z",
-        "updated_at": null
-      }
-    },
-    {
-      "id": 3,
-      "created_at": "2022-08-03T11:48:49.000000Z",
-      "updated_at": "2022-08-04T11:48:49.000000Z",
-      "user_id": 7,
-      "provider_id": 5,
-      "rate": 5,
-      "description": "Dolor sit amet consectetur adipisicing elit. Natus nemo beatae hic consequuntur repellat tempore ullam laborum cum aut pariatur!",
-      "user": {
-        "id": 7,
-        "name": "mohamed1",
-        "image": "http://127.0.0.1:8000/images/Usrimg/62ebb1be03b60.jpg",
-        "email": "mohamed1@mohamed.com",
-        "mobile": "01125784022",
-        "email_verified_at": null,
-        "lat": 30.038577230981588,
-        "lng": 31.023860582031237,
-        "status": 1,
-        "role_id": 3,
-        "created_at": "2022-08-04T16:45:02.000000Z",
-        "updated_at": null
-      }
-    },
-    {
-      "id": 4,
-      "created_at": "2022-08-04T11:49:30.000000Z",
-      "updated_at": "2022-08-04T11:49:30.000000Z",
-      "user_id": 8,
-      "provider_id": 5,
-      "rate": 4,
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nemo beatae hic consequuntur repellat tempore ullam laborum",
-      "user": {
-        "id": 8,
-        "name": "mohamed2",
-        "image": "http://127.0.0.1:8000/images/Usrimg/62ebb1f9a07b6.png",
-        "email": "mohamed2@mohamed.com",
-        "mobile": "01125784023",
-        "email_verified_at": null,
-        "lat": 31.083313959317653,
-        "lng": 31.54708445898436,
-        "status": 1,
-        "role_id": 3,
-        "created_at": "2022-08-04T18:45:02.000000Z",
-        "updated_at": null
-      }
-    }
-  ]
+  reviews = []
 
-  constructor(private provider: ProviderService,
-    private route: ActivatedRoute,
-    private auth: AuthService,
-    private rate: RateService,) {
+  constructor(
+      private provider: ProviderService,
+      private route: ActivatedRoute,
+      private auth: AuthService,
+      private rate: RateService,
+      private order: OrderService,
+    ) {
     this.rateForm = new FormGroup({
+      description: new FormControl('', [Validators.required])
+    });
+
+    this.orderForm = new FormGroup({
+      hours: new FormControl(1, [Validators.required]),
       description: new FormControl('', [Validators.required])
     });
 
@@ -108,13 +49,11 @@ export class ProviderDetailsComponent implements OnInit {
       this.providerObject = res.data
     })
 
-    // this.rate.getOneRate(this.route.snapshot.params['id']).subscribe(res => {
-    //   this.rateObject = res.data
-    //   console.log(this.rateObject);
-    // })
-
+    this.rate.getOneRate(this.route.snapshot.params['id']).subscribe(res => {
+      this.reviews = res.data.rate
+      console.log(this.rateObject);
+    })
   }
-
 
   setRate() {
     console.log(this.auth.getUser()?.id)
@@ -128,6 +67,25 @@ export class ProviderDetailsComponent implements OnInit {
     }
     this.provider.setRate(data).subscribe(() => {
       alert('send rating done....')
+    })
+  }
+
+  createBooking(){
+    let data = {
+      // user_id: this.auth.getUser()?.id,
+      provider_id: this.route.snapshot.params['id'],
+      // sender_id: this.auth.getUser()?.id,
+      received_id: this.route.snapshot.params['id'],
+      hours: this.orderForm.controls['hours'].value,
+      // description: this.orderForm.controls['description'].value, // eng.mohamed
+      description: 'this description',
+      lat: '1.2555',  // eng. aya
+      lng: '0.2555',  // eng. aya
+      executed_at: '2022-2-12'
+    }
+    this.order.sendOrder(data).subscribe(res => {
+      this.reviews = res.data.rate
+      console.log(this.rateObject);
     })
   }
 }

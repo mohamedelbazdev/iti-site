@@ -39,7 +39,7 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                   <div class="navbar-nav mr-auto py-0">
-                    <a routerLink="/" routerLinkActive="active" class="nav-item nav-link">Home</a>
+                    <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" class="nav-item nav-link">Home</a>
                     <a routerLink="/order" routerLinkActive="active"  class="nav-item nav-link">Order</a>
                     <a routerLink="/provider-order" routerLinkActive="active" class="nav-item nav-link">Provider Order</a>
                     <a routerLink="/chat" routerLinkActive="active" href="/chat" class="nav-item nav-link">Chat</a>

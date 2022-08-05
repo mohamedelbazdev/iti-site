@@ -33,13 +33,9 @@
                               class="product-image__img"
                               src="{{fav.providers.image}}"
                               alt=""
-
                           />
-
                   </div>
               </td>
-
-
 
               <td class="wishlist__column wishlist__column--product pt-5">
                   <a
@@ -73,8 +69,6 @@
                   <button
                       type="button"
                       class="btn btn-primary btn-sm"
-                      (click)="addToBook()"
-
                   >
                       Book
                   </button>
@@ -83,7 +77,7 @@
                    <button
                       type="button"
                       class="btn btn-light btn-sm btn-svg-icon"
-                      (click)="removed()"
+                      (click)="remove(fav.provider_id)"
                   >
                   Esc
                   <i class="bi bi-prescription2"></i>

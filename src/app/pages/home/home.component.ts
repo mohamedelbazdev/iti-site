@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
+import {FavoriteService} from "../../services/favorite.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',

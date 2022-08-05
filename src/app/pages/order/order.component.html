@@ -31,11 +31,7 @@
                 <td class="cart-table__column cart-table__column--image"> {{ order.lat }}||{{ order.lng }}</td>
                 <td class="cart-table__column cart-table__column--image">{{ order.created_at | date :'short' }}</td>
 
-                <!-- <td class="cart-table__column cart-table__column--image" >
-                  <ng-container class="wishlist__column wishlist__column--stock " *ngIf=" order.status === 1; then first else second"></ng-container>
-                  <ng-template #first>active</ng-template>
-                  <ng-template #second>inactive</ng-template>
-              </td> -->
+               
               <td class="cart-table__column cart-table__column--image">
                 <button type="button"class="btn btn-light btn-sm btn-svg-icon"(click)="removed()" >
           <i class="fa fa-times"></i></button></td>

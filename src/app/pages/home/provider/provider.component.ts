@@ -10,7 +10,11 @@ import {Router} from "@angular/router";
 export class ProviderComponent implements OnInit {
   @Input() providers: any[] = [];
 
-  constructor(private provider: ProviderService, private favorite:FavoriteService, private router: Router) { }
+  constructor(
+    private provider: ProviderService,
+    private favorite:FavoriteService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
 

@@ -30,6 +30,7 @@
                   <div class="product-image">
 
                           <img
+                            width="100"
                               class="product-image__img"
                               src="{{fav.providers.image}}"
                               alt=""
@@ -67,6 +68,7 @@
 
               <td class="wishlist__column wishlist__column--tocart pt-5">
                   <button
+                      routerLink="/provider-details/{{fav.provider_id}}"
                       type="button"
                       class="btn btn-primary btn-sm"
                   >
@@ -76,10 +78,10 @@
               <td class="wishlist__column wishlist__column--remove pt-5">
                    <button
                       type="button"
-                      class="btn btn-light btn-sm btn-svg-icon"
+                      class="btn btn-danger btn-sm btn-svg-icon"
                       (click)="remove(fav.provider_id)"
                   >
-                  Esc
+                  Un Favorite
                   <i class="bi bi-prescription2"></i>
                   </button>
               </td>

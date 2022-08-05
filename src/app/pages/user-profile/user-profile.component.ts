@@ -29,7 +29,8 @@ export class UserProfileComponent implements OnInit {
     lat: this.lat,
     lng: this.lng
   };
-  constructor(private profile:ProfileService ) {
+
+  constructor(private profile:ProfileService) {
     // this.profileForm = new FormGroup({
     //   name: new FormControl('', [Validators.required]),
     //   email: new FormControl('', [Validators.required, Validators.email]),
@@ -47,6 +48,5 @@ export class UserProfileComponent implements OnInit {
       this.lat = this.myProfile.lng
     })
   }
-
 
 }

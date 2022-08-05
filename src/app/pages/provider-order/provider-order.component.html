@@ -8,6 +8,7 @@
                       <th class="wishlist__column wishlist__column--image">
                           Image
                       </th>
+
                       <th class="wishlist__column wishlist__column--product">
                         User
                       </th>
@@ -17,12 +18,12 @@
                       <th class="wishlist__column wishlist__column--product">
                         Action
                       </th>
-                      <th class="wishlist__column wishlist__column--remove"></th>
+                    
                   </tr>
               </thead>
               <tbody class="align-middle bg-dark">
                 <tr *ngFor="let order of featuredorders">
-                        <td class="wishlist__column wishlist__column--image">
+                        <td class="wishlist__column wishlist__column--image " style="width: 200px;">
                           <div class="product-image"  style="width: 200px;">
                                   <img
                                       class="product-image__img w-100"
@@ -31,6 +32,13 @@
                                   />
                           </div>
                       </td>
+
+
+
+
+
+
+
                         <td class="wishlist__column wishlist__column--product pt-5">
                           <div class="wishlist__product-rating-legend pt-5">
                               {{ order.name }}</div
@@ -54,9 +62,7 @@
                           </div>
                       </div>
                        </div >
-                  </td>
-                        <td class="cart-table__column cart-table__column--image"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                    </tr>
+
                 </tbody>
             </table>
         </div>

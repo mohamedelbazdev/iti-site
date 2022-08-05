@@ -27,41 +27,43 @@
               class="wishlist__row"
           >
               <td class="wishlist__column wishlist__column--image">
-                  <div class="product-image">
+                  <div class="product-image"  style="width: 200px;">
 
                           <img
-                            width="100"
-                              class="product-image__img"
+                              class="product-image__img w-100"
                               src="{{fav.providers.image}}"
                               alt=""
+
                           />
                   </div>
               </td>
 
               <td class="wishlist__column wishlist__column--product pt-5">
-                  <a
-                      class="wishlist__product-name"
-                      >{{ fav.providers.name }}</a
+                  <div
+                      class="wishlist__product-name  bg-light"
+                      >{{ fav.providers.name }}</div
                   >
-                  <div class="wishlist__product-rating">
-
+                  <!-- <div class="wishlist__product-rating">
                       <div class="wishlist__product-rating-legend pt-5">
                           {{ fav.providers.reviews }}
                       </div>
-                  </div>
+                  </div> -->
               </td>
               <td class="wishlist__column wishlist__column--product pt-5">
-                  <a
-                      class="wishlist__product-name "
-                      >{{ fav.providers.mobile }}</a
+                  <div
+                      class="wishlist__product-name bg-light "
+                      >{{ fav.providers.mobile }}</div
                   >
 
 
               </td>
-              <td class="wishlist__column wishlist__column--stock pt-5" >
-                  <ng-container class="wishlist__column wishlist__column--stock pt-5" *ngIf=" fav.providers.status === 1; then first else second"></ng-container>
+              <td class="wishlist__column wishlist__column--stock pt-5 " >
+                <div class="bg-success">
+                   <ng-container class=" pt-5" *ngIf=" fav.providers.status === 1; then first else second"></ng-container>
                   <ng-template #first>active</ng-template>
                   <ng-template #second>inactive</ng-template>
+                </div>
+
 
               </td>
 

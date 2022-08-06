@@ -102,13 +102,7 @@ export class RegisterComponent {
 
     }
   }
-
-
-
   //   _v() {
   //     return this.loginForm.value;
   // }
-
-
-
 }

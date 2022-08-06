@@ -31,5 +31,4 @@ export class ProviderService {
   setRate(data: object) {
     return this.http.post<any>(this.setRateUrl, data)
   }
-
 }

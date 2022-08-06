@@ -23,7 +23,9 @@
                 <h3>Description</h3>
                 <p class="mb-4">{{ providerObject.providers?.description }}</p>
 
+
                 <div class="row py-5">
+                    <h4 class="text-capitalize fw-bold">To Order Provider :</h4>
                     <div class="d-flex col-4">
                         <label style="width: auto;">The number of hours</label>
                         <input type="text" formControlName="hours" class="form-control  border-0 text-center" value="1">
@@ -32,7 +34,7 @@
                         <label style="width: auto;">About the work required</label>
                         <textarea class="w-100" name="" id="" placeholder="Details"></textarea>
                     </div>
-                    <button (click)="createBooking()" class="btn btn-primary mt-3 w-25"><i class="fa fa-address-card mr-1"></i>Book</button>
+                    <button (click)="createBooking()" class="btn btn-primary mt-3 w-25"><i class="fa fa-address-card  mr-1"></i>Book</button>
                 </div>
 
             </div>

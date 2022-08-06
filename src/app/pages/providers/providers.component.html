@@ -26,14 +26,17 @@
                 />
 
                   <div class="product-action">
-                    <a class="btn btn-outline-dark btn-square" routerLink="/provider-details/{{prov.id}}"><i class="fa fa-shopping-cart"></i></a>
-                    <a class="btn btn-outline-dark btn-square" (click)="createFav(prov.id)" href="javascript:void(0)"><i class="far fa-heart"></i></a>
-                    <!-- <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
-                      <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a> -->
+
+                    <a data-toggle="tooltip" data-placement="top" title="Details" class="btn btn-outline-dark " routerLink="/provider-details/{{prov.id}}"><i class="fa fa-address-card"></i></a>
+                    <a data-toggle="tooltip" data-placement="top" title="Add to favorite" class="btn btn-outline-dark " href=""><i class="far fa-heart"></i></a>
+                      <!-- <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                      <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a> -->4
+
                   </div>
               </div>
               <div class="text-center py-4">
-                  <a class="h6 text-decoration-none text-truncate" href="">{{prov.name}}</a>
+                  <p class="h6 text-decoration-none text-truncate fw-bold text-capitalize" href="">{{prov.name}}</p>
+                  <p class="h6 text-decoration-none text-truncate" href=""><i class="fas fa-phone"></i> {{prov.mobile}}</p>
                   <!-- <div class="d-flex align-items-center justify-content-center mt-2">
 
                   </div> -->
@@ -44,7 +47,6 @@
                       <small class="far fa-star text-primary mr-1"></small>
                       <small class="far fa-star text-primary mr-1"></small> -->
 
-                      <a class="h6 text-decoration-none text-truncate" href="">{{prov.mobile}}</a>
 
                   </div>
               </div>

@@ -31,6 +31,8 @@ import { EditProviderProfileComponent } from './pages/edit-provider-profile/edit
 import { ProviderProfileComponent } from './pages/provider-profile/provider-profile.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EditProviderProfileComponent,
     ProviderProfileComponent,
     UserProfileComponent,
-
   ],
 
   imports: [
@@ -66,7 +67,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },  // register interceptor for project

@@ -1,15 +1,4 @@
 <!-- Products Start -->
-<!-- <div
-    class="conversation"
-    *ngFor="let prov of featuredproviders"
->
-    <div class="content">
-        <div class="conversationHeader">
-            <div class="name">{{ prov.name|json  }}</div>
-        </div>
-    </div>
-</div> -->
-<!-- Products Start -->
 <div class="container-fluid pt-5 pb-3">
   <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="pr-3">Providers</span></h2>
   <div class="row px-xl-5">
@@ -21,8 +10,7 @@
                   src="{{prov.image}}"
                   alt=""
                   style="object-fit: cover;"
-                />
-
+                  />
                   <div class="product-action">
                       <a data-toggle="tooltip" data-placement="top" title="Details" class="btn btn-warning text-white w-25" routerLink="/provider-details/{{prov.id}}"><i class="fa fa-address-card"></i></a>
                       <a data-toggle="tooltip" data-placement="top" title="Add to favorite" class="btn btn-warning text-white w-25" (click)="createFav(prov.id)" href="javascript:void(0)"><i class="far fa-heart"></i></a>
@@ -36,10 +24,8 @@
                   <a class="h6 text-decoration-none" href="tel:{{prov.mobile}}"><i class="fa fa-phone-volume"></i> {{prov.mobile}}</a>
                   <!-- <div class="d-flex align-items-center justify-content-center mt-2">
                       <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                  </div> -->
+                  </div>-->
                   <div class="d-flex align-items-center justify-content-center mb-1">
-
-
                   </div>
               </div>
           </div>

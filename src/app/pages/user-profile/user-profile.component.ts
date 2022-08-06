@@ -12,7 +12,6 @@ export class UserProfileComponent implements OnInit {
   myProfile: any
   lat: any = 0.00
   lng: any = 0.00
-
   // start google map
   center: google.maps.LatLngLiteral = {
     lat: this.lat,

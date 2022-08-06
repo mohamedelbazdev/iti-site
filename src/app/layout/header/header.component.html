@@ -39,23 +39,23 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                   <div class="navbar-nav mr-auto py-0">
-                    <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" class="nav-item nav-link">Home</a>
-                    <a routerLink="/order" routerLinkActive="active"  class="nav-item nav-link">Order</a>
-                    <a routerLink="/provider-order" routerLinkActive="active" class="nav-item nav-link">Provider Order</a>
-                    <a routerLink="/chat" routerLinkActive="active" href="/chat" class="nav-item nav-link">Chat</a>
-                    <a routerLink="/checkout" routerLinkActive="active" class="nav-item nav-link">Checkout</a>
-                    <a routerLink="/providers" routerLinkActive="active" class="nav-item nav-link">Providers</a>
-                    <a routerLink="/categories" routerLinkActive="active" class="nav-item nav-link"> Categories</a>
-                    <div class="nav-item dropdown">
+                    <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" class="nav-item border-b nav-link">Home</a>
+                    <a routerLink="/order" routerLinkActive="active"  class="nav-item border-b nav-link">Order</a>
+                    <a routerLink="/provider-order" routerLinkActive="active" class="nav-item border-b nav-link">Provider Order</a>
+                    <a routerLink="/chat" routerLinkActive="active" href="/chat" class="nav-item border-b nav-link">Chat</a>
+                    <a routerLink="/checkout" routerLinkActive="active" class="nav-item border-b nav-link">Checkout</a>
+                    <a routerLink="/providers" routerLinkActive="active" class="nav-item border-b nav-link">Providers</a>
+                    <a routerLink="/categories" routerLinkActive="active" class="nav-item border-b nav-link"> Categories</a>
+                    <div class="nav-item border-b dropdown">
                       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dashboard</a>
-                      <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                        <a routerLink="/edit-user-profile" routerLinkActive="active" class="nav-item nav-link text-dark">edit user profile</a>
-                        <a routerLink="/edit-provider-profile" routerLinkActive="active" class="nav-item nav-link text-dark">edit provider profile</a>
-                        <a routerLink="/provider-profile" routerLinkActive="active" class="nav-item nav-link text-dark">Provider profile</a>
-                        <a routerLink="/user-profile" routerLinkActive="active" class="nav-item nav-link text-dark">User profile</a>
+                      <div class="dropdown-menu rounded-0 border-0 m-0 mt-2">
+                        <a routerLink="/user-profile" routerLinkActive="active" class="nav-item py-2 border-bottom nav-link text-dark">User profile</a>
+                        <a routerLink="/edit-user-profile" routerLinkActive="active" class="nav-item py-2 border-bottom nav-link text-dark">Edit user profile</a>
+                        <a routerLink="/provider-profile" routerLinkActive="active" class="nav-item py-2 border-bottom nav-link text-dark">Provider profile</a>
+                        <a routerLink="/edit-provider-profile" routerLinkActive="active" class="nav-item py-2  nav-link text-dark">Edit provider profile</a>
                       </div>
                     </div>
-                    <a routerLink="/contact" routerLinkActive="active" class="nav-item nav-link">Contact</a>
+                    <a routerLink="/contact" routerLinkActive="active" class="nav-item border-b nav-link">Contact</a>
 
 
 
@@ -67,30 +67,23 @@
                         </div> -->
                       </div>
                       <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-                        <div class="dropdown btn px-0 mr-3">
+                        <div class="dropdown btn px-0 mr-4">
                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                             <i class="fas fa-user text-primary fa-lg"></i>
+                             <i class="fas fa-user text-white fa-lg"></i>
                           </a>
-                          <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                              <a *ngIf="!isLogin()" routerLink="/login" routerLinkActive="active" class="nav-item nav-link text-dark"> Login </a>
-                              <a *ngIf="!isLogin()" routerLink="/register" routerLinkActive="active" class="nav-item nav-link text-dark"> Register</a>
-                              <ul class="account-menu__links">
-                                <!--        <li>-->
-                                <!--            <a routerLink="/account/login" (click)="closeMenu.emit()">Logout</a>-->
-                                <!--        </li>-->
-                                        <li *ngIf="isLogin()">
-                                            <a style="cursor: pointer;"  (click)="logout()">Logout</a>
-                                        </li>
-                                    </ul>
+                          <div class="dropdown-menu rounded-0 border-0 m-0 p-1 shadow">
+                              <a *ngIf="!isLogin()" routerLink="/login" routerLinkActive="active" class="nav-item py-2 border-bottom nav-link text-dark"><i class="fas fa-user"></i> Login </a>
+                              <a *ngIf="!isLogin()" routerLink="/register" routerLinkActive="active" class="nav-item py-2  nav-link text-dark"><i class="fas fa-user-plus"></i>Register</a>
+                              <a  *ngIf="isLogin()" (click)="logout()" class="nav-item py-2  nav-link text-dark"><i class="fas fa-sign-out"></i> Logout</a>
                           </div>
                       </div>
-                        <a routerLink="/Favorites" class="btn px-0">
-                          <i class="fas fa-heart text-primary"></i>
-                          <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
+                        <a routerLink="/Favorites" class="btn px-0 position-relative mr-3">
+                          <i class="fas fa-heart text-white fa-lg"></i>
+                         <span class="badge badge-pill badge-warning">0</span>
                         </a>
-                        <a routerLink="/order" class="btn px-0 ml-3">
-                          <i class="fas fa-shopping-cart text-primary"></i>
-                          <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
+                        <a routerLink="/order" class="btn px-0 ml-3 position-relative mr-3">
+                          <i class="fas fa-address-card text-white fa-lg"></i>
+                         <span class="badge badge-pill badge-warning">0</span>
                         </a>
 
 

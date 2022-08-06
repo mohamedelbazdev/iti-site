@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProviderService } from "../../../services/provider.service";
-import {FavoriteService} from "../../../services/favorite.service";
-import {Router} from "@angular/router";
+import { FavoriteService } from "../../../services/favorite.service";
+import { Router } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-provider',
   templateUrl: './provider.component.html',
@@ -12,8 +13,9 @@ export class ProviderComponent implements OnInit {
 
   constructor(
     private provider: ProviderService,
-    private favorite:FavoriteService,
-    private router: Router
+    private favorite: FavoriteService,
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -23,9 +25,10 @@ export class ProviderComponent implements OnInit {
     })
   }
 
-  createFav(providerId:number){
+  createFav(providerId: number) {
     this.favorite.create(providerId).subscribe(() => {
-      this.router.navigateByUrl('/Favorites')
+      //this.router.navigateByUrl('/Favorites')
+      this.toastr.success('Add to favorite sucessed', ':)');
     })
   }
 }

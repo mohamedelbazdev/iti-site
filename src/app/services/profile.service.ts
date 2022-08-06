@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class ProfileService {
     return this.http.get<any>(this.getProfileUrl)
   }
 
-  updateProfile(data:object) {
+  updateProfile(data: object) {
     return this.http.post<any>(this.updateProfileUrl, data)
   }
 

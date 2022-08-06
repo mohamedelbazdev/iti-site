@@ -51,7 +51,8 @@ export class LoginComponent {
                 this.router.navigateByUrl('/')
                 this.toastr.success('You are logged in successfully', ':)');
             })
-        } else {
+        }
+        else {
             this.toastr.error('Please check your email or password', ':(');
         }
     }

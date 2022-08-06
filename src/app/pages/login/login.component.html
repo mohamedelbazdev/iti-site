@@ -51,12 +51,29 @@
             <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate  class="form-group ">
 
               <label class="form-label mt-3">Email address : </label>
-              <input type="email" class=" form-control"  formControlName="email" id="email" placeholder="Enter email"
-              required="required" data-validation-required-message="Please enter your email" >
+              <input type="email" class=" form-control"  formControlName="email" id="email" placeholder="Enter email" >
+              <span class="text-danger"
+              *ngIf="(loginFormControl['email'].touched || submitted) && loginFormControl['email'].errors?.['required']">
+              Email is required
+          </span>
+          <span class="text-danger"
+              *ngIf="loginFormControl['email'].touched && loginFormControl['email'].errors?.['email']">
+              Enter a valid email address
+          </span>
+
 
 
               <label class="form-label mt-3">Password : </label>
               <input type="password" name="password" id="password" class=" form-control" formControlName="password" placeholder="Password">
+              <span class="text-danger"
+              *ngIf="(loginFormControl['password.touched'] || submitted) && loginFormControl['password.touched'].errors?.['required']">
+              Password is required
+          </span>
+          <span class="text-danger"
+              *ngIf="loginFormControl['password.touched'].touched && loginFormControl['password.touched'].errors?.['invalidPassword']">
+              Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+              letter and 1 number
+          </span>
 
 
               <label class="form-label mt-3" for="remember_me">Remember Me!</label>

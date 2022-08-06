@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 
 export class LoginComponent{
   loginForm: FormGroup;
+  submitted = false;
 
   constructor
   (
@@ -34,7 +35,12 @@ export class LoginComponent{
       // });
   }
 
+  get loginFormControl() {
+    return this.loginForm.controls;
+  }
+
   onSubmit() {
+    this.submitted = true;
       if(this.loginForm.valid) {
           this.auth.loginUser(this._v()).subscribe(res => {
               console.log(res)

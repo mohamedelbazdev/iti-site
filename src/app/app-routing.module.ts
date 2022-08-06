@@ -24,8 +24,8 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'checkout', component: CheckoutComponent },
-  { path: 'order', component: OrderComponent }, // canActivate:[AuthGuard]
+  { path: 'checkout', component: CheckoutComponent,canActivate:[AuthGuard] },
+  { path: 'order', component: OrderComponent ,canActivate:[AuthGuard] }, // canActivate:[AuthGuard]
   { path: 'login', component: LoginComponent, canActivate: [GuestGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [GuestGuard] },
   { path: 'contact', component: ContactUsComponent },
@@ -34,14 +34,14 @@ const routes: Routes = [
 
   { path: 'providers', component: ProvidersComponent },
   { path: 'categories', component: CategoriesComponent },
-  { path: 'Favorites', component: FavoriteComponent },
-  { path: 'provider-details/:id', component: ProviderDetailsComponent },
-  { path: 'provider-order', component: ProviderOrderComponent },
-  { path: 'edit-user-profile', component: EditUserProfileComponent },
-  { path: 'edit-provider-profile', component: EditProviderProfileComponent },
-  { path: 'provider-profile', component: ProviderProfileComponent },
-  { path: 'user-profile', component: UserProfileComponent },
-  { path: 'chat', component: ChatComponent },
+  { path: 'Favorites', component: FavoriteComponent ,canActivate:[AuthGuard] },
+  { path: 'provider-details/:id', component: ProviderDetailsComponent,canActivate:[AuthGuard] },
+  { path: 'provider-order', component: ProviderOrderComponent,canActivate:[AuthGuard] },
+  { path: 'edit-user-profile', component: EditUserProfileComponent,canActivate:[AuthGuard] },
+  { path: 'edit-provider-profile', component: EditProviderProfileComponent,canActivate:[AuthGuard] },
+  { path: 'provider-profile', component: ProviderProfileComponent,canActivate:[AuthGuard] },
+  { path: 'user-profile', component: UserProfileComponent,canActivate:[AuthGuard] },
+  { path: 'chat', component: ChatComponent,canActivate:[AuthGuard] },
   { path: '**', component: PageNotFoundComponent },
 
 ];

@@ -12,6 +12,8 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RegisterComponent  {
 
     registerForm: FormGroup;
+    submitted = false;
+
 
     // start google map
     center: google.maps.LatLngLiteral = {
@@ -70,8 +72,15 @@ export class RegisterComponent  {
     }
 
 
+    get registerFormControl() {
+      return this.registerForm.controls;
+    }
 
-    onSubmit() {}
+
+
+    onSubmit() {
+       this.submitted = true;
+    }
 
     register(){
         if(this.registerForm.valid) {
@@ -84,7 +93,7 @@ export class RegisterComponent  {
           // }
             this.auth.registerUser(this.registerForm.value).subscribe(res => {
                 console.log(res)
-                this.router.navigateByUrl('/')
+                this.router.navigateByUrl('/login')
             })
         }
     }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
   selector: 'app-chat',
@@ -8,11 +10,11 @@ import { Component, OnInit } from '@angular/core';
 
 export class ChatComponent implements OnInit {
 
-  chatRooms = [
-    { "image": "https://therichpost.com/wp-content/uploads/2020/06/avatar2.png", "name": "Moahemd Elabz", },
-    { "image": "https://therichpost.com/wp-content/uploads/2020/06/avatar2.png", "name": "Ahmed Ali", },
-    { "image": "https://therichpost.com/wp-content/uploads/2020/06/avatar2.png", "name": "Nage Mohamed", },
-    { "image": "https://therichpost.com/wp-content/uploads/2020/06/avatar2.png", "name": "Reda Mostafa", },
+  chatRooms?= [
+    // { "image": "https://therichpost.com/wp-content/uploads/2020/06/avatar2.png", "name": "Moahemd Elabz", },
+    // { "image": "https://therichpost.com/wp-content/uploads/2020/06/avatar2.png", "name": "Ahmed Ali", },
+    // { "image": "https://therichpost.com/wp-content/uploads/2020/06/avatar2.png", "name": "Nage Mohamed", },
+    // { "image": "https://therichpost.com/wp-content/uploads/2020/06/avatar2.png", "name": "Reda Mostafa", },
   ]
   receiveMessages = [
     { "content": "Hi How Are You ?", "time": "06:50 pm", "date": "today" },
@@ -29,14 +31,19 @@ export class ChatComponent implements OnInit {
   // chatUserRooms = [];
   // SpecificRooms = [];
   // chatMakeRead: any;
-  constructor() { }
+  constructor(private route: ActivatedRoute, private chat: ChatService) { }
 
 
   ngOnInit(): void {
 
-    // this.chat.getChatRooms().subscribe(res => {
-    //   this.chatRooms = res.data
-    //   console.log(res.data)
+    this.chat.getChatRooms().subscribe(res => {
+      this.chatRooms = res.data
+      console.log(this.chatRooms)
+    })
+
+    // this.rate.getOneRate(this.route.snapshot.params['id']).subscribe(res => {
+    //   this.reviews = res.data.rate
+    //   console.log(this.rateObject);
     // })
     // this.chat.getChatSpecificRoom().subscribe(res => {
     //   this.chatUserRooms = res.data

@@ -21,7 +21,9 @@
                   </div>
               </div>
               <div class="text-center py-4">
-
+                <div>
+                    <ngb-rating class="fs-3 text-warning" [rate]="prov.providers?.rate" [readonly] = true [max]="5"></ngb-rating>
+                </div>
                   <p class="h6 text-decoration-none text-capitalize fw-bold" href="">{{prov.name}}</p>
                   <a class="h6 text-decoration-none" href="tel:{{prov.mobile}}"><i class="fa fa-phone-volume"></i> {{prov.mobile}}</a>
                   <!-- <div class="d-flex align-items-center justify-content-center mt-2">

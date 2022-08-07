@@ -10,7 +10,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProviderComponent implements OnInit {
   @Input() providers: any[] = [];
-  counter: number = 0;
 
   constructor(
     private provider: ProviderService,
@@ -30,7 +29,6 @@ export class ProviderComponent implements OnInit {
     this.favorite.create(providerId).subscribe(() => {
       //this.router.navigateByUrl('/Favorites')
       this.toastr.success('Add to favorite sucessed', ':)');
-      this.counter++
     })
   }
 }

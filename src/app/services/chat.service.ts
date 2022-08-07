@@ -9,8 +9,8 @@ export class ChatService {
 
   public createRoomUrl = "http://127.0.0.1:8000/api/chats/create_room";
   public chatRoomsUrl = "http://127.0.0.1:8000/api/chats/my_rooms";
-  public chatUserRoomsUrl = "http://127.0.0.1:8000/api/chats/user/rooms/{userId}";
-  public chatSpecificRoomsUrl = "http://127.0.0.1:8000/api/chats/specific_room/{room_id}";
+  public chatUserRoomsUrl = "http://127.0.0.1:8000/api/chats/user/rooms";
+  public chatSpecificRoomsUrl = "http://127.0.0.1:8000/api/chats/specific_room/";
   public chatSendMessageUrl = "http://127.0.0.1:8000/api/chats/send_message";
   public chatMakeReadUrl = "http://127.0.0.1:8000/api/chats/mark_as_read/{id}";
   public chatDelMessageUrl = "http://127.0.0.1:8000/api/chats/delete_msg/{id}";
@@ -21,7 +21,7 @@ export class ChatService {
     return this.http.post(this.createRoomUrl, "")
   }
   getChatRooms() {
-    return this.http.get<any>(this.chatRoomsUrl)
+    return this.http.get<any>(this.chatRoomsUrl);
   }
   getChatUserRooms() {
     return this.http.get<any>(this.chatUserRoomsUrl)

@@ -1,7 +1,9 @@
 <!-- Cart Start -->
 <div class="container-fluid"  >
 
-  <h3 class="mb-3">My Order</h3>
+  <div class="position-relative mb-5">
+    <h3 class="section-title">My Order</h3>
+  </div>
   <div class="row px-xl-5">
     <div class="col table-responsive mb-5">
       <table class="table table-light table-borderless table-hover text-center mb-0">
@@ -21,7 +23,6 @@
               </th>
               <th class="wishlist__column wishlist__column--tocart">description</th>
               <th class="wishlist__column wishlist__column--remove">Date</th>
-              <th class="wishlist__column wishlist__column--remove"></th>
           </tr>
       </thead>
         <tbody class="align-middle bg-dark">
@@ -35,30 +36,30 @@
                           />
                   </div>
               </td>
-                <td class="wishlist__column wishlist__column--product pt-4  fs-4">
+                <td class="  ">
                   <div
-                      class="wishlist__product-rating-legend pt-5"
+                      class="text-capitalize fw-bold"
                       >{{ order.name }}</div
                   > </td>
-                  <td class="wishlist__column wishlist__column--product pt-4  fs-4">
-                      <div class="wishlist__product-rating-legend pt-5">
+                  <td class="  ">
+                      <div class="bg-info p-2 w-25 m-auto text-white">
                         {{ order.hours }}
                       </div>
               </td>
-                <td class="wishlist__column wishlist__column--product pt-4  fs-4">
-                  <div class="wishlist__product-rating-legend pt-5">
+                <td class="  ">
+                  <div class="bg-success p-2 w-25 m-auto text-white">
                       {{ order.total_amount }}</div
                   >
               </td>
-              <td class="wishlist__column wishlist__column--product pt-4  fs-5 overflow-auto"
+              <td class="   overflow-auto"
               style="max-width: 150px; ">
-                <div class="wishlist__product-rating-legend pt-5"  >
+                <div class=""  >
                   {{ order.description }}</div>
             </td>
 
-          <td class="wishlist__column wishlist__column--product pt-4 fs-5">
-            <div class="wishlist__product-rating-legend pt-5">
-              {{ order.created_at | date :'short' }}</div
+          <td class=" ">
+            <div class="">
+              {{ order.created_at | date :'medium' }}</div
             >
         </td>
 

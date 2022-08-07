@@ -2,5 +2,9 @@
     border-bottom: 4px solid transparent;
 }
 .border-b:hover,.border-b:active {
-    border-bottom: 4px solid #008080;
+    border-bottom: 4px solid gold;
+}
+
+.links-hover:hover {
+    background-color: #efefef;
 }

@@ -6,7 +6,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class ContactService {
 
-  public updateContactUrl = "http://127.0.0.1:8000/api/users/contact";
+  public updateContactUrl = "http://127.0.0.1:8000/api/users/contacts";
 
   constructor(private http: HttpClient) { }
 

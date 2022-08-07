@@ -5,13 +5,13 @@ import { HttpClient } from "@angular/common/http";
 })
 export class OrderService {
 
-  public orderUrl = "http://127.0.0.1:8000/api/users/orders";
+  public fetchOrderUrl = "http://127.0.0.1:8000/api/users/orders/sended";
   public createOrderUrl = "http://127.0.0.1:8000/api/users/orders/create";
 
   constructor(private http: HttpClient) { }
 
   getOrders() {
-    return this.http.get<any>(this.orderUrl)
+    return this.http.get<any>(this.fetchOrderUrl)
   }
 
   sendOrder(data:object){

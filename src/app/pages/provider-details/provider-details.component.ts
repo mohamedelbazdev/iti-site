@@ -6,6 +6,7 @@ import { AuthService } from "../../services/auth.service";
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { RateService } from 'src/app/services/rate.service';
 import { OrderService } from "../../services/order.service";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-provider-details',
@@ -32,6 +33,7 @@ export class ProviderDetailsComponent implements OnInit {
     private auth: AuthService,
     private rate: RateService,
     private order: OrderService,
+    private toastr: ToastrService,
   ) {
     this.rateForm = new FormGroup({
       description: new FormControl('', [Validators.required])
@@ -66,7 +68,8 @@ export class ProviderDetailsComponent implements OnInit {
       description: this.rateForm.controls['description'].value
     }
     this.provider.setRate(data).subscribe(() => {
-      alert('send rating done....')
+      // alert('send rating done....')
+      this.toastr.success('send rating done', ':)');
     })
   }
 
@@ -77,14 +80,15 @@ export class ProviderDetailsComponent implements OnInit {
       // sender_id: this.auth.getUser()?.id,
       received_id: this.route.snapshot.params['id'],
       hours: this.orderForm.controls['hours'].value,
-      description: this.orderForm.controls['description'].value, // eng.mohamed
-      // description: 'this description',
+      description: this.orderForm.controls['description'].value,
       lat: '1.2555',  // eng. aya
       lng: '0.2555',  // eng. aya
       executed_at: '2022-2-12'
+
     }
     this.order.sendOrder(data).subscribe(res => {
       this.reviews = res.data.rate
+      this.toastr.success('Order has been created successfully', ':)');
       console.log(this.rateObject);
     })
   }

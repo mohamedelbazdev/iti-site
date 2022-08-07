@@ -15,6 +15,7 @@ export class FavoriteComponent implements OnInit {
   /**
    *
    * @param favorite
+   * @param toastr
    */
   constructor(private favorite: FavoriteService,
     private toastr: ToastrService) { }
@@ -34,7 +35,7 @@ export class FavoriteComponent implements OnInit {
       let index = this.favorites.findIndex(data => data.provider_id == providerId)
       this.favorites.splice(index, 1)
       // alert('done')
-      this.toastr.error('Remove Favorite Successed', ':(');
+      this.toastr.success('Remove Favorite Successed', ':(');
     })
   }
 }

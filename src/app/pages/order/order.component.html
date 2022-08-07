@@ -1,5 +1,6 @@
 <!-- Cart Start -->
 <div class="container-fluid"  >
+
   <h3 class="mb-3">My Order</h3>
   <div class="row px-xl-5">
     <div class="col table-responsive mb-5">
@@ -34,27 +35,28 @@
                           />
                   </div>
               </td>
-                <td class="wishlist__column wishlist__column--product pt-5">
+                <td class="wishlist__column wishlist__column--product pt-4  fs-4">
                   <div
                       class="wishlist__product-rating-legend pt-5"
                       >{{ order.name }}</div
                   > </td>
-                  <td class="wishlist__column wishlist__column--product pt-5">
+                  <td class="wishlist__column wishlist__column--product pt-4  fs-4">
                       <div class="wishlist__product-rating-legend pt-5">
                         {{ order.hours }}
                       </div>
               </td>
-                <td class="wishlist__column wishlist__column--product pt-5">
+                <td class="wishlist__column wishlist__column--product pt-4  fs-4">
                   <div class="wishlist__product-rating-legend pt-5">
                       {{ order.total_amount }}</div
                   >
               </td>
-              <td class="wishlist__column wishlist__column--product pt-5">
-                <div class="wishlist__product-rating-legend pt-5">
+              <td class="wishlist__column wishlist__column--product pt-4  fs-5 overflow-auto"
+              style="max-width: 150px; ">
+                <div class="wishlist__product-rating-legend pt-5"  >
                   {{ order.description }}</div>
             </td>
 
-          <td class="wishlist__column wishlist__column--product pt-5">
+          <td class="wishlist__column wishlist__column--product pt-4 fs-5">
             <div class="wishlist__product-rating-legend pt-5">
               {{ order.created_at | date :'short' }}</div
             >

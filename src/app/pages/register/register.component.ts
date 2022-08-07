@@ -16,6 +16,7 @@ export class RegisterComponent {
   submitted = false;
 
 
+
   // start google map
   center: google.maps.LatLngLiteral = {
     lat: 24,
@@ -86,7 +87,8 @@ export class RegisterComponent {
   }
 
   register() {
-    if (this.registerForm.valid) {
+    this.submitted = true;
+    // if (this.registerForm.valid) {  this.submitted = true;
       // let register = {
       //   name: this.registerForm.controls['name'].value,
       //   email: this.registerForm.controls['email'].value,
@@ -99,11 +101,12 @@ export class RegisterComponent {
         this.router.navigateByUrl('/login')
         this.toastr.success('New account has been registered successfully', ':)');
       })
-    } else {
-      this.toastr.error('Please check the information and try again', ':(');
-
     }
-  }
+  //    else {
+  //     this.toastr.error('Please check the information and try again', ':(');
+
+  //   }
+  // }
   //   _v() {
   //     return this.loginForm.value;
   // }

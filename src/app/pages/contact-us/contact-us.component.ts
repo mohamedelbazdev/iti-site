@@ -10,7 +10,8 @@ import { ContactService } from "../../services/contact.service";
 })
 export class ContactUsComponent implements OnInit {
 
-  contactForm: FormGroup
+  contactForm: FormGroup;
+  submitted = false;
 
   constructor(private contact: ContactService, private toastr: ToastrService,) {
     this.contactForm = new FormGroup({
@@ -21,9 +22,16 @@ export class ContactUsComponent implements OnInit {
     })
   }
 
+
+  get contactFormControl() {
+    return this.contactForm.controls;
+  }
+
+
   ngOnInit(): void { }
 
   store() {
+    this.submitted = true;
     if (this.contactForm.valid) {
       this.contact.store(this.contactForm.value).subscribe(() => {
         // alert('done')

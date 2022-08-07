@@ -29,13 +29,13 @@ const routes: Routes = [
   { path: 'order', component: OrderComponent, canActivate: [AuthGuard] }, // canActivate:[AuthGuard]
   { path: 'login', component: LoginComponent, canActivate: [GuestGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [GuestGuard] },
-  { path: 'contact', component: ContactUsComponent },
+  { path: 'contact', component: ContactUsComponent,canActivate: [AuthGuard]  },
   { path: 'change-password', component: ChangePasswordComponent },
 
 
 
-  { path: 'providers', component: ProvidersComponent },
-  { path: 'categories', component: CategoriesComponent },
+  { path: 'providers', component: ProvidersComponent, canActivate: [GuestGuard] },
+  { path: 'categories', component: CategoriesComponent,canActivate: [GuestGuard] },
   { path: 'Favorites', component: FavoriteComponent, canActivate: [AuthGuard] },
   { path: 'provider-details/:id', component: ProviderDetailsComponent, canActivate: [AuthGuard] },
   { path: 'provider-order', component: ProviderOrderComponent, canActivate: [AuthGuard] },

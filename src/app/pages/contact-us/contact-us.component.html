@@ -6,29 +6,50 @@
             <div class="contact-form bg-light p-30">
                 <div id="success"></div>
                 <form [formGroup]="contactForm" (ngSubmit)="store()" name="sentMessage" id="contactForm" novalidate="novalidate">
-                    <div class="control-group">
+                    <div class="control-group mt-2">
                         <input type="text" class="form-control" id="name" placeholder="Your Name" formControlName="name"
                             required="required" data-validation-required-message="Please enter your name" />
-                        <p class="help-block text-danger"></p>
+                        <!-- <p class="help-block text-danger"></p> -->
+                        <span class="text-danger" role="alert"
+                        *ngIf="(contactFormControl['name'].touched || contactFormControl['name'].invalid && submitted) && contactFormControl['name'].errors?.['required']">
+                        Name is required
+                    </span>
                     </div>
-                    <div class="control-group">
+                    <div class="control-group mt-3">
                         <input type="email" class="form-control" id="email" placeholder="Your Email" formControlName="email"
                             required="required" data-validation-required-message="Please enter your email" />
-                        <p class="help-block text-danger"></p>
+                        <!-- <p class="help-block text-danger"></p> -->
+                        <span class="text-danger" role="alert"
+                        *ngIf="(contactFormControl['email'].touched || submitted) && contactFormControl['email'].errors?.['required']">
+                        Email is required
+                    </span>
+                    <span class="text-danger" role="alert"
+                        *ngIf="contactFormControl['email'].touched && contactFormControl['email'].errors?.['email']">
+                        Enter a valid email address
+                    </span>
                     </div>
-                    <div class="control-group">
+                    <div class="control-group mt-3">
                         <input type="text" class="form-control" id="subject" placeholder="Subject" formControlName="subject"
                             required="required" data-validation-required-message="Please enter a subject" />
-                        <p class="help-block text-danger"></p>
+                        <!-- <p class="help-block text-danger"></p> -->
+                        <span class="text-danger" role="alert"
+                        *ngIf="(contactFormControl['subject'].touched || contactFormControl['subject'].invalid && submitted) && contactFormControl['subject'].errors?.['required']">
+                        subject is required
+                    </span>
+
                     </div>
-                    <div class="control-group">
-                        <textarea class="form-control" rows="8" id="message" placeholder="Message" formControlName="message"
+                    <div class="control-group mt-3">
+                        <textarea class="form-control" rows="8" id="message" placeholder=" Message" formControlName="message"
                             required="required"
                             data-validation-required-message="Please enter your message"></textarea>
-                        <p class="help-block text-danger"></p>
+                        <!-- <p class="help-block text-danger"></p> -->
+                        <span class="text-danger" role="alert"
+                        *ngIf="(contactFormControl['message'].touched || contactFormControl['message'].invalid && submitted) && contactFormControl['message'].errors?.['required']">
+                        Message is required
+                    </span>
                     </div>
                     <div>
-                        <button class="btn bg-primary text-white py-2 px-4" type="submit" id="sendMessageButton">Send Message</button>
+                        <button class="btn bg-primary text-white py-2 px-4 mt-5" type="submit" id="sendMessageButton">Send Message</button>
                     </div>
                 </form>
             </div>

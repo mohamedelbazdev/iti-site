@@ -41,42 +41,45 @@
 
     <div class="row m-auto mt-2 shadow p-sm-5">
     <div class="col-12 col-sm-4 m-auto" ><img class="w-100 mt-5" src="assets/img/1.png" alt=""></div>
-    <div class="col-12 col-sm-8  rounded-pill" style="background-color:#008080;">
+    <div class="col-12 col-sm-8  rounded-pill" style="background: linear-gradient(to bottom right,#06857A, #E6F0FF );">
       <div class="row">
         <div class="col-1 col-sm-2"></div>
         <div class="col-10 col-sm-8 py-5">
 
             <h2 class="text-center my-2 " style="color: white;"> Log In </h2>
             <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate  class="form-group ">
-
-              <label class="form-label mt-3">Email address : </label>
-              <input type="email" class=" form-control"  formControlName="email" id="email" placeholder="Enter email" >
-              <div class="alert alert-danger" role="alert"
-                *ngIf="(loginFormControl['email'].touched || submitted) && loginFormControl['email'].errors?.['required']">
-                Email is required
+              <div class="form-group">
+                <label class="form-label mt-2">Email address : </label>
+                <input type="email" class=" form-control"  formControlName="email" id="email" placeholder="Enter email" >
+                <span class="text-danger"  role="alert"
+                  *ngIf="(loginFormControl['email'].touched || submitted) && loginFormControl['email'].errors?.['required']">
+                  Email is required
+                </span>
+                <span class="text-danger" role="alert"
+                  *ngIf="loginFormControl['email'].touched && loginFormControl['email'].errors?.['email']">
+                  Enter a valid email address
+                </span>
               </div>
-              <div class="alert alert-danger" role="alert"
-                *ngIf="loginFormControl['email'].touched && loginFormControl['email'].errors?.['email']">
-                Enter a valid email address
-              </div>
 
 
+            <div class="form-group">
+                <label class="form-label mt-2">Password : </label>
+                <input type="password" name="password" id="password" class=" form-control" formControlName="password" placeholder="Password">
+                <span class="text-danger" role="alert"
+                  *ngIf="(loginFormControl['password'].touched || submitted) && loginFormControl['password'].errors?.['required']">
+                  Password is required
+                </span>
+                <span class="text-danger" role="alert"
+                  *ngIf="loginFormControl['password'].touched && loginFormControl['password'].errors?.['invalidPassword']">
+                  Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+                  letter and 1 number
+                </span>
+              </div>
 
-              <label class="form-label mt-3">Password : </label>
-              <input type="password" name="password" id="password" class=" form-control" formControlName="password" placeholder="Password">
-              <div class="alert alert-danger" role="alert"
-                *ngIf="(loginFormControl['password.touched'] || submitted) && loginFormControl['password.touched'].errors?.['required']">
-                Password is required
-              </div>
-              <div class="alert alert-danger" role="alert"
-                *ngIf="loginFormControl['password.touched'].touched && loginFormControl['password.touched'].errors?.['invalidPassword']">
-                Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
-                letter and 1 number
-              </div>
 
 
               <input type="checkbox" name="remember_me" id="remember_me">
-              <label class="form-label mt-3" for="remember_me">Remember Me!</label>
+              <label class="form-label mt-2" for="remember_me">Remember Me!</label>
 
 
               <input  type="submit" value="Submit" class="btn  mt-5 float-end" style="background-color: #fff ;">
@@ -84,7 +87,8 @@
             </form>
 
 
-              <p>Don't have an account? <a class="text-white" routerLink="/register">Register Here</a></p>
+              <p>Don't have an account? <a class="text-white m-2" routerLink="/register">Register Here</a></p>
+
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {HttpClient} from "@angular/common/http";
 import {parseJson} from "@angular/cli/src/utilities/json-file";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router:Router) { }
 
-    loginUser(user:any) {
+    loginUser(user:any){
         return this.http.post<any>(this._loginUrl, user)
     }
 

@@ -50,14 +50,11 @@ export class OrderComponent implements OnInit {
               },
           ]
 
-    // this.order.getOrders().subscribe(res => {
-    //   this.fetchOrders = res.data
-
-    // })
+    this.order.getOrders().subscribe(res => {
+      this.fetchOrders = res.data
+    })
 
   }
-
-
 
   removed() {
     console.log("hello fevoret");

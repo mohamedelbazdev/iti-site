@@ -15,6 +15,7 @@ export class FavoriteComponent implements OnInit {
   /**
    *
    * @param favorite
+   * @param toastr
    */
   constructor(private favorite: FavoriteService,
     private toastr: ToastrService) { }

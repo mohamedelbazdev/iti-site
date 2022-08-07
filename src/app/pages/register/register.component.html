@@ -1,8 +1,8 @@
-<div class="container "  >
+<div class="container "   >
 
-  <div class="row m-auto mt-2 shadow p-sm-5" style="border-radius: 20px">
-  <div class="col-12 col-sm-4 m-auto" ><img class="w-100 mt-5" src="assets/img/1.png" alt=""></div>
-  <div class="col-12 col-sm-8 rounded-3" style="background-color:#008080;">
+  <div class="row m-auto mt-2 shadow p-sm-5" style="border-radius: 20px;">
+  <div class="col-12 col-sm-4 m-auto"  ><img class="w-100 mt-5" src="assets/img/1.png" alt=""></div>
+  <div class="col-12 col-sm-8 rounded-3 fs-5" style="background: linear-gradient(to bottom right, #BCC5CE, #06857A);">
     <div class="row">
       <div class="col-1 col-sm-2"></div>
       <div class="col-10 col-sm-8">
@@ -34,11 +34,11 @@
             <label class="form-label mt-3">Password : </label>
             <input type="password" name="password" id="password" class=" form-control" formControlName="password" placeholder="Password">
             <div class="alert alert-danger" role="alert"
-                *ngIf="(registerFormControl['password.touched'] || submitted) && registerFormControl['password.touched'].errors?.['required']">
+                *ngIf="(registerFormControl['password'].touched || submitted) && registerFormControl['password'].errors?.['required']">
                 Password is required
             </div>
             <div class="alert alert-danger" role="alert"
-                *ngIf="registerFormControl['password.touched'].touched && registerFormControl['password.touched'].errors?.['invalidPassword']">
+                *ngIf="registerFormControl['password'].touched && registerFormControl['password'].errors?.['invalidPassword']">
                 Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
                 letter and 1 number
             </div>
@@ -46,11 +46,11 @@
             <label class="form-label mt-3">Repeat Password : </label>
             <input type="password" name="confirmedPassword" id="confirmedPassword" class=" form-control" formControlName="confirmedPassword" placeholder="Password">
             <div class="alert alert-danger" role="alert"
-                *ngIf="(registerFormControl['confirmPassword'].touched || submitted)&& registerFormControl['confirmPassword'].errors?.['required']">
+                *ngIf="(registerFormControl['confirmedPassword'].touched || submitted)&& registerFormControl['confirmedPassword'].errors?.['required']">
                 Confirm Password is required
             </div>
             <div class="alert alert-danger" role="alert"
-                *ngIf="registerFormControl['confirmPassword'].touched && registerFormControl['confirmPassword'].errors?.['passwordMismatch']">
+                *ngIf="registerFormControl['confirmedPassword'].touched && registerFormControl['confirmedPassword'].errors?.['confirmedPassword']">
                 Passwords doesnot match
             </div>
 
@@ -106,8 +106,6 @@
               </google-map>
             </div> -->
 
-            <label class="form-label mt-3" for="remember_me">Remember Me!</label>
-            <input type="checkbox" name="remember_me" id="remember_me">
 
 
             <input  type="submit" value="Submit" class="btn  mt-5 float-end" style="background-color: #fff ;">

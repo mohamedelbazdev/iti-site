@@ -67,6 +67,8 @@ export class RegisterComponent {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
       confirmedPassword: new FormControl('', [Validators.required]),
+      phone: new FormControl('', [Validators.required]),
+      image: new FormControl('', [Validators.required]),
       lat: new FormControl(1.2558, [Validators.required]),
       lng: new FormControl(2.3666, [Validators.required]),
     });

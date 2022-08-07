@@ -68,15 +68,15 @@
                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                              <i class="fas fa-user text-white fa-lg"></i>
                           </a>
-                          <div class="dropdown-menu rounded-0 border-0 p-1 shadow">
-                              <a *ngIf="!isLogin()" routerLink="/login" routerLinkActive="active" class="nav-item py-2 border-bottom nav-link text-dark"><i class="fas fa-user"></i> Login </a>
-                              <a *ngIf="!isLogin()" routerLink="/register" routerLinkActive="active" class="nav-item py-2  nav-link text-dark"><i class="fas fa-user-plus"></i>Register</a>
-                              <a routerLink="/provider-profile" routerLinkActive="active" class="nav-item py-2 border-bottom nav-link text-dark">Provider profile</a>
-                              <a routerLink="/edit-provider-profile" routerLinkActive="active" class="nav-item py-2  nav-link text-dark">Edit provider profile</a>
-                              <a routerLink="/user-profile" routerLinkActive="active" class="nav-item py-2 border-bottom nav-link text-dark">User profile</a>
-                              <a routerLink="/edit-user-profile" routerLinkActive="active" class="nav-item py-2 border-bottom nav-link text-dark">Edit user profile</a>
-                              <a *ngIf="isLogin()" (click)="logout()" class="nav-item py-2  nav-link text-dark"><i class="fas fa-sign-out"></i> Logout</a>
-                              <a *ngIf="isLogin()" routerLink="/change-password" routerLinkActive="active"  class="nav-item py-2  nav-link text-dark"><i class="fas fa-sign-out"></i> Change Password</a>
+                          <div class="dropdown-menu rounded-0 border-0 p-1 shadow ">
+                              <a *ngIf="!isLogin()" routerLink="/login" routerLinkActive="active" class="nav-item links-hover py-2 border-bottom nav-link text-dark"><i class="fas fa-user"></i> Login </a>
+                              <a *ngIf="!isLogin()" routerLink="/register" routerLinkActive="active" class="nav-item links-hover py-2 border-bottom  nav-link text-dark"><i class="fas fa-user-plus"></i>Register</a>
+                              <a *ngIf="isLogin()" routerLink="/provider-profile" routerLinkActive="active" class="nav-item links-hover py-2 border-bottom nav-link text-dark">Provider profile</a>
+                              <a *ngIf="isLogin()"routerLink="/edit-provider-profile" routerLinkActive="active" class="nav-item links-hover py-2 border-bottom nav-link text-dark">Edit provider profile</a>
+                              <a *ngIf="isLogin()" routerLink="/user-profile" routerLinkActive="active" class="nav-item links-hover py-2 border-bottom nav-link text-dark">User profile</a>
+                              <a *ngIf="isLogin()" routerLink="/edit-user-profile" routerLinkActive="active" class="nav-item links-hover py-2 border-bottom nav-link text-dark">Edit user profile</a>
+                              <a *ngIf="isLogin()" routerLink="/change-password" routerLinkActive="active"  class="nav-item links-hover py-2 border-bottom  nav-link text-dark"><i class="fas fa-sign-out"></i> Change Password</a>
+                              <a *ngIf="isLogin()" (click)="logout()" class="nav-item links-hover py-2  nav-link text-dark"><i class="fas fa-sign-out"></i> Logout</a>
                           </div>
                       </div>
                         <a routerLink="/Favorites" class="btn px-0 position-relative mr-3">

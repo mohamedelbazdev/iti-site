@@ -32,9 +32,9 @@
                     </div>
                     <div class="d-flex col-8">
                         <label style="width: auto;">About the work required</label>
-                        <textarea class="w-100" name="" id="" placeholder="Details"></textarea>
+                        <textarea class="form-control w-100" formControlName="description" name="" id="" placeholder="Details"></textarea>
                     </div>
-                    <button (click)="createBooking()" class="btn btn-primary mt-3 w-25"><i class="fa fa-address-card  mr-1"></i>Book</button>
+                    <button (click)="createBooking()" class="btn bg-primary text-white mt-3 w-25"><i class="fa fa-address-card text-white  mr-1"></i>Book</button>
                 </div>
 
             </div>
@@ -43,7 +43,7 @@
     <div class="row px-xl-5">
         <div class="col">
             <div class="bg-light p-30">
-                <div class="nav mb-4">
+                <div class="mb-4">
                     <h3 class="text-dark">Reviews ({{reviews.length}})</h3>
 
                     <div class="row">
@@ -53,13 +53,6 @@
                                 <img src="assets/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                                 <div class="media-body">
                                     <h6 class="fw-bold text-capitalize">{{review['user']['name']}}<small> - <i>{{review['created_at'] | date :'medium'}}</i></small></h6>
-                                    <!-- <div class="text-primary mb-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <i class="far fa-star"></i>
-                                    </div> -->
                                     <ngb-rating class="fs-2 text-warning" [rate]="review['rate']" [readonly] = true [max]="5"></ngb-rating>
                                     <p>{{review['description']}}</p>
                                 </div>
@@ -69,14 +62,6 @@
                             <h4 class="mb-4">Leave a review</h4>
                             <small>Your email address will not be published. Required fields are marked *</small>
                             <div class="d-flex my-3">
-                                <!-- <p class="mb-0 mr-2">Your Rating * :</p>
-                                <div class="text-primary">
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div> -->
                                 <ngb-rating class="fs-2 text-warning" [(rate)]="currentRate" [max]="5"></ngb-rating>
                                 <hr>
                                 <pre class="fs-4 mx-3 mt-2">Rate: <b>{{currentRate}}</b></pre>
@@ -87,7 +72,7 @@
                                     <textarea formControlName="description" id="message" cols="30" rows="5" class="form-control"></textarea>
                                 </div>
                                 <div class="form-group mb-0">
-                                    <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
+                                    <input type="submit" value="Leave Your Review" class="btn bg-primary text-white px-3">
                                 </div>
                             </form>
                         </div>

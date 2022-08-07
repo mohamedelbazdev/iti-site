@@ -33,6 +33,7 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EditProviderProfileComponent,
     ProviderProfileComponent,
     UserProfileComponent,
+    ChangePasswordComponent,
   ],
 
   imports: [

@@ -19,29 +19,31 @@ import { ProviderProfileComponent } from './pages/provider-profile/provider-prof
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { GuestGuard } from "./guards/guest.guard";
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'checkout', component: CheckoutComponent,canActivate:[AuthGuard] },
-  { path: 'order', component: OrderComponent ,canActivate:[AuthGuard] }, // canActivate:[AuthGuard]
+  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
+  { path: 'order', component: OrderComponent, canActivate: [AuthGuard] }, // canActivate:[AuthGuard]
   { path: 'login', component: LoginComponent, canActivate: [GuestGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [GuestGuard] },
   { path: 'contact', component: ContactUsComponent },
+  { path: 'change-password', component: ChangePasswordComponent },
 
 
 
   { path: 'providers', component: ProvidersComponent },
   { path: 'categories', component: CategoriesComponent },
-  { path: 'Favorites', component: FavoriteComponent ,canActivate:[AuthGuard] },
-  { path: 'provider-details/:id', component: ProviderDetailsComponent,canActivate:[AuthGuard] },
-  { path: 'provider-order', component: ProviderOrderComponent,canActivate:[AuthGuard] },
-  { path: 'edit-user-profile', component: EditUserProfileComponent,canActivate:[AuthGuard] },
-  { path: 'edit-provider-profile', component: EditProviderProfileComponent,canActivate:[AuthGuard] },
-  { path: 'provider-profile', component: ProviderProfileComponent,canActivate:[AuthGuard] },
-  { path: 'user-profile', component: UserProfileComponent,canActivate:[AuthGuard] },
-  { path: 'chat', component: ChatComponent,canActivate:[AuthGuard] },
+  { path: 'Favorites', component: FavoriteComponent, canActivate: [AuthGuard] },
+  { path: 'provider-details/:id', component: ProviderDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'provider-order', component: ProviderOrderComponent, canActivate: [AuthGuard] },
+  { path: 'edit-user-profile', component: EditUserProfileComponent, canActivate: [AuthGuard] },
+  { path: 'edit-provider-profile', component: EditProviderProfileComponent, canActivate: [AuthGuard] },
+  { path: 'provider-profile', component: ProviderProfileComponent, canActivate: [AuthGuard] },
+  { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuard] },
+  { path: 'chat', component: ChatComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent },
 
 ];

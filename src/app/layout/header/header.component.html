@@ -46,15 +46,11 @@
                     <a routerLink="/checkout" routerLinkActive="active" class="nav-item border-b nav-link">Checkout</a>
                     <a routerLink="/providers" routerLinkActive="active" class="nav-item border-b nav-link">Providers</a>
                     <a routerLink="/categories" routerLinkActive="active" class="nav-item border-b nav-link"> Categories</a>
-                    <div class="nav-item border-b dropdown">
+                    <!-- <div class="nav-item border-b dropdown">
                       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dashboard</a>
                       <div class="dropdown-menu rounded-0 border-0 m-0 mt-1">
-                        <a routerLink="/user-profile" routerLinkActive="active" class="nav-item py-2 border-bottom nav-link text-dark">User profile</a>
-                        <a routerLink="/edit-user-profile" routerLinkActive="active" class="nav-item py-2 border-bottom nav-link text-dark">Edit user profile</a>
-                        <a routerLink="/provider-profile" routerLinkActive="active" class="nav-item py-2 border-bottom nav-link text-dark">Provider profile</a>
-                        <a routerLink="/edit-provider-profile" routerLinkActive="active" class="nav-item py-2  nav-link text-dark">Edit provider profile</a>
                       </div>
-                    </div>
+                    </div> -->
                     <a routerLink="/contact" routerLinkActive="active" class="nav-item border-b nav-link">Contact us</a>
 
 
@@ -76,6 +72,10 @@
                               <a *ngIf="!isLogin()" routerLink="/register" routerLinkActive="active" class="nav-item py-2  nav-link text-dark"><i class="fas fa-user-plus"></i>Register</a>
                               <a *ngIf="isLogin()" (click)="logout()" class="nav-item py-2  nav-link text-dark"><i class="fas fa-sign-out"></i> Logout</a>
                               <a *ngIf="isLogin()" routerLink="/change-password" routerLinkActive="active"  class="nav-item py-2  nav-link text-dark"><i class="fas fa-sign-out"></i> Change Password</a>
+                              <a routerLink="/user-profile" routerLinkActive="active" class="nav-item py-2 border-bottom nav-link text-dark">User profile</a>
+                              <a routerLink="/edit-user-profile" routerLinkActive="active" class="nav-item py-2 border-bottom nav-link text-dark">Edit user profile</a>
+                              <a routerLink="/provider-profile" routerLinkActive="active" class="nav-item py-2 border-bottom nav-link text-dark">Provider profile</a>
+                              <a routerLink="/edit-provider-profile" routerLinkActive="active" class="nav-item py-2  nav-link text-dark">Edit provider profile</a>
                           </div>
                       </div>
                         <a routerLink="/Favorites" class="btn px-0 position-relative mr-3">

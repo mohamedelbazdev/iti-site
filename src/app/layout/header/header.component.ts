@@ -36,7 +36,6 @@ export class HeaderComponent {
         if (this.loginForm.valid) {
             this.auth.loginUser(this.loginForm.value).subscribe((res: any) => {
                 this.auth.setToken(res.token)
-                console.log(res.data.name);
                 this.router.navigateByUrl('/')
             })
         }

@@ -13,6 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent {
     loginForm: FormGroup;
     submitted = false;
+    userName: string = "USER *";
 
     constructor
         (
@@ -44,6 +45,7 @@ export class LoginComponent {
         if (this.loginForm.valid) {
             this.auth.loginUser(this._v()).subscribe(res => {
                 console.log(res)
+                this.userName = res.user.name
                 this.auth.setToken(res.token)
                 this.auth.setUser(res.data)
                 // this.router.navigate('/');

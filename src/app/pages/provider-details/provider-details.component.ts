@@ -5,7 +5,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../../services/auth.service";
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { RateService } from 'src/app/services/rate.service';
-import {OrderService} from "../../services/order.service";
+import { OrderService } from "../../services/order.service";
 
 @Component({
   selector: 'app-provider-details',
@@ -22,17 +22,17 @@ export class ProviderDetailsComponent implements OnInit {
   providerObject: any = {}
   rateObject: any = {}
   id: any;
-  hours:number = 1
+  hours: number = 1
 
   reviews = []
 
   constructor(
-      private provider: ProviderService,
-      private route: ActivatedRoute,
-      private auth: AuthService,
-      private rate: RateService,
-      private order: OrderService,
-    ) {
+    private provider: ProviderService,
+    private route: ActivatedRoute,
+    private auth: AuthService,
+    private rate: RateService,
+    private order: OrderService,
+  ) {
     this.rateForm = new FormGroup({
       description: new FormControl('', [Validators.required])
     });
@@ -70,14 +70,19 @@ export class ProviderDetailsComponent implements OnInit {
     })
   }
 
-  createBooking(){
+  createBooking() {
     let data = {
       // user_id: this.auth.getUser()?.id,
       provider_id: this.route.snapshot.params['id'],
       // sender_id: this.auth.getUser()?.id,
       received_id: this.route.snapshot.params['id'],
       hours: this.orderForm.controls['hours'].value,
+<<<<<<< HEAD
       description: this.orderForm.controls['description'].value,
+=======
+      description: this.orderForm.controls['description'].value, // eng.mohamed
+      // description: 'this description',
+>>>>>>> 7126a51ee48e2bb8ef2a3f6d391bc8f06eedbf03
       lat: '1.2555',  // eng. aya
       lng: '0.2555',  // eng. aya
       executed_at: '2022-2-12'

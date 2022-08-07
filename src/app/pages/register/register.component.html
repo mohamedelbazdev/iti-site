@@ -9,67 +9,72 @@
         <div class="">
           <h2 class="text-center my-5 " style="color: white;">Register</h2>
           <form [formGroup]="registerForm" (ngSubmit)="register()" novalidate class="form-group" >
-
-            <label class="form-label mt-3">Name : </label>
-            <input type="text" name="username" id="username" class=" form-control" formControlName="name" placeholder="Enter Name">
-            <div class="alert alert-danger" role="alert"
-                *ngIf="(registerFormControl['name'].touched || submitted) && registerFormControl['name'].errors?.['required']">
-                Name is required
-          </div>
-
-
-            <label class="form-label mt-3">Email address : </label>
-            <input type="email" class=" form-control"  formControlName="email" id="email" placeholder="Enter email" >
-            <div class="alert alert-danger" role="alert"
-                *ngIf="(registerFormControl['email'].touched || submitted) && registerFormControl['email'].errors?.['required']">
-                Email is required
-            </div>
-            <div class="alert alert-danger" role="alert"
-                *ngIf="registerFormControl['email'].touched && registerFormControl['email'].errors?.['email']">
-                Enter a valid email address
+            <div class="form-group">
+              <label class="form-label mt-3">Name : </label>
+              <input type="text" name="username" id="username" class=" form-control" formControlName="name" placeholder="Enter Name">
+              <span class="text-danger" role="alert"
+                  *ngIf="(registerFormControl['name'].touched || submitted) && registerFormControl['name'].errors?.['required']">
+                  Name is required
+              </span>
             </div>
 
-
-
-            <label class="form-label mt-3">Password : </label>
-            <input type="password" name="password" id="password" class=" form-control" formControlName="password" placeholder="Password">
-            <div class="alert alert-danger" role="alert"
-                *ngIf="(registerFormControl['password.touched'] || submitted) && registerFormControl['password.touched'].errors?.['required']">
-                Password is required
-            </div>
-            <div class="alert alert-danger" role="alert"
-                *ngIf="registerFormControl['password.touched'].touched && registerFormControl['password.touched'].errors?.['invalidPassword']">
-                Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
-                letter and 1 number
-            </div>
-
-            <label class="form-label mt-3">Repeat Password : </label>
-            <input type="password" name="confirmedPassword" id="confirmedPassword" class=" form-control" formControlName="confirmedPassword" placeholder="Password">
-            <div class="alert alert-danger" role="alert"
-                *ngIf="(registerFormControl['confirmPassword'].touched || submitted)&& registerFormControl['confirmPassword'].errors?.['required']">
-                Confirm Password is required
-            </div>
-            <div class="alert alert-danger" role="alert"
-                *ngIf="registerFormControl['confirmPassword'].touched && registerFormControl['confirmPassword'].errors?.['passwordMismatch']">
-                Passwords doesnot match
+            <div class="form-group">
+              <label class="form-label mt-3">Email address : </label>
+              <input type="email" class=" form-control"  formControlName="email" id="email" placeholder="Enter email" >
+              <span class="text-danger" role="alert"
+                  *ngIf="(registerFormControl['email'].touched || submitted) && registerFormControl['email'].errors?.['required']">
+                  Email is required
+              </span>
+              <span class="text-danger" role="alert"
+                  *ngIf="registerFormControl['email'].touched && registerFormControl['email'].errors?.['email']">
+                  Enter a valid email address
+              </span>
             </div>
 
 
-
-            <label class="form-label mt-3" for="phone">Enter your phone number:</label>
-            <input type="tel" id="phone" formControlName="phone"  class=" form-control" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Phone">
-            <div class="alert alert-danger" role="alert"
-                *ngIf="(registerFormControl['phone'].touched || submitted)&& registerFormControl['phone'].errors?.['required']">
-                Phone is required
+            <div class="form-group">
+              <label class="form-label mt-3">Password : </label>
+              <input type="password" name="password" id="password" class=" form-control" formControlName="password" placeholder="Password">
+              <span class="text-danger" role="alert"
+                  *ngIf="(registerFormControl['password.touched'] || submitted) && registerFormControl['password.touched'].errors?.['required']">
+                  Password is required
+              </span>
+              <span class="text-danger" role="alert"
+                  *ngIf="registerFormControl['password.touched'].touched && registerFormControl['password.touched'].errors?.['invalidPassword']">
+                  Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+                  letter and 1 number
+              </span>
             </div>
 
+            <div class="form-group">
+              <label class="form-label mt-3">Repeat Password : </label>
+              <input type="password" name="confirmedPassword" id="confirmedPassword" class=" form-control" formControlName="confirmedPassword" placeholder="Password">
+              <span class="text-danger" role="alert"
+                  *ngIf="(registerFormControl['confirmPassword'].touched || submitted)&& registerFormControl['confirmPassword'].errors?.['required']">
+                  Confirm Password is required
+              </span>
+              <span class="text-danger" role="alert"
+                  *ngIf="registerFormControl['confirmPassword'].touched && registerFormControl['confirmPassword'].errors?.['passwordMismatch']">
+                  Passwords doesnot match
+              </span>
+            </div>
 
+            <div class="form-group">
+              <label class="form-label mt-3" for="phone">Enter your phone number:</label>
+              <input type="tel" id="phone" formControlName="phone"  class=" form-control" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Phone">
+              <span class="text-danger" role="alert"
+                  *ngIf="(registerFormControl['phone'].touched || submitted)&& registerFormControl['phone'].errors?.['required']">
+                  Phone is required
+              </span>
+            </div>
 
-            <label class="form-label mt-3">Enter Your Image</label>
-            <input type="file"  formControlName="Image" id="image" name="image" class=" form-control"  placeholder="your Image">
-            <div class="alert alert-danger" role="alert"
-                *ngIf="(registerFormControl['Image'].touched || submitted)&& registerFormControl['Image'].errors?.['required']">
-                Image is required
+            <div class="form-group">
+              <label class="form-label mt-3">Enter Your Image</label>
+              <input type="file"  formControlName="Image" id="image" name="image" class=" form-control"  placeholder="your Image">
+              <span class="text-danger" role="alert"
+                  *ngIf="(registerFormControl['Image'].touched || submitted)&& registerFormControl['Image'].errors?.['required']">
+                  Image is required
+              </span>
             </div>
 
 

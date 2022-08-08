@@ -22,6 +22,7 @@ export class ProviderComponent implements OnInit {
 
     this.provider.getProviders().subscribe(res => {
       this.providers = res.data
+
     })
   }
 

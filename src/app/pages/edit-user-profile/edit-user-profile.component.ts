@@ -80,6 +80,9 @@ export class EditUserProfileComponent implements OnInit {
         // alert('done')
         this.toastr.success('Edit done successfully', ':)');
       })
+    // else {
+    //   this.toastr.error('There is an error, please check the data', ':(');
+    // }
   }
 
 }

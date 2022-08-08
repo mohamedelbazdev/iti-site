@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ProfileService} from "../../services/profile.service";
+import { ProfileService } from "../../services/profile.service";
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-user-profile',
@@ -42,7 +43,7 @@ export class EditUserProfileComponent implements OnInit {
     }
   }
 
-  constructor(private profile:ProfileService) {
+  constructor(private profile: ProfileService, private toastr: ToastrService) {
     this.profileForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -63,21 +64,22 @@ export class EditUserProfileComponent implements OnInit {
         lat: res.data.lat,
         lng: res.data.lng,
       });
-      this.markerPosition.lat =  res.data.lat
-      this.markerPosition.lng =  res.data.lng
-      this.center.lat =  res.data.lat
-      this.center.lng =  res.data.lng
+      this.markerPosition.lat = res.data.lat
+      this.markerPosition.lng = res.data.lng
+      this.center.lat = res.data.lat
+      this.center.lng = res.data.lng
       this.myProfile = res.data
       // this.lat = this.myProfile.lat
       // this.lat = this.myProfile.lng
     })
   }
 
-  updateProfile(){
+  updateProfile() {
     if (this.profileForm.valid)
-    this.profile.updateProfile(this.profileForm.value).subscribe(() => {
-      alert('done')
-    })
+      this.profile.updateProfile(this.profileForm.value).subscribe(() => {
+        // alert('done')
+        this.toastr.success('Edit done successfully', ':)');
+      })
   }
 
 }

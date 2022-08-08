@@ -13,6 +13,7 @@ export class HeaderComponent {
     @Output() closeMenu: EventEmitter<void> = new EventEmitter<void>();
 
     loginForm: FormGroup;
+    userName: string = "guest";
 
     constructor(private auth: AuthService, private router: Router) {
         this.loginForm = new FormGroup({
@@ -20,8 +21,6 @@ export class HeaderComponent {
             password: new FormControl('', [Validators.required])
         });
     }
-
-
 
 
     logout() {
@@ -35,6 +34,7 @@ export class HeaderComponent {
     onSubmit() {
         if (this.loginForm.valid) {
             this.auth.loginUser(this.loginForm.value).subscribe((res: any) => {
+                console.log(res);
                 this.auth.setToken(res.token)
                 this.router.navigateByUrl('/')
             })

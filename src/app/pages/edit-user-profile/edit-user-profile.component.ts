@@ -74,6 +74,7 @@ export class EditUserProfileComponent implements OnInit {
   }
 
   updateProfile(){
+    if (this.profileForm.valid)
     this.profile.updateProfile(this.profileForm.value).subscribe(() => {
       alert('done')
     })

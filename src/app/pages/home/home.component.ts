@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/services/home.service';
-import {FavoriteService} from "../../services/favorite.service";
-import {Router} from "@angular/router";
+import { FavoriteService } from "../../services/favorite.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
     this.home.getProviders().subscribe(res => {
       this.providers = res.data
     })
+
   }
 
 }

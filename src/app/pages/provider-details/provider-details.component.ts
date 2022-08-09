@@ -69,7 +69,6 @@ export class ProviderDetailsComponent implements OnInit {
       description: this.rateForm.controls['description'].value
     }
     this.provider.setRate(data).subscribe(() => {
-      // alert('send rating done....')
       this.toastr.success('send rating done', ':)');
     })
   }

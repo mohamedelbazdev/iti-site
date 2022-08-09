@@ -13,7 +13,15 @@ export class AuthService {
   public _registerUrl = "http://127.0.0.1:8000/api/providers/register";
   public _loginUrl = "http://127.0.0.1:8000/api/auth/login";
 
+  public userCountUrl = "http://127.0.0.1:8000/api/users/count";
+
   constructor(private http: HttpClient, private router: Router, private toastr: ToastrService,) { }
+
+
+  getUSerCount() {
+    return this.http.get<any>(this.userCountUrl)
+  }
+
 
   loginUser(user: any) {
     return this.http.post<any>(this._loginUrl, user)
@@ -32,7 +40,7 @@ export class AuthService {
   }
 
   getUser() {
-    return JSON.parse(localStorage.getItem('user') ?? '')
+    return JSON.parse(localStorage.getItem('user') ?? 'dfsfsdf')
   }
 
   logoutUser() {

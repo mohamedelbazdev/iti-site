@@ -20,6 +20,7 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 import { GuestGuard } from "./guards/guest.guard";
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { ConfirmOrderComponent } from './pages/confirm-order/confirm-order.component';
 
 
 
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent, canActivate: [GuestGuard] },
   { path: 'contact', component: ContactUsComponent,canActivate: [AuthGuard]  },
   { path: 'change-password', component: ChangePasswordComponent },
+  { path: 'Confirm-Order', component: ConfirmOrderComponent,},
 
 
 

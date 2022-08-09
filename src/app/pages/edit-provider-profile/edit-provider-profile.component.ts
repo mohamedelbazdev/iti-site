@@ -26,7 +26,7 @@ export class EditProviderProfileComponent implements OnInit {
       // lng: new FormControl(2.3666, [Validators.required]),
     },
     {
-      validators: [Validation.match('newpassword', 'confirmedPassword')]
+      validators: [Validation.match('newpassword', 'confirmednewPassword')]
     }
     );
   }

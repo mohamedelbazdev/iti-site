@@ -1,67 +1,102 @@
-  <div class="container-fluid">
-    <div class="position-relative mb-5">
-      <h3 class="section-title">Provider Order</h3>
-    </div>
-    <div class="row px-xl-5">
-      <div class="col table-responsive mb-5">
-        <table class="table table-light table-borderless table-hover text-center mb-0">
-                <thead class="thead-dark">
-                  <tr class="wishlist__row">
-                      <th class="wishlist__column wishlist__column--image">
-                          Image
-                      </th>
+  <!-- Cart Start -->
+<div class="container-fluid"  >
 
-                      <th class="wishlist__column wishlist__column--product">
-                        User
-                      </th>
-                      <th class="wishlist__column wishlist__column--product">
-                        Location
-                       </th>
-                      <th class="wishlist__column wishlist__column--product">
-                        Action
-                      </th>
-                    
-                  </tr>
-              </thead>
-              <tbody class="align-middle bg-dark">
-                <tr *ngFor="let order of featuredorders">
-                        <td class="wishlist__column wishlist__column--image " style="width: 200px;">
-                          <div class="product-image"  style="width: 200px;">
-                                  <img
-                                      class="product-image__img w-100"
-                                      src="{{ order.image }}"
-                                      alt=""
-                                  />
-                          </div>
-                      </td>
+  <div class="position-relative mb-5">
+    <h3 class="section-title">provider order</h3>
+  </div>
+  <div class="row px-xl-5">
+    <div class="col table-responsive mb-5">
+      <table class="table table-light table-borderless table-hover text-center mb-0">
+        <thead class="thead-dark">
+          <tr class="wishlist__row">
+              <th class="wishlist__column wishlist__column--image">
+                  Image
+              </th>
+              <th class="wishlist__column wishlist__column--product">
+                User name
+              </th>
+              <th class="wishlist__column wishlist__column--product">
+                Required hours
+               </th>
+              <th class="wishlist__column wishlist__column--product">
+                total amount
+              </th>
+              <th class="wishlist__column wishlist__column--tocart">description</th>
+              <th class="wishlist__column wishlist__column--tocart">Date</th>
+              <th class="wishlist__column wishlist__column--product">
+                Action
+              </th>
+          </tr>
+      </thead>
+        <tbody class="align-middle bg-dark">
+        <tr  *ngFor="let order of featuredorders">
 
-
-
-
-
-
-
-                        <td class="wishlist__column wishlist__column--product pt-5">
-                          <div class="wishlist__product-rating-legend pt-5">
-                              {{ order.name }}</div
-                          >
-                      </td>
-                      <td class="wishlist__column wishlist__column--product pt-5">
-                        <div class="wishlist__product-rating-legend pt-5">
-                          {{ order.lat }}{{ order.lng }}</div
-                        >
-                    </td>
-                    <td class="wishlist__column wishlist__column--product pt-5">
-                       <button class="btn btn-success me-1">Accept</button>
-                       <button class="btn btn-danger">Refuse</button>
-                      </td>
-
-
+              <td class="wishlist__column wishlist__column--image " style="width: 200px;">
+                <div class="product-image"  style="width: 200px;">
+                        <img
+                            class="product-image__img w-100"
+                            src="{{ order.image }}"
+                            alt=""
+                        />
+                </div>
+            </td>
+                <td class="  ">
+                  <div
+                      class="text-capitalize fw-bold"
+                      >{{ order.name }}</div
+                  > </td>
+                  <td class="  ">
+                      <div class="bg-info p-2 w-25 m-auto text-white">
+                        {{ order.hours }}
+                      </div>
+              </td>
+                <td class="  ">
+                  <div class="bg-success p-2 w-25 m-auto text-white">
+                      {{ order.total_amount }}</div>
+              </td>
+              <td class="   overflow-auto"
+              style="max-width: 150px; ">
+                <div class=""  >
+                  {{ order.description }}</div>
+            </td>
+          <td class=" ">
+            <div class="">
+              {{ order.created_at | date :'medium' }}</div>
+        </td>
+              <td class="wishlist__column wishlist__column--product pt-5">
+                <button class="btn btn-success me-1">Accept</button>
+                <button class="btn btn-danger">Refuse</button>
+               </td>
+              </tr>
                 </tbody>
             </table>
         </div>
+      </div>
+
     </div>
-</div>
+
+<!-- Cart End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

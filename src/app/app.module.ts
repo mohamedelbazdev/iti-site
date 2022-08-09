@@ -35,6 +35,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactUsComponent } from "./pages/contact-us/contact-us.component";
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { ConfirmOrderComponent } from './pages/confirm-order/confirm-order.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
     UserProfileComponent,
     ContactUsComponent,
     ChangePasswordComponent,
+    ConfirmOrderComponent,
   ],
 
   imports: [

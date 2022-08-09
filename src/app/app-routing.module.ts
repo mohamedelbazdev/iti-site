@@ -34,8 +34,8 @@ const routes: Routes = [
 
 
 
-  { path: 'providers', component: ProvidersComponent, canActivate: [GuestGuard] },
-  { path: 'categories', component: CategoriesComponent,canActivate: [GuestGuard] },
+  { path: 'providers', component: ProvidersComponent, canActivate: [AuthGuard] },
+  { path: 'categories', component: CategoriesComponent,canActivate: [AuthGuard] },
   { path: 'Favorites', component: FavoriteComponent, canActivate: [AuthGuard] },
   { path: 'provider-details/:id', component: ProviderDetailsComponent, canActivate: [AuthGuard] },
   { path: 'provider-order', component: ProviderOrderComponent, canActivate: [AuthGuard] },

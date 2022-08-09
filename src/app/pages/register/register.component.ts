@@ -16,8 +16,6 @@ export class RegisterComponent {
   registerForm: FormGroup;
   submitted = false;
 
-
-
   // start google map
   center: google.maps.LatLngLiteral = {
     lat: 24,

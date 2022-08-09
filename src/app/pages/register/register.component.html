@@ -55,8 +55,8 @@
                   Confirm Password is required
               </span>
               <span class="text-danger" role="alert"
-                  *ngIf="registerFormControl['confirmedPassword'].touched && registerFormControl['confirmedPassword'].errors?.['passwordMismatch']">
-                  Passwords doesnot match
+                  *ngIf="registerFormControl['confirmedPassword'].touched && registerFormControl['confirmedPassword'].errors?.['matching']">
+                  Confirm Password does not match
               </span>
             </div>
 

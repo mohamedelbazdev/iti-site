@@ -9,11 +9,13 @@ import { AuthService } from 'src/app/services/auth.service';
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
     @Output() closeMenu: EventEmitter<void> = new EventEmitter<void>();
 
     loginForm: FormGroup;
-    userName: string = "guest";
+    userName: any = 'Guest'
+    favCount: any = 0
+    orderCount: any = "0"
 
     constructor(private auth: AuthService, private router: Router) {
         this.loginForm = new FormGroup({
@@ -21,20 +23,29 @@ export class HeaderComponent {
             password: new FormControl('', [Validators.required])
         });
     }
+    ngOnInit(): void {
+    }
 
 
     logout() {
         this.auth.logoutUser()
+        // this.userName = "Guest"
+        // this.favCount = 0
+        // this.orderCount = "0"
     }
 
     isLogin(): boolean {
+        this.userName = this.auth.getUser().name
+        this.favCount = this.auth.getUser().favourite_count
+        this.orderCount = this.auth.getUser().order_count
+        console.log(this.auth.getUser());
+
         return this.auth.loggedIn()
     }
 
     onSubmit() {
         if (this.loginForm.valid) {
             this.auth.loginUser(this.loginForm.value).subscribe((res: any) => {
-                console.log(res);
                 this.auth.setToken(res.token)
                 this.router.navigateByUrl('/')
             })

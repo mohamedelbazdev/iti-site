@@ -21,7 +21,7 @@ export class ChangePasswordComponent implements OnInit {
 
      },
      {
-      validators: [Validation.match(' newPassword', ' repeatnewPassword')]
+      validators: [Validation.match('0newPassword', 'repeatnewPassword')]
     });
 
    }

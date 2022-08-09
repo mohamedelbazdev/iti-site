@@ -11,19 +11,10 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EditProviderProfileComponent implements OnInit {
 
-
   editProviderForm: FormGroup;
   submitted = false;
 
-
-
-
-
-  constructor
-    (
-
-      private toastr: ToastrService
-    ) {
+  constructor(private toastr: ToastrService) {
     this.editProviderForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),

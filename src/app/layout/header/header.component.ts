@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.css']
 })
+
 export class HeaderComponent implements OnInit {
     @Output() closeMenu: EventEmitter<void> = new EventEmitter<void>();
 

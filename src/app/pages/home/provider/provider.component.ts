@@ -19,11 +19,9 @@ export class ProviderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
-    this.provider.getProviders().subscribe(res => {
-      this.providers = res.data
-
-    })
+    // this.provider.getProviders().subscribe(res => {
+    //   this.providers = res.data
+    // })
   }
 
   createFav(providerId: number) {

@@ -11,19 +11,22 @@ export class ProviderOrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.featuredorders = [{
-      "id": 2,
-      "name": "provider",
-      "image":  "assets/img/product-1.jpg",
-      "email": "provider@provider.com",
-      "mobile": "01553524888",
-      "email_verified_at": null,
-      "lat": null,
-      "lng": null,
-      "status": 1,
-      "role_id": 2,
-      "created_at": null,
-      "updated_at": null,
-      "providers": []
+                "image":'assets/img/cat-1.jpg',
+                  "name":'ali',
+                  "user_id": 3,
+                  "provider_id": 5,
+                  "sender_id": 3,
+                  "received_id": 5,
+                  "description": "kldfsdfgfffffffffffffffffffffffffffffffffffgksgiokkjdfjsdkmj",
+                  "amount": 8,
+                  "total_amount": 24,
+                  "hours": 3,
+                  "lat": 30.071265,
+                  "lng": 30.071265,
+                  "executed_at": "2020-4-4",
+                  "updated_at": "2022-01-05T16:33:23.000000Z",
+                  "created_at": "2022-01-05T16:33:23.000000Z",
+                  "id": 2
   }]
 }
 }

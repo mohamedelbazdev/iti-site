@@ -18,7 +18,6 @@ export class ChangePasswordComponent implements OnInit {
       password: new FormControl('', [Validators.required]),
       newPassword: new FormControl('', [Validators.required]),
       repeatnewPassword: new FormControl('', [Validators.required]),
-
      },
      {
       validators: [Validation.match('newPassword', 'repeatnewPassword')]

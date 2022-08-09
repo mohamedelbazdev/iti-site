@@ -24,6 +24,9 @@ export class HeaderComponent implements OnInit {
         });
     }
     ngOnInit(): void {
+        this.userName = this.auth.getUser().name
+        this.favCount = this.auth.getUser().favourite_count
+        this.orderCount = this.auth.getUser().order_count
     }
 
 
@@ -35,11 +38,6 @@ export class HeaderComponent implements OnInit {
     }
 
     isLogin(): boolean {
-        this.userName = this.auth.getUser().name
-        this.favCount = this.auth.getUser().favourite_count
-        this.orderCount = this.auth.getUser().order_count
-        console.log(this.auth.getUser());
-
         return this.auth.loggedIn()
     }
 

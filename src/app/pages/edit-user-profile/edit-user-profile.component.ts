@@ -55,7 +55,8 @@ export class EditUserProfileComponent implements OnInit {
 
       lat: new FormControl('', [Validators.required]),
       lng: new FormControl('', [Validators.required]),
-    });
+    }
+    );
   }
 
 

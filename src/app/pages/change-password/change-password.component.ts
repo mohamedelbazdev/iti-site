@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import Validation from 'src/app/utils/validation';
 
 @Component({
   selector: 'app-change-password',
@@ -18,11 +19,11 @@ export class ChangePasswordComponent implements OnInit {
       newPassword: new FormControl('', [Validators.required]),
       repeatnewPassword: new FormControl('', [Validators.required]),
 
-     }
-    // {
-    //   validators:this.mustmatch('newPassword','repeatnewPassword')
-    // }
-    )
+     },
+     {
+      validators: [Validation.match(' newPassword', ' repeatnewPassword')]
+    });
+
    }
 
    get ChangePasswordFormControl() {

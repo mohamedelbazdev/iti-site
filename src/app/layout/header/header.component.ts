@@ -13,9 +13,7 @@ export class HeaderComponent implements OnInit {
     @Output() closeMenu: EventEmitter<void> = new EventEmitter<void>();
 
     loginForm: FormGroup;
-    userName: any = 'Guest'
-    favCount: any = 0
-    orderCount: any = "0"
+    myUserCount: any = [{ "name": "user1", "order_count": 0, "favourite_count": 0 }]
 
     constructor(private auth: AuthService, private router: Router) {
         this.loginForm = new FormGroup({
@@ -24,22 +22,19 @@ export class HeaderComponent implements OnInit {
         });
     }
     ngOnInit(): void {
-        this.userName = this.auth.getUser().name
-        this.favCount = this.auth.getUser().favourite_count
-        this.orderCount = this.auth.getUser().order_count
+        this.auth.getUSerCount().subscribe((res) => {
+            this.myUserCount = res.data
+        });
     }
-
 
     logout() {
         this.auth.logoutUser()
-        // this.userName = "Guest"
-        // this.favCount = 0
-        // this.orderCount = "0"
     }
 
     isLogin(): boolean {
         return this.auth.loggedIn()
     }
+
 
     onSubmit() {
         if (this.loginForm.valid) {

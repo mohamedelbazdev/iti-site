@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
+import Validation from '../../utils/validation';
 
 @Component({
   selector: 'app-register',
@@ -14,8 +15,6 @@ export class RegisterComponent {
 
   registerForm: FormGroup;
   submitted = false;
-
-
 
   // start google map
   center: google.maps.LatLngLiteral = {
@@ -72,6 +71,9 @@ export class RegisterComponent {
       image: new FormControl('', [Validators.required]),
       lat: new FormControl(1.2558, [Validators.required]),
       lng: new FormControl(2.3666, [Validators.required]),
+    },
+      {
+      validators: [Validation.match('password', 'confirmedPassword')]
     });
   }
 

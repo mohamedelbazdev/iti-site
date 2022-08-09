@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import Validation from 'src/app/utils/validation';
 
 @Component({
   selector: 'app-change-password',
@@ -17,13 +18,35 @@ export class ChangePasswordComponent implements OnInit {
       password: new FormControl('', [Validators.required]),
       newPassword: new FormControl('', [Validators.required]),
       repeatnewPassword: new FormControl('', [Validators.required]),
+     },
+     {
+      validators: [Validation.match('newPassword', 'repeatnewPassword')]
+    });
 
-    })
    }
 
    get ChangePasswordFormControl() {
     return this.ChangePasswordForm.controls;
   }
+
+
+  // mustmatch(newPassword:any,repeatnewPassword:any) {
+  //   return (formGroup:FormGroup) => {
+  //     const passwordcontrol=formGroup.controls[newPassword];
+  //     const conpasswordcontrol=formGroup.controls[repeatnewPassword];
+
+  //     if(conpasswordcontrol.errors && !conpasswordcontrol.errors['mustmatch'] ){
+  //       return;
+  //     }
+  //     if( passwordcontrol.value!==conpasswordcontrol.value){
+  //       conpasswordcontrol.setErrors({ mustmatch:true});
+  //     }
+  //     else{
+  //       conpasswordcontrol.setErrors(null);
+  //     }
+
+  //   };
+  // }
 
   ngOnInit(): void {
   }

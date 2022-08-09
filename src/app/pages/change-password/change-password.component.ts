@@ -18,12 +18,35 @@ export class ChangePasswordComponent implements OnInit {
       newPassword: new FormControl('', [Validators.required]),
       repeatnewPassword: new FormControl('', [Validators.required]),
 
-    })
+     }
+    // {
+    //   validators:this.mustmatch('newPassword','repeatnewPassword')
+    // }
+    )
    }
 
    get ChangePasswordFormControl() {
     return this.ChangePasswordForm.controls;
   }
+
+
+  // mustmatch(newPassword:any,repeatnewPassword:any) {
+  //   return (formGroup:FormGroup) => {
+  //     const passwordcontrol=formGroup.controls[newPassword];
+  //     const conpasswordcontrol=formGroup.controls[repeatnewPassword];
+
+  //     if(conpasswordcontrol.errors && !conpasswordcontrol.errors['mustmatch'] ){
+  //       return;
+  //     }
+  //     if( passwordcontrol.value!==conpasswordcontrol.value){
+  //       conpasswordcontrol.setErrors({ mustmatch:true});
+  //     }
+  //     else{
+  //       conpasswordcontrol.setErrors(null);
+  //     }
+
+  //   };
+  // }
 
   ngOnInit(): void {
   }

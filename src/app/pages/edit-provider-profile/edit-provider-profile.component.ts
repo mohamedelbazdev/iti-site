@@ -12,19 +12,10 @@ import Validation from 'src/app/utils/validation';
 })
 export class EditProviderProfileComponent implements OnInit {
 
-
   editProviderForm: FormGroup;
   submitted = false;
 
-
-
-
-
-  constructor
-    (
-
-      private toastr: ToastrService
-    ) {
+  constructor(private toastr: ToastrService) {
     this.editProviderForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -35,7 +26,7 @@ export class EditProviderProfileComponent implements OnInit {
       // lng: new FormControl(2.3666, [Validators.required]),
     },
     {
-      validators: [Validation.match('newpassword', 'confirmedPassword')]
+      validators: [Validation.match('newpassword', 'confirmednewPassword')]
     }
     );
   }

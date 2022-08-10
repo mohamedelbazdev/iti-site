@@ -1,7 +1,7 @@
 <!-- Categories Start -->
 <!-- <div
     class="conversation"
-    *ngFor="let cat of featuredcategories"
+    *ngFor="let cat of categories"
 >
     <div class="content">
         <div class="conversationHeader">
@@ -14,7 +14,7 @@
   <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="pr-3">Categories</span></h2>
   <div class="row px-xl-5 pb-3">
       <div class="col-lg-3 col-md-4 col-sm-6 pb-1"  *ngFor="let cat of categories | slice:0:8;" >
-          <a  routerLink="/categories" class="text-decoration-none">
+          <a  routerLink="/category/{{cat.id}}" class="text-decoration-none">
               <div class="cat-item d-flex align-items-center mb-4">
                   <div class="overflow-hidden" style="width: 60%; height: 100%;">
 

@@ -25,6 +25,8 @@ export class HeaderComponent implements OnInit {
     ngOnInit(): void {
         this.auth.getUSerCount().subscribe((res) => {
             this.myUserCount = res.data
+            console.log(this.myUserCount);
+
         });
     }
 

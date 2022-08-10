@@ -38,7 +38,7 @@
 
                 </div>
                 <div style="  direction: rtl; ">
-                      <ng-container class=" pt-5" *ngIf=" providerObject.users.favorite_count === 0; then first else second"></ng-container>
+                      <ng-container class=" pt-5" *ngIf=" providerObject.users.favorite_count === 1; then first else second"></ng-container>
                       <ng-template #first> <a data-toggle="tooltip" data-placement="top" title="Add to favorite" class="" (click)="createFav()" href="javascript:void(0)"><i class="fas fa-heart text-dark fs-1" title="add favorite "></i></a>
                        </ng-template>
                       <ng-template #second> <a data-toggle="tooltip" data-placement="top" title="Add to favorite"class="" (click)="createFav()" href="javascript:void(0)" ><i class="fas fa-heart text-danger fs-1" title="remove favorite"></i></a>

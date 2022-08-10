@@ -87,15 +87,18 @@ export class ProviderDetailsComponent implements OnInit {
       hours: this.orderForm.controls['hours'].value,
       //description: this.orderForm.controls['description'].value,
       description: this.description,
-      lat: '1.2555',  // eng. aya
-      lng: '0.2555',  // eng. aya
+      lat: '1.2555',  // eng. ahmed
+      lng: '0.2555',  // eng. ahmed
       executed_at: '2022-2-12'
 
     }
     this.order.sendOrder(data).subscribe(res => {
       this.reviews = res.data.rate
+
       this.toastr.success('Order has been created successfully', ':');
        this.router.navigateByUrl('/order')
+
+
       console.log(this.rateObject);
     })
   }

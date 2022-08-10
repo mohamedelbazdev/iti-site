@@ -15,11 +15,11 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                   <div class="navbar-nav mr-auto py-0">
                     <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" class="nav-item border-b nav-link">Home</a>
-                    <!-- <a routerLink="/order" routerLinkActive="active"  class="nav-item border-b nav-link">Order</a> -->
-                    <a routerLink="/provider-order" routerLinkActive="active" class="nav-item border-b nav-link">Provider Order</a>
-                    <a routerLink="/chat" routerLinkActive="active" href="/chat" class="nav-item border-b nav-link">Chat</a>
-                    <!-- <a routerLink="/checkout" routerLinkActive="active" class="nav-item border-b nav-link">Checkout</a> -->
-                    <a routerLink="/providers" routerLinkActive="active" class="nav-item border-b nav-link">Providers</a>
+                    <a *ngIf="isLogin() && isuser()" routerLink="/order" routerLinkActive="active"  class="nav-item border-b nav-link">Order</a>
+                    <a *ngIf="isLogin() && isuser()" routerLink="/provider-order" routerLinkActive="active" class="nav-item border-b nav-link">Provider Order</a>
+                    <a *ngIf="isLogin()" routerLink="/chat" routerLinkActive="active" href="/chat" class="nav-item border-b nav-link">Chat</a>
+                    <a *ngIf="isLogin()" routerLink="/checkout" routerLinkActive="active" class="nav-item border-b nav-link">Checkout</a>
+                    <a  *ngIf="!isuser()" routerLink="/providers" routerLinkActive="active" class="nav-item border-b nav-link">Providers</a>
                     <a routerLink="/categories" routerLinkActive="active" class="nav-item border-b nav-link">Categories</a>
                     <!-- <div class="nav-item border-b dropdown">
                       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dashboard</a>
@@ -38,27 +38,29 @@
                         </div> -->
                       </div>
                       <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-                        <span class="px-0 nav-item text-white mr-4">Welcome <span class="text-capitalize text-warning">{{myUserCount.name}}</span></span>
+                        <span *ngIf="isLogin()"  class="px-0 nav-item text-white mr-4">Welcome <span class="text-capitalize text-warning">{{myUserCount.name}}</span></span>
                         <div class="dropdown btn px-0 mr-4">
                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                             <i class="fas fa-user text-white fa-lg"></i>
+                             <i class="fas fa-user text-white fa-lg"></i> Account 
                           </a>
                           <div class="dropdown-menu rounded-0 border-0 p-1 shadow ">
                               <a *ngIf="!isLogin()" routerLink="/login" routerLinkActive="active" class="nav-item links-hover py-2 border-bottom nav-link text-dark"><i class="fas fa-user"></i> Login </a>
                               <a *ngIf="!isLogin()" routerLink="/register" routerLinkActive="active" class="nav-item links-hover py-2 border-bottom  nav-link text-dark"><i class="fas fa-user-plus"></i>Register</a>
-                              <a *ngIf="isLogin()" routerLink="/provider-profile" routerLinkActive="active" class="nav-item links-hover py-2 border-bottom nav-link text-dark">Provider profile</a>
-                              <a *ngIf="isLogin()"routerLink="/edit-provider-profile" routerLinkActive="active" class="nav-item links-hover py-2 border-bottom nav-link text-dark">Edit provider profile</a>
-                              <a *ngIf="isLogin()" routerLink="/user-profile" routerLinkActive="active" class="nav-item links-hover py-2 border-bottom nav-link text-dark">User profile</a>
-                              <a *ngIf="isLogin()" routerLink="/edit-user-profile" routerLinkActive="active" class="nav-item links-hover py-2 border-bottom nav-link text-dark">Edit user profile</a>
+                              <a *ngIf="isLogin() && !isuser() " routerLink="/provider-profile" routerLinkActive="active" class="nav-item links-hover py-2 border-bottom nav-link text-dark">Provider profile</a>
+                              <a *ngIf="isLogin() && !isuser()"routerLink="/edit-provider-profile" routerLinkActive="active" class="nav-item links-hover py-2 border-bottom nav-link text-dark">Edit provider profile</a>
+                              <a *ngIf="isLogin() && isuser()" routerLink="/user-profile" routerLinkActive="active" class="nav-item links-hover py-2 border-bottom nav-link text-dark">User profile</a>
+                              <a *ngIf="isLogin() && isuser()" routerLink="/edit-user-profile" routerLinkActive="active" class="nav-item links-hover py-2 border-bottom nav-link text-dark">Edit user profile</a>
                               <a *ngIf="isLogin()" routerLink="/change-password" routerLinkActive="active"  class="nav-item links-hover py-2 border-bottom  nav-link text-dark"><i class="fas fa-sign-out"></i> Change Password</a>
                               <a *ngIf="isLogin()" (click)="logout()" class="nav-item links-hover py-2  nav-link text-dark"><i class="fas fa-sign-out"></i> Logout</a>
+
                           </div>
+
                       </div>
-                        <a routerLink="/Favorites" class="btn px-0 position-relative mr-3">
+                        <a  *ngIf="isLogin()" routerLink="/Favorites" class="btn px-0 position-relative mr-3">
                           <i class="fas fa-heart text-white fa-lg"></i>
                          <span class="badge badge-pill badge-warning">{{myUserCount.favorite_count}} </span>
                         </a>
-                        <a routerLink="/order" class="btn px-0 ml-3 position-relative mr-3">
+                        <a *ngIf="isLogin()" routerLink="/order" class="btn px-0 ml-3 position-relative mr-3">
                           <i class="fas fa-address-card text-white fa-lg"></i>
                          <span class="badge badge-pill badge-warning">{{myUserCount.order_count}} </span>
                         </a>
@@ -68,6 +70,7 @@
                           <i class="fas fa-user"></i>
                           <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;"></span>
                         </a> -->
+
                       </div>
                     </div>
                   </nav>

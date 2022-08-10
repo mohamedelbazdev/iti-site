@@ -52,6 +52,8 @@ export class OrderComponent implements OnInit {
 
     this.order.getOrders().subscribe(res => {
       this.fetchOrders = res.data
+      console.log(this.fetchOrders);
+
     })
 
   }

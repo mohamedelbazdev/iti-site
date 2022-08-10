@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProviderService } from "../../services/provider.service";
+import { FavoriteService } from "../../services/favorite.service";
 import { ActivatedRoute } from "@angular/router";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../../services/auth.service";
@@ -7,6 +8,7 @@ import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { RateService } from 'src/app/services/rate.service';
 import { OrderService } from "../../services/order.service";
 import { ToastrService } from 'ngx-toastr';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-provider-details',
@@ -35,6 +37,9 @@ export class ProviderDetailsComponent implements OnInit {
     private rate: RateService,
     private order: OrderService,
     private toastr: ToastrService,
+    private favorite: FavoriteService,
+    private router: Router,
+
   ) {
     this.rateForm = new FormGroup({
       description: new FormControl('', [Validators.required])
@@ -90,6 +95,12 @@ export class ProviderDetailsComponent implements OnInit {
     this.order.sendOrder(data).subscribe(res => {
       this.reviews = res.data.rate
       console.log(this.rateObject);
+    })
+  }
+  createFav(providerId: number) {
+    this.favorite.create(providerId).subscribe(() => {
+      //this.router.navigateByUrl('/Favorites')
+      this.toastr.success('Add to favorite sucessed', ':)');
     })
   }
 }

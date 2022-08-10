@@ -48,14 +48,12 @@ export class ChangePasswordComponent implements OnInit {
   //   };
   // }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSave() {
     this.submitted = true;
     if (this.ChangePasswordForm.valid) {
         this.toastr.success(' Change Password successfully', ':)');
-
       }
      else {
       // alert('error')

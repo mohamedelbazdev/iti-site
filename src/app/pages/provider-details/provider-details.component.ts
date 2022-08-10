@@ -94,13 +94,14 @@ export class ProviderDetailsComponent implements OnInit {
     }
     this.order.sendOrder(data).subscribe(res => {
       this.reviews = res.data.rate
-      this.toastr.success('Order has been created successfully', ':)');
+      this.toastr.success('Order has been created successfully', ':');
+       this.router.navigateByUrl('/order')
       console.log(this.rateObject);
     })
   }
-  createFav(providerId: number) {
-    this.favorite.create(providerId).subscribe(() => {
-      //this.router.navigateByUrl('/Favorites')
+  createFav() {
+    this.favorite.create( this.route.snapshot.params['id']).subscribe(() => {
+      // this.router.navigateByUrl('/Favorites')
       this.toastr.success('Add to favorite sucessed', ':)');
     })
   }

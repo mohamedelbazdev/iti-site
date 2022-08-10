@@ -39,6 +39,12 @@ export class HeaderComponent implements OnInit {
     }
 
 
+    isuser(): boolean {
+      return this.auth.isUser()
+  }
+
+
+
     onSubmit() {
         if (this.loginForm.valid) {
             this.auth.loginUser(this.loginForm.value).subscribe((res: any) => {

@@ -24,7 +24,7 @@
               <th class="wishlist__column wishlist__column--tocart">description</th>
               <th class="wishlist__column wishlist__column--tocart">Date</th>
               <th class="wishlist__column wishlist__column--product">
-                Action
+                Details
               </th>
           </tr>
       </thead>
@@ -63,9 +63,13 @@
             <div class="">
               {{ order.created_at | date :'medium' }}</div>
         </td>
-              <td class="wishlist__column wishlist__column--product pt-5">
+              <!-- <td class="wishlist__column wishlist__column--product pt-5">
                 <button class="btn btn-success me-1">Accept</button>
                 <button class="btn btn-danger">Refuse</button>
+               </td> -->
+               <td class="wishlist__column wishlist__column--product pt-5">
+                <button routerLink="/pro-Order-Details"  class="btn btn-success me-1">Details</button>
+
                </td>
               </tr>
                 </tbody>

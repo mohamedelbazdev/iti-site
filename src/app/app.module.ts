@@ -36,6 +36,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactUsComponent } from "./pages/contact-us/contact-us.component";
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { ConfirmOrderComponent } from './pages/confirm-order/confirm-order.component';
+import { ProvOrderDetailsComponent } from './pages/prov-order-details/prov-order-details.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { ConfirmOrderComponent } from './pages/confirm-order/confirm-order.compo
     ContactUsComponent,
     ChangePasswordComponent,
     ConfirmOrderComponent,
+    ProvOrderDetailsComponent,
   ],
 
   imports: [

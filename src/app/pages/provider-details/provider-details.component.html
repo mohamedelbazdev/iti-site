@@ -34,7 +34,12 @@
                         <label style="width: auto;">About the work required</label>
                         <textarea class="form-control w-100" [(ngModel)]="description" name="description"  placeholder="Details"></textarea>
                     </div>
-                    <button (click)="createBooking()" class="btn bg-primary text-white mt-3 w-25"><i class="fa fa-address-card text-white  mr-1"></i>Book</button>
+                    <button (click)="createBooking()" class="btn bg-primary text-white mt-3 w-25 me-5"><i class="fa fa-address-card text-white  mr-1"></i>Book</button>
+                    <ng-container class=" pt-5" *ngIf=" providerObject.favourite_count === 1; then first else second"></ng-container>
+                      <ng-template #first> <a data-toggle="tooltip" data-placement="top" title="Add to favorite" class="btn bg-primary text-white mt-3 w-25 " (click)="createFav(providerObject.id)" href="javascript:void(0)">  <i class="far fa-heart  bg-danger"></i> Favorite</a>
+                       </ng-template>
+                      <ng-template #second> <a data-toggle="tooltip" data-placement="top" title="Add to favorite"class="btn bg-primary text-white mt-3 w-25" (click)="createFav(providerObject.id)" href="javascript:void(0)"> <i class="far fa-heart "></i> Favorite</a>
+                     </ng-template>
                 </div>
 
             </div>

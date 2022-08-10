@@ -58,10 +58,10 @@ export class AuthService {
     return !!localStorage.getItem('token')
   }
 
-  // isUser() {
-  //   return JSON.parse(localStorage.getItem('user'))?.role_id == 3
-
-  // }
+  isUser() {
+    let user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    return user.role_id == 3
+  }
   // isAuthenticated(): boolean {
   //   let data = localStorage.getItem('currentUser');
   //   this.token = JSON.parse(data) && JSON.parse(data).token;

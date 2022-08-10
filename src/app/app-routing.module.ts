@@ -31,15 +31,16 @@ const routes: Routes = [
   { path: 'order', component: OrderComponent, canActivate: [AuthGuard] }, // canActivate:[AuthGuard]
   { path: 'login', component: LoginComponent, canActivate: [GuestGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [GuestGuard] },
-  { path: 'contact', component: ContactUsComponent,canActivate: [AuthGuard]  },
+  { path: 'contact', component: ContactUsComponent, canActivate: [AuthGuard] },
   { path: 'change-password', component: ChangePasswordComponent },
-  { path: 'Confirm-Order', component: ConfirmOrderComponent,},
-  { path: 'pro-Order-Details', component: ProvOrderDetailsComponent,},
+  { path: 'Confirm-Order', component: ConfirmOrderComponent, },
+  { path: 'pro-Order-Details', component: ProvOrderDetailsComponent, },
 
 
 
   { path: 'providers', component: ProvidersComponent, canActivate: [AuthGuard] },
-  { path: 'categories', component: CategoriesComponent,canActivate: [AuthGuard] },
+  { path: 'categories', component: CategoriesComponent, canActivate: [AuthGuard] },
+  { path: 'category/:catid', component: CategoriesComponent, canActivate: [AuthGuard] },
   { path: 'Favorites', component: FavoriteComponent, canActivate: [AuthGuard] },
   { path: 'provider-details/:id', component: ProviderDetailsComponent, canActivate: [AuthGuard] },
   { path: 'provider-order', component: ProviderOrderComponent, canActivate: [AuthGuard] },

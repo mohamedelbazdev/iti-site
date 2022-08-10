@@ -97,8 +97,6 @@ export class ProviderDetailsComponent implements OnInit {
 
       this.toastr.success('Order has been created successfully', ':');
        this.router.navigateByUrl('/order')
-
-
       console.log(this.rateObject);
     })
   }

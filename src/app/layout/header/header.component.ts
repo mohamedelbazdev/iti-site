@@ -39,9 +39,9 @@ export class HeaderComponent implements OnInit {
     }
 
 
-  //   isuser(): boolean {
-  //     return this.auth.isUser()
-  // }
+    isuser(): boolean {
+      return this.auth.isUser()
+  }
 
 
 

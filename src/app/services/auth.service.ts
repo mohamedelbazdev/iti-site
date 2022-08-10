@@ -58,4 +58,14 @@ export class AuthService {
     return !!localStorage.getItem('token')
   }
 
-}
+  // isUser() {
+  //   return JSON.parse(localStorage.getItem('user'))?.role_id == 3
+
+  // }
+  // isAuthenticated(): boolean {
+  //   let data = localStorage.getItem('currentUser');
+  //   this.token = JSON.parse(data) && JSON.parse(data).token;
+  //   this.userRole = JSON.parse(data) && JSON.parse(data).role;
+  //   return !!this.token;
+  }
+

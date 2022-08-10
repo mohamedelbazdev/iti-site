@@ -15,11 +15,11 @@
                       <a data-toggle="tooltip" data-placement="top" title="Details" class="btn btn-warning text-white w-25" routerLink="/provider-details/{{prov.id}}"><i class="fa fa-address-card"></i></a>
                       <a data-toggle="tooltip" data-placement="top" title="chat" class="btn btn-warning text-white w-25" routerLink="/chat"><i class="fa fa-comments"></i></a>
                       <!-- <a data-toggle="tooltip" data-placement="top" title="Add to favorite" class="btn btn-warning text-white w-25" (click)="createFav(prov.id)" href="javascript:void(0)"><i class="far fa-heart"></i></a> -->
-                      <ng-container class=" pt-5" *ngIf=" prov.favourite_count === 1; then first else second"></ng-container>
+                      <!-- <ng-container class=" pt-5" *ngIf=" prov.favourite_count === 1; then first else second"></ng-container>
                       <ng-template #first> <a data-toggle="tooltip" data-placement="top" title="Add to favorite" class="btn btn-warning  text-white w-25" (click)="createFav(prov.id)" href="javascript:void(0)"><i class="far fa-heart  bg-danger"></i></a>
                        </ng-template>
                       <ng-template #second> <a data-toggle="tooltip" data-placement="top" title="Add to favorite" class="btn btn-warning  text-white w-25" (click)="createFav(prov.id)" href="javascript:void(0)"><i class="far fa-heart "></i></a>
-                     </ng-template>
+                     </ng-template> -->
                       <!-- <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
                       <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a> -->
                   </div>
@@ -29,7 +29,7 @@
                     <ngb-rating class="fs-3 text-warning" [rate]="prov.providers?.rate" [readonly] = true [max]="5"></ngb-rating>
                 </div>
                 <p class="h6 text-decoration-none text-capitalize fw-bold" href="">{{prov.name}}</p>
-                <p class="h6 text-decoration-none text-capitalize fw-bold">{{prov.providers?.categories.name}}</p>
+                <p class="h6 text-decoration-none text-capitalize w-50 m-auto fw-bold p-2 text-white rounded-3 mb-2" style="background-color: gold;"><i class="fa fa-globe-africa"></i> {{prov.providers?.categories.name}}</p>
                 <a class="h6 text-decoration-none" href="tel:{{prov.mobile}}"><i class="fa fa-phone-volume"></i> {{prov.mobile}}</a>
                 <!-- <div class="d-flex align-items-center justify-content-center mt-2">
                     <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>

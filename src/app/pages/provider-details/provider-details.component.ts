@@ -89,7 +89,6 @@ export class ProviderDetailsComponent implements OnInit {
     }
     this.order.sendOrder(data).subscribe(res => {
       this.reviews = res.data.rate
-      this.toastr.success('Order has been created successfully', ':)');
       console.log(this.rateObject);
     })
   }

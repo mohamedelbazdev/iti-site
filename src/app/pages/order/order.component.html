@@ -23,6 +23,7 @@
               </th>
               <th class="wishlist__column wishlist__column--tocart">description</th>
               <th class="wishlist__column wishlist__column--remove">Date</th>
+              <th class="wishlist__column wishlist__column--remove">check</th>
           </tr>
       </thead>
         <tbody class="align-middle bg-dark">
@@ -63,6 +64,11 @@
               {{ order.created_at | date :'medium' }}</div
             >
         </td>
+        <td class=" ">
+          <div class="text-center m-5" >
+            <a  routerLink="/checkout" class="btn btn-primary  ">Checkout </a>
+        </div>
+      </td>
 
               </tr>
                 </tbody>
@@ -73,6 +79,4 @@
     </div>
 
 <!-- Cart End -->
-<div class="text-center m-5" >
-    <a style="margin-left: 50%;" routerLink="/checkout" class="btn btn-primary w-50 p-3 fs-2 ">Checkout </a>
-</div>
+

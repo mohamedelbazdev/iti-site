@@ -18,9 +18,9 @@ export class OrderService {
   sendOrder(data:object){
     return this.http.post<any>(this.createOrderUrl, data)
   }
-  showOrder(){
+  showOrder(orderId:number){
     // return this.http.post<any>(this.showOrderUrl)
-    return this.http.post<any>(this.showOrderUrl, { order_id: order })
+    return this.http.post<any>(this.showOrderUrl, { order_id: orderId })
   }
 
 }

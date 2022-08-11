@@ -21,7 +21,7 @@ export class ProviderDetailsComponent implements OnInit {
   rateForm: FormGroup;
   orderForm: FormGroup;
 
-
+  
   // start google map
   center: google.maps.LatLngLiteral = {
     lat: 24,

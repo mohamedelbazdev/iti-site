@@ -8,11 +8,11 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class ProvOrderDetailsComponent implements OnInit {
 
-  featuredorders!: any[];
+  showOrder: any = {}
 
   lat: any = 0.00
   lng: any = 0.00
- 
+
   center: google.maps.LatLngLiteral = {
     lat: this.lat,
     lng: this.lng
@@ -33,7 +33,7 @@ export class ProvOrderDetailsComponent implements OnInit {
   ngOnInit(): void {
 
   this.order.getOrders().subscribe(res => {
-    this.featuredorders = res.data
+    this.showOrder = res.data
   })
 }
 

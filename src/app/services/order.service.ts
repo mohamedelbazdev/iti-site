@@ -7,6 +7,7 @@ export class OrderService {
 
   public fetchOrderUrl = "http://127.0.0.1:8000/api/users/orders/sended";
   public createOrderUrl = "http://127.0.0.1:8000/api/users/orders/create";
+  public showOrderUrl = "http://127.0.0.1:8000/api/users/orders/details";
 
   constructor(private http: HttpClient) { }
 
@@ -16,6 +17,10 @@ export class OrderService {
 
   sendOrder(data:object){
     return this.http.post<any>(this.createOrderUrl, data)
+  }
+  showOrder(){
+    // return this.http.post<any>(this.showOrderUrl)
+    return this.http.post<any>(this.showOrderUrl, { order_id: order })
   }
 
 }

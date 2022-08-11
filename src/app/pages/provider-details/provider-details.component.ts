@@ -20,6 +20,7 @@ import { Router } from "@angular/router";
 export class ProviderDetailsComponent implements OnInit {
   rateForm: FormGroup;
   orderForm: FormGroup;
+  submitted = false;
 
 
   // start google map
@@ -96,10 +97,15 @@ export class ProviderDetailsComponent implements OnInit {
       this.providerObject = res.data
     })
 
-    this.rate.getOneRate(this.route.snapshot.params['id']).subscribe(res => {
+    this.rate.getOneRate(this.route.snapshot.params['id']).subscribe((res:any) => {
       this.reviews = res.data.rate
       console.log(this.reviews);
     })
+  }
+
+
+  get orderFormControl() {
+    return this.orderForm.controls;
   }
 
   setRate() {
@@ -121,6 +127,17 @@ export class ProviderDetailsComponent implements OnInit {
   }
 
   createBooking() {
+
+    this.submitted = true;
+    if (this.orderForm.valid) {
+        this.toastr.success('  your order successfully', ':)');
+      }
+     else {
+
+      this.toastr.error('Please check the data and try again', ':(');
+    }
+  
+
     let data = {
       // user_id: this.auth.getUser()?.id,
       provider_id: this.route.snapshot.params['id'],
@@ -136,13 +153,13 @@ export class ProviderDetailsComponent implements OnInit {
       executed_at: '2022-2-12'
 
     }
-    this.order.sendOrder(data).subscribe(res => {
+    this.order.sendOrder(data).subscribe((res:any) => {
       this.reviews = res.data.rate
 
       this.toastr.success('Order has been created successfully', ':)');
       this.router.navigateByUrl('/order')
       // console.log(this.rateObject);
-    }, error => {
+    }, (error:any) => {
       this.toastr.error('The order was not completed successfully');
       // console.log(error)
     })
@@ -151,9 +168,11 @@ export class ProviderDetailsComponent implements OnInit {
     this.favorite.create(this.route.snapshot.params['id']).subscribe(() => {
       // this.router.navigateByUrl('/Favorites')
       this.toastr.success('Add to favorite sucessed', ':)');
-    }, error => {
+    }, (error:any) => {
       this.toastr.success('Remove favorite has been sucessefully');
       // console.log(error)
     })
   }
+
+
 }

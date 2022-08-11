@@ -26,7 +26,7 @@
 
                 <div class="row py-5">
                     <h4 class="text-capitalize fw-bold">To Order Provider :</h4>
-                    <form action="">
+                    <form [formGroup]="orderForm" (ngSubmit)="createBooking()" novalidate class="form-group" >
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -37,7 +37,11 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="form-label">About the work required</label>
-                                    <textarea class="form-control w-100" [(ngModel)]="description" name="description"  placeholder="Details"></textarea>
+                                    <textarea class="form-control w-100" id="description" name="description" formControlName="description" placeholder="Details"></textarea>
+                                    <span class="text-danger" role="alert"
+                                        *ngIf="(orderFormControl['description'].touched || orderFormControl['description'].invalid && submitted) && orderFormControl['description'].errors?.['required']">
+                                      your description is required
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +63,9 @@
 
                                 </google-map>
                             </div>
-                        </div>
+                            </div>
+                    </form>
+
                         <div class="d-flex justify-content-between">
                             <button (click)="createBooking()" class="btn bg-primary text-white mt-3 w-25 me-5"><i class="fa fa-address-card text-white  mr-1"></i>Book</button>
                             <div class="mt-2">
@@ -70,7 +76,7 @@
                                </ng-template>
                           </div>
                         </div>
-                    </form>
+
 
                 </div>
 

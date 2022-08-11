@@ -70,7 +70,7 @@ export class EditUserProfileComponent implements OnInit {
       this.profileForm.patchValue({
         name: res.data.name,
         email: res.data.email,
-        mobile: res.data.mobile,
+        phone: res.data.phone,
         lat: res.data.lat,
         lng: res.data.lng,
       });
@@ -81,15 +81,17 @@ export class EditUserProfileComponent implements OnInit {
       this.myProfile = res.data
       // this.lat = this.myProfile.lat
       // this.lat = this.myProfile.lng
+      console.log(this.profileForm);
+
     })
   }
   onSave() {
     this.submitted = true;
     if (this.profileForm.valid) {
-        this.toastr.success(' Edit Provider Profile successfully', ':)');
+      this.toastr.success(' Edit user Profile successfully', ':)');
 
-      }
-     else {
+    }
+    else {
       // alert('error')
       this.toastr.error('Please check the data and try again', ':(');
     }
@@ -100,9 +102,9 @@ export class EditUserProfileComponent implements OnInit {
     this.submitted = true;
     if (this.profileForm.valid) {
       // this.profile.updateProfile(this.profileForm.value).subscribe(() => {
-        // alert('done')
-        this.toastr.success('Edit done successfully', ':)');
-      }
+      // alert('done')
+      this.toastr.success('Edit done successfully', ':)');
+    }
     else {
       this.toastr.error('There is an error, please check the data', ':(');
     }

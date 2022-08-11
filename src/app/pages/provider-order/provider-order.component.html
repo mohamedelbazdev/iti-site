@@ -31,19 +31,19 @@
         <tbody class="align-middle bg-dark">
         <tr  *ngFor="let order of featuredorders">
 
-              <td class="wishlist__column wishlist__column--image " style="width: 200px;">
-                <div class="product-image"  style="width: 200px;">
-                        <img
-                            class="product-image__img w-100"
-                            src="{{ order.image }}"
-                            alt=""
-                        />
-                </div>
-            </td>
+          <td class="" style="width: 20%;">
+            <div class="product-image" style="width: 100%;">
+                    <img
+                        class="product-image__img w-100"
+                        src="{{ order.provider?.image }}"
+                        alt=""
+                    />
+            </div>
+          </td>
                 <td class="  ">
                   <div
                       class="text-capitalize fw-bold"
-                      >{{ order.name }}</div
+                      >{{ order.provider?.name }}</div
                   > </td>
                   <td class="  ">
                       <div class="bg-info p-2 w-25 m-auto text-white">

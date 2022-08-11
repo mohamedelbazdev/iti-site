@@ -59,9 +59,9 @@
               </td>
               <td class="wishlist__column wishlist__column--stock pt-5 " >
                 <div >
-                   <ng-container class=" pt-5" *ngIf=" fav.providers.status === 1; then first else second"></ng-container>
-                  <ng-template #first>active</ng-template>
-                  <ng-template #second>inactive</ng-template>
+                    <ng-container class=" pt-5" *ngIf=" fav.providers.status === 1; then first else second"></ng-container>
+                    <ng-template #first>active</ng-template>
+                    <ng-template #second>inactive</ng-template>
                 </div>
 
 
@@ -72,9 +72,9 @@
                   <button
                       routerLink="/provider-details/{{fav.provider_id}}"
                       type="button"
-                      class="btn btn-primary btn-sm"
+                      class="btn bg-primary text-white btn-sm"
                   >
-                      Book
+                      details
                   </button>
               </td>
               <td class="wishlist__column wishlist__column--remove pt-5">

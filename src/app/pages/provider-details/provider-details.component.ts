@@ -21,8 +21,47 @@ export class ProviderDetailsComponent implements OnInit {
   rateForm: FormGroup;
   orderForm: FormGroup;
 
+
+  // start google map
+  center: google.maps.LatLngLiteral = {
+    lat: 24,
+    lng: 12
+  };
+
+  zoom = 4;
+
+  markerOptions: google.maps.MarkerOptions = {
+    draggable: true
+  };
+
+  markerPosition: google.maps.LatLngLiteral = {
+    lat: 24,
+    lng: 12
+  };
+
+  moveMap(event: google.maps.MapMouseEvent) {
+    if (event.latLng != null) this.center = (event.latLng.toJSON());
+  }
+
+  // move(event: google.maps.MapMouseEvent) {
+  //   if (event.latLng != null) this.display = event.latLng.toJSON();
+  // }
+  move(event: google.maps.MapMouseEvent) {
+    if (event.latLng != null) {
+      this.orderForm.patchValue({
+        lat: event.latLng.lat(),
+        lng: event.latLng.lng(),
+      });
+    }
+  }
+  // end google map
+
+
+
   currentRate = 1;
   description = '';
+  lat: number = 12;
+  lng: number = 15;
   providerObject: any = {}
   rateObject: any = {}
   id: any;
@@ -75,6 +114,9 @@ export class ProviderDetailsComponent implements OnInit {
     }
     this.provider.setRate(data).subscribe(() => {
       this.toastr.success('send rating done', ':)');
+    }, error => {
+      this.toastr.error('Rated before or something went wrong');
+      // console.log(error)
     })
   }
 
@@ -87,23 +129,31 @@ export class ProviderDetailsComponent implements OnInit {
       hours: this.orderForm.controls['hours'].value,
       //description: this.orderForm.controls['description'].value,
       description: this.description,
-      lat: '1.2555',  // eng. ahmed
-      lng: '0.2555',  // eng. ahmed
+      // lat: '1.2555',  // eng. ahmed
+      // lng: '0.2555',  // eng. ahmed
+      lat: this.lat,
+      lng: this.lng,
       executed_at: '2022-2-12'
 
     }
     this.order.sendOrder(data).subscribe(res => {
       this.reviews = res.data.rate
 
-      this.toastr.success('Order has been created successfully', ':');
-       this.router.navigateByUrl('/order')
-      console.log(this.rateObject);
+      this.toastr.success('Order has been created successfully', ':)');
+      this.router.navigateByUrl('/order')
+      // console.log(this.rateObject);
+    }, error => {
+      this.toastr.error('The order was not completed successfully');
+      // console.log(error)
     })
   }
   createFav() {
-    this.favorite.create( this.route.snapshot.params['id']).subscribe(() => {
+    this.favorite.create(this.route.snapshot.params['id']).subscribe(() => {
       // this.router.navigateByUrl('/Favorites')
       this.toastr.success('Add to favorite sucessed', ':)');
+    }, error => {
+      this.toastr.success('Remove favorite has been sucessefully');
+      // console.log(error)
     })
   }
 }

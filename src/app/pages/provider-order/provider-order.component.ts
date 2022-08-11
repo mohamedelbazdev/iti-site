@@ -10,10 +10,12 @@ export class ProviderOrderComponent implements OnInit {
   constructor(private order: OrderService) { }
 
   ngOnInit(): void {
-  
-  this.order.getOrders().subscribe(res => {
-    this.featuredorders = res.data
-  })
-}
+
+    this.order.getOrders().subscribe(res => {
+      this.featuredorders = res.data
+      console.log(this.featuredorders);
+
+    })
+  }
 
 }

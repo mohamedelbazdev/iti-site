@@ -16,7 +16,7 @@
                   <div class="navbar-nav mr-auto py-0">
                     <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" class="nav-item border-b nav-link">Home</a>
                     <a *ngIf="isLogin() && isuser()" routerLink="/order" routerLinkActive="active"  class="nav-item border-b nav-link">Order</a>
-                    <a *ngIf="isLogin() && isuser()" routerLink="/provider-order" routerLinkActive="active" class="nav-item border-b nav-link">Provider Order</a>
+                    <a *ngIf="isLogin() && !isuser()" routerLink="/provider-order" routerLinkActive="active" class="nav-item border-b nav-link">Provider Order</a>
                     <a *ngIf="isLogin()" routerLink="/chat" routerLinkActive="active" href="/chat" class="nav-item border-b nav-link">Chat</a>
                     <a *ngIf="isLogin()" routerLink="/checkout" routerLinkActive="active" class="nav-item border-b nav-link">Checkout</a>
                     <a  *ngIf="!isuser()" routerLink="/providers" routerLinkActive="active" class="nav-item border-b nav-link">Providers</a>
@@ -41,7 +41,7 @@
                         <span *ngIf="isLogin()"  class="px-0 nav-item text-white mr-4">Welcome <span class="text-capitalize text-warning">{{myUserCount.name}}</span></span>
                         <div class="dropdown btn px-0 mr-4">
                           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                             <i class="fas fa-user text-white fa-lg"></i> Account 
+                             <i class="fas fa-user text-white fa-lg"></i> Account
                           </a>
                           <div class="dropdown-menu rounded-0 border-0 p-1 shadow ">
                               <a *ngIf="!isLogin()" routerLink="/login" routerLinkActive="active" class="nav-item links-hover py-2 border-bottom nav-link text-dark"><i class="fas fa-user"></i> Login </a>

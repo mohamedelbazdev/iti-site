@@ -98,7 +98,7 @@ export class ProviderDetailsComponent implements OnInit {
 
     this.rate.getOneRate(this.route.snapshot.params['id']).subscribe(res => {
       this.reviews = res.data.rate
-      console.log(this.rateObject);
+      console.log(this.reviews);
     })
   }
 

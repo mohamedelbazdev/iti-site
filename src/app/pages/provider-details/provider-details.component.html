@@ -97,7 +97,7 @@
                         <div class="col-md-6">
                             <h4 class="mb-4">{{reviews.length}} review for "{{ providerObject['name'] }}"</h4>
                             <div class="media mb-4" *ngFor="let review of reviews">
-                                <img src="assets/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                                <img src="{{review['user']['image']}}" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                                 <div class="media-body">
                                     <h6 class="fw-bold text-capitalize">{{review['user']['name']}}<small> - <i>{{review['created_at'] | date :'medium'}}</i></small></h6>
                                     <ngb-rating class="fs-2 text-warning" [rate]="review['rate']" [readonly] = true [max]="5"></ngb-rating>

@@ -19,6 +19,7 @@ export class CheckoutComponent implements OnInit {
       token: function (stripeToken: any) {
         console.log(stripeToken);
         alert('Stripe token generated!');
+        this.toastr.success('Stripe token generated!', ':)');
       },
     });
     paymentHandler.open({
@@ -39,7 +40,8 @@ export class CheckoutComponent implements OnInit {
           locale: 'auto',
           token: function (stripeToken: any) {
             console.log(stripeToken);
-            alert('Payment has been successfull!');
+            // alert('Payment has been successfull!');
+            this.toastr.success('Payment has been successfull!', ':)');
           },
         });
       };

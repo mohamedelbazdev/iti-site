@@ -63,5 +63,5 @@ export class AuthService {
     return user.role_id == 3
   }
 
-  }
+}
 

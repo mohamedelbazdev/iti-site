@@ -9,7 +9,6 @@ export class ProviderService {
   public showProviderUrl = "http://127.0.0.1:8000/api/users/providers/details";
   public setRateUrl = "http://127.0.0.1:8000/api/users/rateprovider";
 
-
   constructor(private http: HttpClient) { }
 
   getProviders() {

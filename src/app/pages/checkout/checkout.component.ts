@@ -18,7 +18,7 @@ export class CheckoutComponent implements OnInit {
       locale: 'auto',
       token: function (stripeToken: any) {
         console.log(stripeToken);
-        alert('Stripe token generated!');
+        // alert('Stripe token generated!');
         this.toastr.success('Stripe token generated!', ':)');
       },
     });

@@ -47,11 +47,16 @@ export class ProvOrderDetailsComponent implements OnInit {
     this.showOrder = res.data
   })
 }
-sure(){
-  alert('are you sure!');
+
+ClickMethod() {
+  if(confirm("Are you sure  ")) {
+    console.log("Implement delete functionality here");
+  }
 }
-not_sure(){
-  alert('are you sure!');
+clickMethod() {
+  if(confirm("Are you sure to delete ")) {
+    console.log("Implement delete functionality here");
+  }
 }
 
 }

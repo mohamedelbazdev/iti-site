@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import Validation from '../../utils/validation';
+import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PaymentService } from 'src/app/services/payment.service';
 
 @Component({
   selector: 'app-checkout',
@@ -6,47 +11,74 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-  paymentHandler: any = null;
-  constructor() { }
+  // paymentHandler: any = null;
+  paymentForm: FormGroup | undefined;
+  order_id: any;
+  card_number: any;
+  card_exp_month: any;
+  card_exp_year: any;
+  card_cvc: any;
+
+
+  constructor(
+    private fb: FormBuilder,
+    private payment: PaymentService,
+    private actrouter: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    this.invokeStripe();
-  }
-  makePayment(amount: any) {
-    const paymentHandler = (<any>window).StripeCheckout.configure({
-      key: 'pk_test_51H7bbSE2RcKvfXD4DZhu',
-      locale: 'auto',
-      token: function (stripeToken: any) {
-        console.log(stripeToken);
-        // alert('Stripe token generated!');
-        this.toastr.success('Stripe token generated!', ':)');
-      },
-    });
-    paymentHandler.open({
-      name: 'Positronx',
-      description: '3 widgets',
-      amount: amount * 100,
-    });
-  }
-  invokeStripe() {
-    if (!window.document.getElementById('stripe-script')) {
-      const script = window.document.createElement('script');
-      script.id = 'stripe-script';
-      script.type = 'text/javascript';
-      script.src = 'https://checkout.stripe.com/checkout.js';
-      script.onload = () => {
-        this.paymentHandler = (<any>window).StripeCheckout.configure({
-          key: 'pk_test_51H7bbSE2RcKvfXD4DZhu',
-          locale: 'auto',
-          token: function (stripeToken: any) {
-            console.log(stripeToken);
-            // alert('Payment has been successfull!');
-            this.toastr.success('Payment has been successfull!', ':)');
-          },
-        });
-      };
-      window.document.body.appendChild(script);
-    }
-  }
+    // this.invokeStripe();
 
+
+    this.paymentForm = this.fb.group({
+      card_number: ['', Validators.required],
+      card_exp_month: ['', Validators.required],
+      card_exp_year: ['', Validators.required],
+      card_cvc: ['', Validators.required],
+    });
+
+
+    this.payment.paymenyOrder(this.paymentForm.value).subscribe(res => {
+      console.log(res)
+    })
+
+    // makePayment(amount: any) {
+    //   const paymentHandler = (<any>window).StripeCheckout.configure({
+    //     key: 'pk_test_51H7bbSE2RcKvfXD4DZhu',
+    //     locale: 'auto',
+    //     token: function (stripeToken: any) {
+    //       console.log(stripeToken);
+    //       // alert('Stripe token generated!');
+    //       this.toastr.success('Stripe token generated!', ':)');
+    //     },
+    //   });
+    //   paymentHandler.open({
+    //     name: 'Positronx',
+    //     description: '3 widgets',
+    //     amount: amount * 100,
+    //   });
+    // }
+    // invokeStripe() {
+    //   if (!window.document.getElementById('stripe-script')) {
+    //     const script = window.document.createElement('script');
+    //     script.id = 'stripe-script';
+    //     script.type = 'text/javascript';
+    //     script.src = 'https://checkout.stripe.com/checkout.js';
+    //     script.onload = () => {
+    //       this.paymentHandler = (<any>window).StripeCheckout.configure({
+    //         key: 'pk_test_51H7bbSE2RcKvfXD4DZhu',
+    //         locale: 'auto',
+    //         token: function (stripeToken: any) {
+    //           console.log(stripeToken);
+    //           // alert('Payment has been successfull!');
+    //           this.toastr.success('Payment has been successfull!', ':)');
+    //         },
+    //       });
+    //     };
+    //     window.document.body.appendChild(script);
+    //   }
+    // }
+
+  }
 }

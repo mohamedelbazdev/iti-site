@@ -10,7 +10,7 @@ export class PaymentService {
 
   constructor(private http: HttpClient,) { }
 
-  getOneRate(data: any) {
+  paymenyOrder(data: any) {
     return this.http.post<any>(this.paymentUrl, data);
   }
 }

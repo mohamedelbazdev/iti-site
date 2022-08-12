@@ -67,12 +67,12 @@ export class ProvOrderDetailsComponent implements OnInit {
 
 ClickMethod() {
   if(confirm("Are you sure  ")) {
-    console.log("Implement delete functionality here");
+
   }
 }
 clickMethod() {
   if(confirm("Are you sure to delete ")) {
-    console.log("Implement delete functionality here");
+
   }
 }
 

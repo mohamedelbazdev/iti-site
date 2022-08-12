@@ -22,7 +22,6 @@ export class ProviderDetailsComponent implements OnInit {
   orderForm: FormGroup;
   submitted = false;
 
-
   // start google map
   center: google.maps.LatLngLiteral = {
     lat: 24,
@@ -57,8 +56,6 @@ export class ProviderDetailsComponent implements OnInit {
   }
   // end google map
 
-
-
   currentRate = 1;
   description = '';
   lat: number = 12;
@@ -79,7 +76,6 @@ export class ProviderDetailsComponent implements OnInit {
     private toastr: ToastrService,
     private favorite: FavoriteService,
     private router: Router,
-
   ) {
     this.rateForm = new FormGroup({
       description: new FormControl('', [Validators.required])
@@ -89,7 +85,6 @@ export class ProviderDetailsComponent implements OnInit {
       hours: new FormControl(1, [Validators.required]),
       description: new FormControl('', [Validators.required])
     });
-
   }
 
   ngOnInit(): void {
@@ -102,7 +97,6 @@ export class ProviderDetailsComponent implements OnInit {
       console.log(this.reviews);
     })
   }
-
 
   get orderFormControl() {
     return this.orderForm.controls;
@@ -127,15 +121,35 @@ export class ProviderDetailsComponent implements OnInit {
   }
 
   createBooking() {
-
     this.submitted = true;
     if (this.orderForm.valid) {
-        this.toastr.success('  your order successfully', ':)');
+      let data = {
+        // user_id: this.auth.getUser()?.id,
+        provider_id: this.route.snapshot.params['id'],
+        // sender_id: this.auth.getUser()?.id,
+        received_id: this.route.snapshot.params['id'],
+        hours: this.orderForm.controls['hours'].value,
+        description: this.orderForm.controls['description'].value,
+        // description: this.description,
+        // lat: '1.2555',  // eng. ahmed
+        // lng: '0.2555',  // eng. ahmed
+        lat: this.lat,
+        lng: this.lng,
+        executed_at: '2022-2-12'
       }
-     else {
-
+      this.order.sendOrder(data).subscribe((res:any) => {
+        this.reviews = res.data.rate
+        this.toastr.success('Order has been created successfully', ':)');
+        this.router.navigateByUrl('/order')
+        // console.log(this.rateObject);
+      }, (error:any) => {
+        this.toastr.error('The order was not completed successfully');
+        // console.log(error)
+      })
+    } else {
       this.toastr.error('Please check the data and try again', ':(');
     }
+
 
 
     let data = {
@@ -163,7 +177,9 @@ export class ProviderDetailsComponent implements OnInit {
       this.toastr.error('The order was not completed successfully');
       // console.log(error)
     })
+
   }
+
   createFav() {
     this.favorite.create(this.route.snapshot.params['id']).subscribe(() => {
       // this.router.navigateByUrl('/Favorites')

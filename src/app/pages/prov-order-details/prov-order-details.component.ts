@@ -75,7 +75,7 @@ acceptOrder() {
 }
 rejectOrder() {
   if(confirm("Are you sure to delete ")) {
-    console.log("Implement delete functionality here");
+    
     let data = {
       order_id: this.route.snapshot.params['id'],
       status: 2

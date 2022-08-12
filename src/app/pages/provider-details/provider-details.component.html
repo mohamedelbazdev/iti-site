@@ -36,7 +36,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="form-label">About the work required</label>
+                                    <label class="form-label"> About the work required </label>
                                     <textarea class="form-control w-100" id="description" name="description" formControlName="description" placeholder="Details"></textarea>
                                     <span class="text-danger" role="alert"
                                         *ngIf="(orderFormControl['description'].touched || orderFormControl['description'].invalid && submitted) && orderFormControl['description'].errors?.['required']">
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <label class="form-label mt-2">Your address : </label>
+                            <label class="form-label mt-2"> Your address : </label>
                             <div class="my-3">
                                 <google-map
                                 height="300"

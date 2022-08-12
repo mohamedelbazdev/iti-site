@@ -21,15 +21,15 @@ export class OrderService {
     return this.http.get<any>(this.ProviderFetchOrderUrl)
   }
 
-  sendOrder(data:object){
+  sendOrder(data: object) {
     return this.http.post<any>(this.createOrderUrl, data)
   }
 
-  showOrder(orderId:number){
+  showOrder(orderId: number) {
     return this.http.post<any>(this.showOrderUrl, { order_id: orderId })
   }
 
-  statusOrder(data:object){
+  statusOrder(data: object) {
     return this.http.post<any>(this.showOrderUrl, data)
   }
 

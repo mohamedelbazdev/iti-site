@@ -18,9 +18,9 @@
                     <a *ngIf="isLogin() && isuser()" routerLink="/order" routerLinkActive="active"  class="nav-item border-b nav-link">Order</a>
                     <a *ngIf="isLogin() && !isuser()" routerLink="/provider-order" routerLinkActive="active" class="nav-item border-b nav-link">Provider Order</a>
                     <a *ngIf="isLogin()" routerLink="/chat" routerLinkActive="active" href="/chat" class="nav-item border-b nav-link">Chat</a>
-                    <a *ngIf="isLogin()" routerLink="/checkout" routerLinkActive="active" class="nav-item border-b nav-link">Checkout</a>
+                    <!-- <a *ngIf="isLogin()" routerLink="/checkout" routerLinkActive="active" class="nav-item border-b nav-link">Checkout</a> -->
                     <a  *ngIf="!isuser()" routerLink="/providers" routerLinkActive="active" class="nav-item border-b nav-link">Providers</a>
-                    <a routerLink="/categories" routerLinkActive="active" class="nav-item border-b nav-link">Categories</a>
+                    <!-- <a routerLink="/categories" routerLinkActive="active" class="nav-item border-b nav-link">Categories</a> -->
                     <!-- <div class="nav-item border-b dropdown">
                       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dashboard</a>
                       <div class="dropdown-menu rounded-0 border-0 m-0 mt-1">

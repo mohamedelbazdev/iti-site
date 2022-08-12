@@ -60,31 +60,31 @@ export class ProvOrderDetailsComponent implements OnInit {
 }
 
 acceptOrder() {
-  if(confirm("Are you sure  ")) {
-    console.log("Implement delete functionality here");
+
+
     let data = {
       order_id: this.route.snapshot.params['id'],
       status: 1
     }
     this.order.statusOrder(data).subscribe(res => {
-      alert('done accept')
+      alert('Are you sure you want to accept?')
     }, error => {
       alert('error')
     })
-  }
+
 }
 rejectOrder() {
-  if(confirm("Are you sure to delete ")) {
-    
+
+
     let data = {
       order_id: this.route.snapshot.params['id'],
       status: 2
     }
     this.order.statusOrder(data).subscribe(res => {
-      alert('done refuse')
+      alert('Are you sure you want to refuse?')
     }, error => {
       alert('error')
     })
-  }
+
 }
 }

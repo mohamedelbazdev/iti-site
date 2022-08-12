@@ -56,23 +56,17 @@ export class ProvOrderDetailsComponent implements OnInit {
       lat: res.data?.lat,
       lng: res.data?.lng
     }
-    // this.markerPosition.lat = res.data?.lat
-    // this.markerPosition.lng = res.data?.lng
-    // this.center.lng = res.data?.lng
-    // this.lng = res.data?.lng
-    // this.lng = res.data?.lng
-    // this.lng = res.data?.lng
   })
 }
 
-ClickMethod() {
+acceptOrder() {
   if(confirm("Are you sure  ")) {
-
+    console.log("Implement delete functionality here");
   }
 }
 clickMethod() {
   if(confirm("Are you sure to delete ")) {
-
+    console.log("Implement delete functionality here");
   }
 }
 

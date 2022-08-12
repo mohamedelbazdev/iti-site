@@ -20,24 +20,28 @@
     <div class="col-md-6">
 <div class="bg-light" >
   <!-- {{ showOrder|json }} -->
-<div class=" position-relative p-5 mb-3" style="background-color: #DDD;">
-  <h2  class=" text-secondary"> User Name : <span class="text-success">{{ showOrder.user?.name }}</span></h2>
+<div class=" position-relative p-4 mb-3" style="background-color: #DDD;">
+  <h3  class=" text-secondary"> User Name : <span class="text-success">{{ showOrder.user?.name }}</span></h3>
 </div>
 
 <div  class="  p-4 mb-3" style="background-color: #EEE;">
-  <h4  class="text-secondary">Required hours : <span class="text-primary"> {{ showOrder.hours }}</span></h4>
+  <h4  class="text-secondary">Required hours : <i class="fa fa-hourglass" aria-hidden="true"></i>
+    <span class="text-primary fs-2">
+
+    {{ showOrder.hours }}</span>
+  </h4>
 </div>
 <div  class="  p-4 mb-3" style="background-color: #EEE;">
-  <h4  class="text-secondary">total amount : <span class="text-primary">{{ showOrder.total_amount }}</span></h4>
+  <h4  class="text-secondary">total amount : <span class="text-primary">{{ showOrder.total_amount|currency:'EGP' }}</span></h4>
 </div>
 <div  class="  p-4 mb-3" style="background-color: #EEE;">
   <h4  class="text-secondary">description : <span class="text-primary"> {{ showOrder.description }}</span></h4>
 </div>
 <div  class="  p-4 mb-3" style="background-color: #EEE;">
-  <h4  class="text-secondary">Date : <span class="text-primary"> {{ showOrder.created_at | date :'medium' }}</span></h4>
+  <h4  class="text-secondary">Date : <span class="text-primary"> {{ showOrder.created_at | date:'MM/dd/yy h:mm:ss a' }}</span></h4>
 </div>
 <div  class=" position-relative p-5 mb-3" style="background-color: #DDD;">
-  <h2  class="text-secondary position-absolute top-0 start-0">actions :</h2>
+
   <div class="position-absolute bottom-0 start-50 translate-middle-x p-3">
     <button (click)="acceptOrder()" class=" btn btn-success  me-1 p-3">Accept</button>
     <button (click)="rejectOrder()" class="btn btn-danger  p-3 ms-5">Refuse</button>

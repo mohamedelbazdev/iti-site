@@ -9,7 +9,7 @@
                   class="img-fluid"
                   src="{{prov.image}}"
                   alt=""
-                  style="object-fit: cover;"
+                  style="object-fit: cover;width: 100%; height: 250px;"
                   />
                   <div class="product-action">
                       <a data-toggle="tooltip" data-placement="top" title="Details" class="btn btn-warning text-white w-25" routerLink="/provider-details/{{prov.id}}"><i class="fa fa-address-card"></i></a>
@@ -29,7 +29,7 @@
                     <ngb-rating class="fs-3 text-warning" [rate]="prov.providers?.rate" [readonly] = true [max]="5"></ngb-rating>
                 </div>
                 <p class="h6 text-decoration-none text-capitalize fw-bold" href="">{{prov.name}}</p>
-                <p class="h6 text-decoration-none text-capitalize w-50 m-auto fw-bold p-2 text-white rounded-3 mb-2" style="background-color: gold;"><i class="fa fa-globe-africa"></i> {{prov.providers?.categories.name}}</p>
+                <p class="h6 text-decoration-none text-capitalize w-50 m-auto fw-bold p-2 text-white rounded-3 mb-2 bg-secondary"><i class="fa fa-globe-africa"></i> {{prov.providers?.categories.name}}</p>
                 <a class="h6 text-decoration-none" href="tel:{{prov.mobile}}"><i class="fa fa-phone-volume"></i> {{prov.mobile}}</a>
                 <!-- <div class="d-flex align-items-center justify-content-center mt-2">
                     <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>

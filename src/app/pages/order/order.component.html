@@ -38,39 +38,47 @@
                     />
             </div>
           </td>
-              <td class="  ">
+              <td  class="wishlist__column wishlist__column--remove pt-5">
                 <div
                     class="text-capitalize fw-bold"
                     >{{ order.provider?.name }}
                 </div>
               </td>
-              <td class="  ">
+              <td  class="wishlist__column wishlist__column--remove pt-5">
                 <div class="bg-info p-2 w-50 m-auto text-white">
-                  {{ order.hours }}
+                  <i class="fa fa-hourglass " aria-hidden="true"></i>
+                  <span class=" fs-4">
+                    {{ order.hours }}
+                   </span>
                 </div>
               </td>
-                <td class="  ">
-                  <div class="bg-success p-2 w-50 m-auto text-white">
-                      {{ order.total_amount }}</div
+                <td  class="wishlist__column wishlist__column--remove pt-5">
+                  <div class="bg-info p-2  m-auto text-white">
+                      {{ order.total_amount|currency:'EGP' }}</div
                   >
               </td>
-              <td class="   overflow-auto"
+              <td  class="wishlist__column wishlist__column--remove pt-5 overflow-auto"
               style="max-width: 150px; ">
                 <div class=""  >
                   {{ order.description }}</div>
             </td>
 
-          <td class=" ">
+          <td  class="wishlist__column wishlist__column--remove pt-5">
             <div class="">
-              {{ order.created_at | date :'medium' }}</div
+              {{ order.created_at | date:'MM/dd/yy h:mm a' }}</div
             >
           </td>
-          <td class=" ">
-            <div class="bg-warning text-white rounded">
-              pendding</div
-            >
+
+          <td class="wishlist__column wishlist__column--remove pt-5" >
+            <div class=" text-white rounded p-2" style="background-color: #DDD;">
+                <ng-container class=" pt-5" *ngIf=" order.provider?.status === 1; then first else second"></ng-container>
+                <ng-template #first><div class="bg-success">Accept</div></ng-template>
+                <ng-template #second> <div class="bg-danger">Refuse</div></ng-template>
+            </div>
+
           </td>
-          <td class=" ">
+
+          <td  class="wishlist__column wishlist__column--remove pt-5">
             <div class="text-center" >
               <a  routerLink="/checkout" class="btn bg-primary text-white">Checkout </a>
           </div>

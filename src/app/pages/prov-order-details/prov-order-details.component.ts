@@ -32,16 +32,16 @@ export class ProvOrderDetailsComponent implements OnInit {
     lng: this.lng
   };
   constructor(
-              private order: OrderService,
-              private router: Router,
-              private route: ActivatedRoute,
-              ) { }
+    private order: OrderService,
+    private router: Router,
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
 
-  this.order.getOrders().subscribe(res => {
-    this.showOrder = res.data
-  })
+  // this.order.getOrders().subscribe(res => {
+  //   this.showOrder = res.data
+  // })
 
   this.order.showOrder(this.route.snapshot.params['id']).subscribe(res => {
     this.showOrder = res.data

@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
+
 export class OrderService {
 
   public fetchOrderUrl = "http://127.0.0.1:8000/api/users/orders/sended";
@@ -23,8 +24,8 @@ export class OrderService {
   sendOrder(data:object){
     return this.http.post<any>(this.createOrderUrl, data)
   }
+
   showOrder(orderId:number){
-    // return this.http.post<any>(this.showOrderUrl)
     return this.http.post<any>(this.showOrderUrl, { order_id: orderId })
   }
 

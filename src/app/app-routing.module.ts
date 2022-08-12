@@ -26,6 +26,7 @@ import { ProvOrderDetailsComponent } from './pages/prov-order-details/prov-order
 
 
 const routes: Routes = [
+
   { path: '', component: HomeComponent },
   { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
   { path: 'order', component: OrderComponent, canActivate: [AuthGuard] }, // canActivate:[AuthGuard]
@@ -34,7 +35,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactUsComponent, canActivate: [AuthGuard] },
   { path: 'change-password', component: ChangePasswordComponent },
   { path: 'Confirm-Order', component: ConfirmOrderComponent, },
-  { path: 'pro-Order-Details', component: ProvOrderDetailsComponent, },
+  { path: 'pro-order-details/:id', component: ProvOrderDetailsComponent, },
 
 
 

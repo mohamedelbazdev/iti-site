@@ -13,8 +13,8 @@ export class ProvOrderDetailsComponent implements OnInit {
   id: any;
   showOrder: any = {}
 
-  lat: any = 0.00
-  lng: any = 0.00
+  lat: number = 0
+  lng: number = 0
 
   center: google.maps.LatLngLiteral = {
     lat: this.lat,
@@ -24,18 +24,19 @@ export class ProvOrderDetailsComponent implements OnInit {
   zoom = 4;
 
   markerOptions: google.maps.MarkerOptions = {
-    draggable: true
+    draggable: false
   };
 
   markerPosition: google.maps.LatLngLiteral = {
     lat: this.lat,
     lng: this.lng
   };
+
   constructor(
     private order: OrderService,
     private router: Router,
     private route: ActivatedRoute,
-  ) { }
+  ) {}
 
   ngOnInit(): void {
 
@@ -45,6 +46,22 @@ export class ProvOrderDetailsComponent implements OnInit {
 
   this.order.showOrder(this.route.snapshot.params['id']).subscribe(res => {
     this.showOrder = res.data
+    console.log(res.data)
+    console.log(res.data?.lat)
+    this.markerPosition = {
+      lat: res.data?.lat,
+      lng: res.data?.lng
+    }
+    this.center = {
+      lat: res.data?.lat,
+      lng: res.data?.lng
+    }
+    // this.markerPosition.lat = res.data?.lat
+    // this.markerPosition.lng = res.data?.lng
+    // this.center.lng = res.data?.lng
+    // this.lng = res.data?.lng
+    // this.lng = res.data?.lng
+    // this.lng = res.data?.lng
   })
 }
 

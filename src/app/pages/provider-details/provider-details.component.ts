@@ -83,7 +83,9 @@ export class ProviderDetailsComponent implements OnInit {
 
     this.orderForm = new FormGroup({
       hours: new FormControl(1, [Validators.required]),
-      description: new FormControl('', [Validators.required])
+      description: new FormControl('', [Validators.required]),
+      lat: new FormControl('', [Validators.required]),
+      lng: new FormControl('', [Validators.required])
     });
   }
 
@@ -133,10 +135,11 @@ export class ProviderDetailsComponent implements OnInit {
         // description: this.description,
         // lat: '1.2555',  // eng. ahmed
         // lng: '0.2555',  // eng. ahmed
-        lat: this.lat,
-        lng: this.lng,
+        lat: this.orderForm.controls['lat'].value,
+        lng: this.orderForm.controls['lng'].value,
         executed_at: '2022-2-12'
       }
+      console.log(data)
       this.order.sendOrder(data).subscribe((res:any) => {
         this.reviews = res.data.rate
         this.toastr.success('Order has been created successfully', ':)');
@@ -144,7 +147,6 @@ export class ProviderDetailsComponent implements OnInit {
         // console.log(this.rateObject);
       }, (error:any) => {
         this.toastr.error('The order was not completed successfully');
-        // console.log(error)
       })
     } else {
       this.toastr.error('Please check the data and try again', ':(');

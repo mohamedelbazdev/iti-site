@@ -29,5 +29,10 @@ export class OrderService {
     return this.http.post<any>(this.showOrderUrl, { order_id: orderId })
   }
 
+  statusOrder(data:object){
+    return this.http.post<any>(this.showOrderUrl, data)
+  }
+
+
 }
 

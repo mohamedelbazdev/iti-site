@@ -56,23 +56,36 @@ export class ProvOrderDetailsComponent implements OnInit {
       lat: res.data?.lat,
       lng: res.data?.lng
     }
-    // this.markerPosition.lat = res.data?.lat
-    // this.markerPosition.lng = res.data?.lng
-    // this.center.lng = res.data?.lng
-    // this.lng = res.data?.lng
-    // this.lng = res.data?.lng
-    // this.lng = res.data?.lng
   })
 }
 
-ClickMethod() {
+acceptOrder() {
   if(confirm("Are you sure  ")) {
     console.log("Implement delete functionality here");
+    let data = {
+      order_id: this.route.snapshot.params['id'],
+      status: 1
+    }
+    this.order.statusOrder(data).subscribe(res => {
+      alert('done accept')
+    }, error => {
+      alert('error')
+    })
   }
 }
-clickMethod() {
+
+rejectOrder() {
   if(confirm("Are you sure to delete ")) {
     console.log("Implement delete functionality here");
+    let data = {
+      order_id: this.route.snapshot.params['id'],
+      status: 2
+    }
+    this.order.statusOrder(data).subscribe(res => {
+      alert('done refuse')
+    }, error => {
+      alert('error')
+    })
   }
 }
 

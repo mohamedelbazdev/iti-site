@@ -47,6 +47,11 @@ export class ProvOrderDetailsComponent implements OnInit {
     this.showOrder = res.data
   })
 }
-
+sure(){
+  alert('are you sure!');
+}
+not_sure(){
+  alert('are you sure!');
+}
 
 }

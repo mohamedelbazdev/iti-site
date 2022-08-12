@@ -20,7 +20,7 @@ import { Router } from "@angular/router";
 export class ProviderDetailsComponent implements OnInit {
   rateForm: FormGroup;
   orderForm: FormGroup;
-
+  submitted = false;
 
   // start google map
   center: google.maps.LatLngLiteral = {
@@ -56,8 +56,6 @@ export class ProviderDetailsComponent implements OnInit {
   }
   // end google map
 
-
-
   currentRate = 1;
   description = '';
   lat: number = 12;
@@ -78,7 +76,6 @@ export class ProviderDetailsComponent implements OnInit {
     private toastr: ToastrService,
     private favorite: FavoriteService,
     private router: Router,
-
   ) {
     this.rateForm = new FormGroup({
       description: new FormControl('', [Validators.required])
@@ -86,9 +83,10 @@ export class ProviderDetailsComponent implements OnInit {
 
     this.orderForm = new FormGroup({
       hours: new FormControl(1, [Validators.required]),
-      description: new FormControl('', [Validators.required])
+      description: new FormControl('', [Validators.required]),
+      lat: new FormControl('', [Validators.required]),
+      lng: new FormControl('', [Validators.required])
     });
-
   }
 
   ngOnInit(): void {
@@ -96,10 +94,14 @@ export class ProviderDetailsComponent implements OnInit {
       this.providerObject = res.data
     })
 
-    this.rate.getOneRate(this.route.snapshot.params['id']).subscribe(res => {
+    this.rate.getOneRate(this.route.snapshot.params['id']).subscribe((res:any) => {
       this.reviews = res.data.rate
       console.log(this.reviews);
     })
+  }
+
+  get orderFormControl() {
+    return this.orderForm.controls;
   }
 
   setRate() {
@@ -121,6 +123,37 @@ export class ProviderDetailsComponent implements OnInit {
   }
 
   createBooking() {
+    this.submitted = true;
+    if (this.orderForm.valid) {
+      let data = {
+        // user_id: this.auth.getUser()?.id,
+        provider_id: this.route.snapshot.params['id'],
+        // sender_id: this.auth.getUser()?.id,
+        received_id: this.route.snapshot.params['id'],
+        hours: this.orderForm.controls['hours'].value,
+        description: this.orderForm.controls['description'].value,
+        // description: this.description,
+        // lat: '1.2555',  // eng. ahmed
+        // lng: '0.2555',  // eng. ahmed
+        lat: this.orderForm.controls['lat'].value,
+        lng: this.orderForm.controls['lng'].value,
+        executed_at: '2022-2-12'
+      }
+      console.log(data)
+      this.order.sendOrder(data).subscribe((res:any) => {
+        this.reviews = res.data.rate
+        this.toastr.success('Order has been created successfully', ':)');
+        this.router.navigateByUrl('/order')
+        // console.log(this.rateObject);
+      }, (error:any) => {
+        this.toastr.error('The order was not completed successfully');
+      })
+    } else {
+      this.toastr.error('Please check the data and try again', ':(');
+    }
+
+
+
     let data = {
       // user_id: this.auth.getUser()?.id,
       provider_id: this.route.snapshot.params['id'],
@@ -136,24 +169,27 @@ export class ProviderDetailsComponent implements OnInit {
       executed_at: '2022-2-12'
 
     }
-    this.order.sendOrder(data).subscribe(res => {
+    this.order.sendOrder(data).subscribe((res:any) => {
       this.reviews = res.data.rate
 
       this.toastr.success('Order has been created successfully', ':)');
       this.router.navigateByUrl('/order')
       // console.log(this.rateObject);
-    }, error => {
+    }, (error:any) => {
       this.toastr.error('The order was not completed successfully');
       // console.log(error)
     })
+
   }
+
   createFav() {
     this.favorite.create(this.route.snapshot.params['id']).subscribe(() => {
       // this.router.navigateByUrl('/Favorites')
       this.toastr.success('Add to favorite sucessed', ':)');
-    }, error => {
+    }, (error:any) => {
       this.toastr.success('Remove favorite has been sucessefully');
       // console.log(error)
     })
   }
+
 }

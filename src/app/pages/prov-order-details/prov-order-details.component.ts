@@ -3,6 +3,7 @@ import { OrderService } from '../../services/order.service'
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { Router } from "@angular/router";
 import { ActivatedRoute } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-prov-order-details',
@@ -37,6 +38,7 @@ export class ProvOrderDetailsComponent implements OnInit {
     private order: OrderService,
     private router: Router,
     private route: ActivatedRoute,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -64,29 +66,29 @@ export class ProvOrderDetailsComponent implements OnInit {
 }
 
 acceptOrder() {
-
     let data = {
       order_id: this.route.snapshot.params['id'],
       status: 1
     }
+
     this.order.statusOrder(data).subscribe(res => {
-      alert('Are you sure you want to accept?')
-    }, error => {
-      alert('error')
+      this.router.navigateByUrl('/provider-order')
+      this.toastr.success('Accept order successfully', ':)');
+      }, error => {
+      this.toastr.error('Error in Accept order', ':(');
     })
 
 }
 rejectOrder() {
-
-
     let data = {
       order_id: this.route.snapshot.params['id'],
       status: 2
     }
     this.order.statusOrder(data).subscribe(res => {
-      alert('Are you sure you want to refuse?')
-    }, error => {
-      alert('error')
+      this.router.navigateByUrl('/provider-order')
+      this.toastr.success('Reject order successfully', ':)');
+      }, error => {
+      this.toastr.error('Error in Reject order', ':(');
     })
 
 }

@@ -10,6 +10,7 @@ export class OrderService {
   public ProviderFetchOrderUrl = "http://127.0.0.1:8000/api/users/orders/received";
   public createOrderUrl = "http://127.0.0.1:8000/api/users/orders/create";
   public showOrderUrl = "http://127.0.0.1:8000/api/users/orders/details";
+  public updateStatusOrderUrl = "http://127.0.0.1:8000/api/users/orders/update";
 
   constructor(private http: HttpClient) { }
 
@@ -30,7 +31,7 @@ export class OrderService {
   }
 
   statusOrder(data: object) {
-    return this.http.post<any>(this.showOrderUrl, data)
+    return this.http.post<any>(this.updateStatusOrderUrl, data)
   }
 
 

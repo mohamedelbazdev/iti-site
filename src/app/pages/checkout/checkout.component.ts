@@ -88,7 +88,7 @@ export class CheckoutComponent implements OnInit {
       }
       this.payment.payOrder(data).subscribe(res => {
         this.toastr.success('Payment done successfully', ':)');
-        this.router.navigateByUrl('/order')
+        this.router.navigateByUrl('/Confirm-Order')
       }, error => {
         this.toastr.error('Connection server error');
         console.log(error)

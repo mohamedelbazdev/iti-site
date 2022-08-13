@@ -3,6 +3,7 @@ import { OrderService } from '../../services/order.service'
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { Router } from "@angular/router";
 import { ActivatedRoute } from "@angular/router";
+
 @Component({
   selector: 'app-prov-order-details',
   templateUrl: './prov-order-details.component.html',
@@ -39,7 +40,6 @@ export class ProvOrderDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
   // this.order.getOrders().subscribe(res => {
   //   this.showOrder = res.data
   // })
@@ -64,7 +64,6 @@ export class ProvOrderDetailsComponent implements OnInit {
 }
 
 acceptOrder() {
-
 
     let data = {
       order_id: this.route.snapshot.params['id'],

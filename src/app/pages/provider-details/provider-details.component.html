@@ -53,9 +53,9 @@
                                 width="100%"
                                 [center]="center"
                                 [zoom]="zoom"
-                                (mapMousemove)="move($event)"
                                 >
                                 <map-marker
+                                (mapDragend)="dragged($event)"
                                 [position]="markerPosition"
                                 [options]="markerOptions"
                                 >

@@ -39,14 +39,20 @@ export class ProviderDetailsComponent implements OnInit {
     lng: 12
   };
 
-  moveMap(event: google.maps.MapMouseEvent) {
-    if (event.latLng != null) this.center = (event.latLng.toJSON());
-  }
+  // moveMap(event: google.maps.MapMouseEvent) {
+  //   if (event.latLng != null) this.center = (event.latLng.toJSON());
+  //   if (event.latLng != null) {
+  //     this.orderForm.patchValue({
+  //       lat: event.latLng.lat(),
+  //       lng: event.latLng.lng(),
+  //     });
+  //   }
+  // }
 
   // move(event: google.maps.MapMouseEvent) {
   //   if (event.latLng != null) this.display = event.latLng.toJSON();
   // }
-  move(event: google.maps.MapMouseEvent) {
+  dragged(event:any){
     if (event.latLng != null) {
       this.orderForm.patchValue({
         lat: event.latLng.lat(),
@@ -54,6 +60,16 @@ export class ProviderDetailsComponent implements OnInit {
       });
     }
   }
+  // move(event: google.maps.MapMouseEvent) {
+  //   if (event.latLng != null) {
+  //     this.orderForm.patchValue({
+  //       lat: event.latLng.lat(),
+  //       lng: event.latLng.lng(),
+  //     });
+  //   }
+  // }
+
+
   // end google map
 
   currentRate = 1;
@@ -139,16 +155,24 @@ export class ProviderDetailsComponent implements OnInit {
         lng: this.orderForm.controls['lng'].value,
         executed_at: '2022-2-12'
       }
+      console.log('lat')
+      console.log(this.orderForm.controls['lat'].value)
+      console.log('lng')
+      console.log(this.orderForm.controls['lng'].value)
       console.log(data)
-      this.order.sendOrder(data).subscribe((res:any) => {
-        this.reviews = res.data.rate
-        this.toastr.success('Order has been created successfully', ':)');
-        this.router.navigateByUrl('/order')
-      }, (error:any) => {
-        this.toastr.error('The order was not completed successfully');
-      })
-    } else {
-      this.toastr.error('Please check the data and try again', ':(');
+      console.log('lat marker')
+      console.log(this.markerPosition.lat)
+      console.log('lng marker')
+      console.log(this.markerPosition.lng)
+    //   this.order.sendOrder(data).subscribe((res:any) => {
+    //     this.reviews = res.data.rate
+    //     this.toastr.success('Order has been created successfully', ':)');
+    //     this.router.navigateByUrl('/order')
+    //   }, (error:any) => {
+    //     this.toastr.error('The order was not completed successfully');
+    //   })
+    // } else {
+    //   this.toastr.error('Please check the data and try again', ':(');
     }
   }
 

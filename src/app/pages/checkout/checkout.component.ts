@@ -26,13 +26,12 @@ export class CheckoutComponent implements OnInit {
     private payment: PaymentService,
     private actrouter: ActivatedRoute,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
     // this.invokeStripe();
-
-
     this.paymentForm = this.fb.group({
       card_number: ['', Validators.required],
       card_exp_month: ['', Validators.required],
@@ -80,9 +79,16 @@ export class CheckoutComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.paymentForm.valid) {
-      this.payment.paymenyOrder(this.paymentForm.value).subscribe(res => {
-        console.log(res)
+      let data = {
+        'order_id': this.route.snapshot.params['orderId'],
+        'card_number': this.paymentForm.controls['card_number'].value,
+        'card_exp_month': this.paymentForm.controls['card_exp_month'].value,
+        'card_exp_year': this.paymentForm.controls['card_exp_year'].value,
+        'card_cvc': this.paymentForm.controls['card_cvc'].value,
+      }
+      this.payment.payOrder(data).subscribe(res => {
         this.toastr.success('Payment done successfully', ':)');
+        this.router.navigateByUrl('/order')
       }, error => {
         this.toastr.error('Connection server error');
         console.log(error)

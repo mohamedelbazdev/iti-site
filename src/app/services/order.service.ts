@@ -34,6 +34,5 @@ export class OrderService {
     return this.http.post<any>(this.updateStatusOrderUrl, data)
   }
 
-
 }
 

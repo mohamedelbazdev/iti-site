@@ -6,11 +6,11 @@ import { Injectable } from '@angular/core';
 })
 export class PaymentService {
 
-  public paymentUrl = "http://127.0.0.1:8000/api/users/payment";
+  public paymentUrl = "http://127.0.0.1:8000/api/users/orders/pay";
 
   constructor(private http: HttpClient,) { }
 
-  paymenyOrder(data: any) {
+  payOrder(data: any) {
     return this.http.post<any>(this.paymentUrl, data);
   }
 }

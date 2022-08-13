@@ -28,7 +28,7 @@ import { ProvOrderDetailsComponent } from './pages/prov-order-details/prov-order
 const routes: Routes = [
 
   { path: '', component: HomeComponent },
-  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
+  { path: 'checkout/:orderId', component: CheckoutComponent, canActivate: [AuthGuard] },
   { path: 'order', component: OrderComponent, canActivate: [AuthGuard] }, // canActivate:[AuthGuard]
   { path: 'login', component: LoginComponent, canActivate: [GuestGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [GuestGuard] },

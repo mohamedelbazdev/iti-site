@@ -49,16 +49,16 @@
 
               <td  class="wishlist__column wishlist__column--remove pt-5">
                 <div class="bg-info p-2 w-50 m-auto text-white">
-                  <i class="fa fa-hourglass" aria-hidden="true"></i>
                   <span class=" fs-4">
-                    {{ order.hours }}
+                    {{ order.hours }} : 
                    </span>
-               
+                   <i class="fas fa-clock"></i>
+
                 </div>
               </td>
               <td  class="wishlist__column wishlist__column--remove pt-5">
                 <div class="bg-info p-2  m-auto text-white">
-                    {{ order.total_amount|currency:'EGP' }}</div
+                    {{ order.total_amount|currency:'EGP : ' }}</div
                 >
             </td>
             <td  class="wishlist__column wishlist__column--remove pt-5 overflow-auto"

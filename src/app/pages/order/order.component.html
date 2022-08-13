@@ -45,16 +45,17 @@
                 </div>
               </td>
               <td  class="wishlist__column wishlist__column--remove pt-5">
-                <div class="bg-info p-2 w-50 m-auto text-white">
-                  <i class="fa fa-hourglass " aria-hidden="true"></i>
-                  <span class=" fs-4">
-                    {{ order.hours }}
+                <div class="bg-info p-1  m-auto text-white">
+
+                  <span class=" fs-5">
+                    {{ order.hours }} :
                    </span>
+                   <i class="fas fa-clock"></i>
                 </div>
               </td>
                 <td  class="wishlist__column wishlist__column--remove pt-5">
                   <div class="bg-info p-2  m-auto text-white">
-                      {{ order.total_amount|currency:'EGP' }}</div
+                      {{ order.total_amount|currency:'EGP : ' }}</div
                   >
               </td>
               <td  class="wishlist__column wishlist__column--remove pt-5 overflow-auto"
@@ -64,18 +65,27 @@
             </td>
 
           <td  class="wishlist__column wishlist__column--remove pt-5">
-            <div class="">
+            <div >
               {{ order.created_at | date:'MM/dd/yy h:mm a' }}</div
             >
           </td>
-
+<!-- {{order.provider?.status|json}} -->
           <td class="wishlist__column wishlist__column--remove pt-5" >
-            <div class=" text-white rounded p-2" style="background-color: #DDD;">
-                <ng-container class=" pt-5" *ngIf=" order.provider?.status === 1; then first else second"></ng-container>
+            <!-- <div class=" text-white rounded p-2" style="background-color: #DDD;">
+                <ng-container class=" pt-5" *ngIf=" order.provider?.status === 1; then first else second else third"></ng-container>
                 <ng-template #first><div class="bg-success">Accept</div></ng-template>
                 <ng-template #second> <div class="bg-danger">Refuse</div></ng-template>
-            </div>
-
+                <ng-template #third> <div class="bg-danger">pendding</div></ng-template>
+            </div> -->
+            <div class=" text-white rounded p-1" style="background-color: #DDD;">
+            <ng-container *ngIf="order.provider?.status === 1;else second"><div class="bg-success">
+              Accept
+            </div> </ng-container>
+            <ng-template #second>
+                <ng-container *ngIf="order.provider?.status === 2;else third"><div class="bg-danger">Refuse</div> </ng-container>
+            </ng-template>
+            <ng-template #third> <div class="bg-warning">pendding</div> </ng-template>
+          </div>
           </td>
 
           <td  class="wishlist__column wishlist__column--remove pt-5">

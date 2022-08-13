@@ -39,7 +39,7 @@ export class EditProviderProfileComponent implements OnInit {
     if (event.latLng != null) this.center = (event.latLng.toJSON());
   }
 
-  dragged(event:any){
+  dragged(event: any) {
     if (event.latLng != null) {
       this.profileForm.patchValue({
         lat: event.latLng.lat(),

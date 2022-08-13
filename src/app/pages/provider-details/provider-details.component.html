@@ -31,7 +31,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="form-label">The number of hours</label>
-                                    <input type="number" formControlName="hours" class="form-control  border-0 text-center" min="1" value="1">
+                                    <input min="1" oninput="this.value = Math.abs(this.value)" type="number" formControlName="hours" class="form-control  border-0 text-center" min="1" value="1">
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -65,7 +65,7 @@
                             </div>
                             </div>
                     </form>
-
+                    <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
                         <div class="d-flex justify-content-between">
                             <button (click)="createBooking()" class="btn bg-primary text-white mt-3 w-25 me-5"><i class="fa fa-address-card text-white  mr-1"></i>Book</button>
                             <div class="mt-2">

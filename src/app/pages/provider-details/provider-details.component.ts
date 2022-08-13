@@ -9,6 +9,7 @@ import { RateService } from 'src/app/services/rate.service';
 import { OrderService } from "../../services/order.service";
 import { ToastrService } from 'ngx-toastr';
 import { Router } from "@angular/router";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-provider-details',
@@ -52,7 +53,7 @@ export class ProviderDetailsComponent implements OnInit {
   // move(event: google.maps.MapMouseEvent) {
   //   if (event.latLng != null) this.display = event.latLng.toJSON();
   // }
-  dragged(event:any){
+  dragged(event: any) {
     if (event.latLng != null) {
       this.orderForm.patchValue({
         lat: event.latLng.lat(),
@@ -92,6 +93,7 @@ export class ProviderDetailsComponent implements OnInit {
     private toastr: ToastrService,
     private favorite: FavoriteService,
     private router: Router,
+    private spinner: NgxSpinnerService
   ) {
     this.rateForm = new FormGroup({
       description: new FormControl('', [Validators.required])
@@ -106,11 +108,16 @@ export class ProviderDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
+
     this.provider.showProvider(this.route.snapshot.params['id']).subscribe(res => {
       this.providerObject = res.data
     })
 
-    this.rate.getOneRate(this.route.snapshot.params['id']).subscribe((res:any) => {
+    this.rate.getOneRate(this.route.snapshot.params['id']).subscribe((res: any) => {
       this.reviews = res.data.rate
       console.log(this.reviews);
     })
@@ -121,6 +128,10 @@ export class ProviderDetailsComponent implements OnInit {
   }
 
   setRate() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 500);
     console.log(this.auth.getUser()?.id)
     console.log(this.auth.getUser())
     // @ts-ignore
@@ -141,6 +152,11 @@ export class ProviderDetailsComponent implements OnInit {
   createBooking() {
     this.submitted = true;
     if (this.orderForm.valid) {
+
+      this.spinner.show();
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 2000);
       let data = {
         // user_id: this.auth.getUser()?.id,
         provider_id: this.route.snapshot.params['id'],
@@ -164,11 +180,11 @@ export class ProviderDetailsComponent implements OnInit {
       console.log(this.markerPosition.lat)
       console.log('lng marker')
       console.log(this.markerPosition.lng)
-      this.order.sendOrder(data).subscribe((res:any) => {
+      this.order.sendOrder(data).subscribe((res: any) => {
         this.reviews = res.data.rate
         this.toastr.success('Order has been created successfully', ':)');
         this.router.navigateByUrl('/order')
-      }, (error:any) => {
+      }, (error: any) => {
         this.toastr.error('The order was not completed successfully');
       })
     } else {
@@ -177,10 +193,14 @@ export class ProviderDetailsComponent implements OnInit {
   }
 
   createFav() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 500);
     this.favorite.create(this.route.snapshot.params['id']).subscribe(() => {
       // this.router.navigateByUrl('/Favorites')
       this.toastr.success('Add to favorite sucessed', ':)');
-    }, (error:any) => {
+    }, (error: any) => {
       this.toastr.success('Remove favorite has been sucessefully');
       // console.log(error)
     })

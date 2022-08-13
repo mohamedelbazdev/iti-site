@@ -2,14 +2,15 @@
 
    <!-- Categories Start -->
    <div class="container pt-5">
-    <h2 class="section-title position-relative text-uppercase mb-4"><span class="pr-3">{{categoryObject.category.name}}</span></h2>
+    <h2 class="section-title position-relative text-uppercase mb-4"><span class="pr-3"><i class="fab fa-500px"></i>{{categoryObject.category.name}}</span></h2>
     <img style="width: 100%; height:500px" src="{{categoryObject.category.image}}" alt=""  />
   </div>
   <!-- Categories End -->
 
 <!-- Products Start -->
 <div class="container pt-5 pb-3">
-  <h2 class="section-title position-relative text-uppercase mb-4"><span class="pr-3">providers</span></h2>
+
+  <h2 class="section-title position-relative text-uppercase mb-4"><span class="pr-3"><i class="fab fa-500px"></i> providers</span></h2>
   <div class="row px-xl-5">
       <div class="col-lg-3 col-md-4 col-sm-6 pb-1"  *ngFor="let prov of providers">
           <div class="product-item bg-light mb-4">

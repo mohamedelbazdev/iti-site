@@ -129,9 +129,6 @@ export class ProviderDetailsComponent implements OnInit {
 
   setRate() {
     this.spinner.show();
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 500);
     console.log(this.auth.getUser()?.id)
     console.log(this.auth.getUser())
     // @ts-ignore
@@ -143,9 +140,10 @@ export class ProviderDetailsComponent implements OnInit {
     }
     this.provider.setRate(data).subscribe(() => {
       this.toastr.success('send rating done', ':)');
-    }, error => {
+      this.spinner.hide();
+    }, () => {
       this.toastr.error('Rated before or something went wrong');
-      // console.log(error)
+      this.spinner.hide();
     })
   }
 

@@ -58,9 +58,12 @@
                       {{ order.total_amount|currency:'EGP : ' }}</div
                   >
               </td>
-              <td  class="wishlist__column wishlist__column--remove pt-5 overflow-auto"
-              style="max-width: 150px; ">
-                <div class=""  >
+              <td  class="wishlist__column wishlist__column--remove pt-5 "
+              style="max-width: 150px; " >
+                <div style="white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 13ch;" >
                   {{ order.description }}</div>
             </td>
 
@@ -87,7 +90,9 @@
 
           <td  class="wishlist__column wishlist__column--remove pt-5">
             <div class="text-center" >
-              <a  routerLink="/checkout/{{order.id}}" class="btn bg-primary text-white "><i class="fas fa-shopping-cart"></i> Checkout </a>
+              <a  routerLink="/checkout/{{order.id}}" class="btn bg-primary text-white "
+                [class.disabled]=" order.status !== '1' && order.paid === 0">
+                <i class="fas fa-shopping-cart"></i> Checkout </a>
           </div>
           </td>
 

@@ -89,11 +89,11 @@
             width="100%"
             [center]="center"
             [zoom]="zoom"
-            (mapMousemove)="move($event)"
             >
             <map-marker
-            [position]="markerPosition"
-            [options]="markerOptions"
+              (mapDragend)="dragged($event)"
+              [position]="markerPosition"
+              [options]="markerOptions"
             >
             </map-marker>
 

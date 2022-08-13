@@ -35,7 +35,16 @@ export class EditUserProfileComponent implements OnInit {
     if (event.latLng != null) this.center = (event.latLng.toJSON());
   }
 
-  move(event: google.maps.MapMouseEvent) {
+  // move(event: google.maps.MapMouseEvent) {
+  //   if (event.latLng != null) {
+  //     this.profileForm.patchValue({
+  //       lat: event.latLng.lat(),
+  //       lng: event.latLng.lng(),
+  //     });
+  //   }
+  // }
+
+  dragged(event:any){
     if (event.latLng != null) {
       this.profileForm.patchValue({
         lat: event.latLng.lat(),

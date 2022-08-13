@@ -40,7 +40,8 @@ export class RegisterComponent {
   // move(event: google.maps.MapMouseEvent) {
   //   if (event.latLng != null) this.display = event.latLng.toJSON();
   // }
-  move(event: google.maps.MapMouseEvent) {
+
+  dragged(event:any){
     if (event.latLng != null) {
       this.registerForm.patchValue({
         lat: event.latLng.lat(),
@@ -48,6 +49,7 @@ export class RegisterComponent {
       });
     }
   }
+
   // end google map
 
 

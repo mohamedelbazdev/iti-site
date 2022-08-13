@@ -21,7 +21,7 @@ export class ProviderProfileComponent implements OnInit {
   zoom = 4;
 
   markerOptions: google.maps.MarkerOptions = {
-    draggable: true
+    draggable: false
   };
 
   markerPosition: google.maps.LatLngLiteral = {

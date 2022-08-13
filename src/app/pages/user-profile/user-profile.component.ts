@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ProfileService} from "../../services/profile.service";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { ProfileService } from "../../services/profile.service";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-user-profile',
@@ -21,7 +21,7 @@ export class UserProfileComponent implements OnInit {
   zoom = 4;
 
   markerOptions: google.maps.MarkerOptions = {
-    draggable: true
+    draggable: false
   };
 
   markerPosition: google.maps.LatLngLiteral = {
@@ -29,7 +29,7 @@ export class UserProfileComponent implements OnInit {
     lng: this.lng
   };
 
-  constructor(private profile:ProfileService) {
+  constructor(private profile: ProfileService) {
     // this.profileForm = new FormGroup({
     //   name: new FormControl('', [Validators.required]),
     //   email: new FormControl('', [Validators.required, Validators.email]),

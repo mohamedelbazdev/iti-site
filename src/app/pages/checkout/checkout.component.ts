@@ -76,6 +76,11 @@ export class CheckoutComponent implements OnInit {
     //   }
     // }
   }
+
+  get paymentFormControl() {
+    return this.paymentForm.controls;
+  }
+
   onSubmit() {
     this.submitted = true;
     if (this.paymentForm.valid) {
@@ -95,9 +100,8 @@ export class CheckoutComponent implements OnInit {
       })
     }
     else {
-      this.toastr.error('There is an error, please check the data', ':(');
-      console.log();
-
+      this.toastr.error(' please check your data !', ':(');
+     
     }
   }
 }

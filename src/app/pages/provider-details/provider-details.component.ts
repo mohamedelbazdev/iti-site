@@ -164,15 +164,15 @@ export class ProviderDetailsComponent implements OnInit {
       console.log(this.markerPosition.lat)
       console.log('lng marker')
       console.log(this.markerPosition.lng)
-    //   this.order.sendOrder(data).subscribe((res:any) => {
-    //     this.reviews = res.data.rate
-    //     this.toastr.success('Order has been created successfully', ':)');
-    //     this.router.navigateByUrl('/order')
-    //   }, (error:any) => {
-    //     this.toastr.error('The order was not completed successfully');
-    //   })
-    // } else {
-    //   this.toastr.error('Please check the data and try again', ':(');
+      this.order.sendOrder(data).subscribe((res:any) => {
+        this.reviews = res.data.rate
+        this.toastr.success('Order has been created successfully', ':)');
+        this.router.navigateByUrl('/order')
+      }, (error:any) => {
+        this.toastr.error('The order was not completed successfully');
+      })
+    } else {
+      this.toastr.error('Please check the data and try again', ':(');
     }
   }
 

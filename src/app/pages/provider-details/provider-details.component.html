@@ -31,7 +31,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="form-label">The number of hours</label>
-                                    <input min="1" oninput="this.value = Math.abs(this.value)" type="number" formControlName="hours" class="form-control  border-0 text-center" min="1" value="1">
+                                    <input min="1" oninput="this.value = Math.abs(this.value) === 0 ? 1: Math.abs(this.value) " type="number" formControlName="hours" class="form-control  border-0 text-center" min="1" value="1">
                                 </div>
                             </div>
                             <div class="col-sm-6">

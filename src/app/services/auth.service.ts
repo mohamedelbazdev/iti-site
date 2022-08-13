@@ -20,7 +20,9 @@ export class AuthService {
 
 
   getUSerCount() {
-    return this.http.get<any>(this.userCountUrl)
+    return this.http.get<any>(this.userCountUrl).subscribe(res => {
+      localStorage.setItem('count', JSON.stringify(res.data))
+    })
   }
 
 

@@ -17,14 +17,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 2000);
     this.home.getCategories().subscribe(res => {
       this.categories = res.data
     })
     this.home.getProviders().subscribe(res => {
       this.providers = res.data
+      this.spinner.hide();
+    },() => {
+      this.spinner.hide();
     })
   }
 }

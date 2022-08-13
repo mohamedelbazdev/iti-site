@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class ProviderService {
 
-  public providerUrl = "http://127.0.0.1:8000/api/users/providers";
-  public showProviderUrl = "http://127.0.0.1:8000/api/users/providers/details";
-  public setRateUrl = "http://127.0.0.1:8000/api/users/rateprovider";
+  public providerUrl = `${environment.APIBaseURL}/users/providers`;
+  public showProviderUrl = `${environment.APIBaseURL}/users/providers/details`;
+  public setRateUrl = `${environment.APIBaseURL}/users/rateprovider`;
 
   constructor(private http: HttpClient) { }
 

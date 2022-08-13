@@ -4,16 +4,17 @@ import { HttpClient } from "@angular/common/http";
 import { parseJson } from "@angular/cli/src/utilities/json-file";
 import { Observable } from "rxjs";
 import { ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
-  public _registerUrl = "http://127.0.0.1:8000/api/providers/register";
-  public _loginUrl = "http://127.0.0.1:8000/api/auth/login";
+  public _registerUrl = `${environment.APIBaseURL}/providers/register`;
+  public _loginUrl = `${environment.APIBaseURL}/auth/login`;
 
-  public userCountUrl = "http://127.0.0.1:8000/api/users/count";
+  public userCountUrl = `${environment.APIBaseURL}/users/count`;
 
   constructor(private http: HttpClient, private router: Router, private toastr: ToastrService,) { }
 

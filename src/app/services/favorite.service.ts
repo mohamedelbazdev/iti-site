@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoriteService {
 
-  public favUrl = "http://127.0.0.1:8000/api/users/favorites";
-  public createFavUrl = "http://127.0.0.1:8000/api/users/favorites/create";
-  public removeUrl = "http://127.0.0.1:8000/api/users/favorites/destroy";
+  public favUrl = `${environment.APIBaseURL}/users/favorites`;
+  public createFavUrl = `${environment.APIBaseURL}/users/favorites/create`;
+  public removeUrl = `${environment.APIBaseURL}/users/favorites/destroy`;
 
   constructor(private http: HttpClient) { }
 

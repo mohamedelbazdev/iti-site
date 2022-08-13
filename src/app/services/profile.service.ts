@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
-  public getProfileUrl = "http://127.0.0.1:8000/api/users/profile";
-  public updateProfileUrl = "http://127.0.0.1:8000/api/users/profile/edit";
+  public getProfileUrl = `${environment.APIBaseURL}/users/profile`;
+  public updateProfileUrl = `${environment.APIBaseURL}/users/profile/edit`;
 
   constructor(private http: HttpClient) { }
 

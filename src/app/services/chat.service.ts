@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +8,13 @@ import { HttpClient } from "@angular/common/http";
 
 export class ChatService {
 
-  public createRoomUrl = "http://127.0.0.1:8000/api/chats/create_room";
-  public chatRoomsUrl = "http://127.0.0.1:8000/api/chats/my_rooms";
-  public chatUserRoomsUrl = "http://127.0.0.1:8000/api/chats/user/rooms";
-  public chatSpecificRoomsUrl = "http://127.0.0.1:8000/api/chats/specific_room/";
-  public chatSendMessageUrl = "http://127.0.0.1:8000/api/chats/send_message";
-  public chatMakeReadUrl = "http://127.0.0.1:8000/api/chats/mark_as_read/{id}";
-  public chatDelMessageUrl = "http://127.0.0.1:8000/api/chats/delete_msg/{id}";
+  public createRoomUrl = `${environment.APIBaseURL}chats/create_room`;
+  public chatRoomsUrl = `${environment.APIBaseURL}chats/my_rooms`;
+  public chatUserRoomsUrl = `${environment.APIBaseURL}chats/user/rooms`;
+  public chatSpecificRoomsUrl = `${environment.APIBaseURL}chats/specific_room/`;
+  public chatSendMessageUrl = `${environment.APIBaseURL}chats/send_message`;
+  public chatMakeReadUrl = `${environment.APIBaseURL}chats/mark_as_read/{id}`;
+  public chatDelMessageUrl = `${environment.APIBaseURL}chats/delete_msg/{id}`;
 
   constructor(private http: HttpClient) { }
 

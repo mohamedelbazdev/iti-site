@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 
 export class OrderService {
 
-  public fetchOrderUrl = "http://127.0.0.1:8000/api/users/orders/sended";
-  public ProviderFetchOrderUrl = "http://127.0.0.1:8000/api/users/orders/received";
-  public createOrderUrl = "http://127.0.0.1:8000/api/users/orders/create";
-  public showOrderUrl = "http://127.0.0.1:8000/api/users/orders/details";
-  public updateStatusOrderUrl = "http://127.0.0.1:8000/api/users/orders/update";
+  public fetchOrderUrl = `${environment.APIBaseURL}/users/orders/sended`;
+  public ProviderFetchOrderUrl = `${environment.APIBaseURL}/users/orders/received`;
+  public createOrderUrl = `${environment.APIBaseURL}/users/orders/create`;
+  public showOrderUrl = `${environment.APIBaseURL}/users/orders/details`;
+  public updateStatusOrderUrl = `${environment.APIBaseURL}/users/orders/update`;
 
   constructor(private http: HttpClient) { }
 

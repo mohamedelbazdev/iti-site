@@ -47,6 +47,7 @@ export class LoginComponent {
                 this.auth.setToken(res.token)
                 this.auth.setUser(res.data)
                 // this.router.navigate('/');
+                this.auth.getUSerCount()
                 this.router.navigateByUrl('/')
                 this.toastr.success('You are logged in successfully', ':)');
             }, error => {

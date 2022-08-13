@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
     @Output() closeMenu: EventEmitter<void> = new EventEmitter<void>();
 
     loginForm: FormGroup;
-    myUserCount: any = [{ "name": "user1", "order_count": 0, "favourite_count": 0 }]
+    myUserCount: any = JSON.parse(localStorage.getItem('count') || '[{ "name": "user1", "order_count": 0, "favourite_count": 0 }]')
 
     constructor(private auth: AuthService, private router: Router) {
         this.loginForm = new FormGroup({
@@ -23,11 +23,7 @@ export class HeaderComponent implements OnInit {
         });
     }
     ngOnInit(): void {
-        this.auth.getUSerCount().subscribe((res) => {
-            this.myUserCount = res.data
-            console.log(this.myUserCount);
-
-        });
+        this.auth.getUSerCount()
     }
 
     logout() {

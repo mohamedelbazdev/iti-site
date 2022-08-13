@@ -45,17 +45,17 @@
                 </div>
               </td>
               <td  class="wishlist__column wishlist__column--remove pt-5">
-                <div class="bg-info p-2 w-50 m-auto text-white">
+                <div class="bg-info p-1  m-auto text-white">
 
-                  <span class=" fs-4">
-                    {{ order.hours }}
+                  <span class=" fs-5">
+                    {{ order.hours }} :
                    </span>
                    <i class="fas fa-clock"></i>
                 </div>
               </td>
                 <td  class="wishlist__column wishlist__column--remove pt-5">
                   <div class="bg-info p-2  m-auto text-white">
-                      {{ order.total_amount|currency:'EGP' }}</div
+                      {{ order.total_amount|currency:'EGP : ' }}</div
                   >
               </td>
               <td  class="wishlist__column wishlist__column--remove pt-5 overflow-auto"
@@ -65,7 +65,7 @@
             </td>
 
           <td  class="wishlist__column wishlist__column--remove pt-5">
-            <div class="">
+            <div >
               {{ order.created_at | date:'MM/dd/yy h:mm a' }}</div
             >
           </td>
@@ -77,6 +77,7 @@
                 <ng-template #second> <div class="bg-danger">Refuse</div></ng-template>
                 <ng-template #third> <div class="bg-danger">pendding</div></ng-template>
             </div> -->
+            <div class=" text-white rounded p-1" style="background-color: #DDD;">
             <ng-container *ngIf="order.provider?.status === 1;else second"><div class="bg-success">
               Accept
             </div> </ng-container>
@@ -84,7 +85,7 @@
                 <ng-container *ngIf="order.provider?.status === 2;else third"><div class="bg-danger">Refuse</div> </ng-container>
             </ng-template>
             <ng-template #third> <div class="bg-warning">pendding</div> </ng-template>
-
+          </div>
           </td>
 
           <td  class="wishlist__column wishlist__column--remove pt-5">

@@ -28,12 +28,12 @@
   <h4  class="text-secondary">Required hours :
     <span class="text-primary fs-2">
 
-    {{ showOrder.hours }}</span>
+    {{ showOrder.hours }} : </span>
     <i class="fas fa-clock"></i>
   </h4>
 </div>
 <div  class="  p-4 mb-3" style="background-color: #EEE;">
-  <h4  class="text-secondary">total amount : <span class="text-primary">{{ showOrder.total_amount|currency:'EGP' }}</span></h4>
+  <h4  class="text-secondary">total amount : <span class="text-primary">{{ showOrder.total_amount|currency:'EGP : ' }}</span></h4>
 </div>
 <div  class="  p-4 mb-3" style="background-color: #EEE;">
   <h4  class="text-secondary">description : <span class="text-primary"> {{ showOrder.description }}</span></h4>

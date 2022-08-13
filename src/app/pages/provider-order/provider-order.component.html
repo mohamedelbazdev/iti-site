@@ -23,6 +23,7 @@
               </th>
               <th class="wishlist__column wishlist__column--tocart">description</th>
               <th class="wishlist__column wishlist__column--tocart">Date</th>
+              <th class="wishlist__column wishlist__column--tocart">status</th>
               <th class="wishlist__column wishlist__column--product">
                 Details
               </th>
@@ -64,7 +65,10 @@
             </td>
             <td  class="wishlist__column wishlist__column--remove pt-5 overflow-auto"
             style="max-width: 150px; ">
-              <div class=""  >
+              <div style="white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              max-width: 13ch;"  >
                 {{ order.description }}</div>
           </td>
           <td  class="wishlist__column wishlist__column--remove pt-5">
@@ -73,8 +77,25 @@
             >
           </td>
 
+        <td class="wishlist__column wishlist__column--remove pt-5" >
+          <div class=" text-white rounded p-2" style="background-color: #DDD;">
+
+              <ng-container [ngTemplateOutlet]="order.status === '1' ? first : order.status ===
+                                                '2' ? second : third"></ng-container>
+              <ng-template #first><div class="bg-success"><div class="bg-success">
+                Accept
+              </div> </div></ng-template>
+              <ng-template #second> <div class="bg-danger"><div class="bg-danger">Refuse</div> </div></ng-template>
+              <ng-template #third> <div class="bg-danger"> <div class="bg-warning">pendding</div></div></ng-template>
+          </div>
+
+
+        </td>
+
                <td class="wishlist__column wishlist__column--product pt-5">
-                <button routerLink="/pro-order-details/{{order.id}}"  class="btn btn-success me-1">Details</button>
+                <!-- <button routerLink="/pro-order-details/{{order.id}}"  class="btn btn-success me-1">Details</button> -->
+                <a   routerLink="/pro-order-details/{{order.id}}" class="btn btn-success me-1"
+                [class.disabled]=" order.status !== '0' && order.paid === 0"> Details </a>
 
                </td>
               </tr>

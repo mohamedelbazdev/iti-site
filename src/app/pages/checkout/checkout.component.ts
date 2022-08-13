@@ -12,7 +12,8 @@ import { PaymentService } from 'src/app/services/payment.service';
 })
 export class CheckoutComponent implements OnInit {
   // paymentHandler: any = null;
-  paymentForm: FormGroup | undefined;
+  paymentForm!: FormGroup;
+  submitted = false;
   order_id: any;
   card_number: any;
   card_exp_month: any;
@@ -24,7 +25,8 @@ export class CheckoutComponent implements OnInit {
     private fb: FormBuilder,
     private payment: PaymentService,
     private actrouter: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -37,11 +39,6 @@ export class CheckoutComponent implements OnInit {
       card_exp_year: ['', Validators.required],
       card_cvc: ['', Validators.required],
     });
-
-
-    this.payment.paymenyOrder(this.paymentForm.value).subscribe(res => {
-      console.log(res)
-    })
 
     // makePayment(amount: any) {
     //   const paymentHandler = (<any>window).StripeCheckout.configure({
@@ -79,6 +76,22 @@ export class CheckoutComponent implements OnInit {
     //     window.document.body.appendChild(script);
     //   }
     // }
+  }
+  onSubmit() {
+    this.submitted = true;
+    if (this.paymentForm.valid) {
+      this.payment.paymenyOrder(this.paymentForm.value).subscribe(res => {
+        console.log(res)
+        this.toastr.success('Payment done successfully', ':)');
+      }, error => {
+        this.toastr.error('Connection server error');
+        console.log(error)
+      })
+    }
+    else {
+      this.toastr.error('There is an error, please check the data', ':(');
+      console.log();
 
+    }
   }
 }

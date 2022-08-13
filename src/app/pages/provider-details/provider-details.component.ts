@@ -58,8 +58,8 @@ export class ProviderDetailsComponent implements OnInit {
 
   currentRate = 1;
   description = '';
-  lat: number = 12;
-  lng: number = 15;
+  // lat: number = 12;
+  // lng: number = 15;
   providerObject: any = {}
   rateObject: any = {}
   id: any;
@@ -84,8 +84,8 @@ export class ProviderDetailsComponent implements OnInit {
     this.orderForm = new FormGroup({
       hours: new FormControl(1, [Validators.required]),
       description: new FormControl('', [Validators.required]),
-      lat: new FormControl('', [Validators.required]),
-      lng: new FormControl('', [Validators.required])
+      lat: new FormControl(12, [Validators.required]),
+      lng: new FormControl(15, [Validators.required])
     });
   }
 
@@ -144,42 +144,12 @@ export class ProviderDetailsComponent implements OnInit {
         this.reviews = res.data.rate
         this.toastr.success('Order has been created successfully', ':)');
         this.router.navigateByUrl('/order')
-        // console.log(this.rateObject);
       }, (error:any) => {
         this.toastr.error('The order was not completed successfully');
       })
     } else {
       this.toastr.error('Please check the data and try again', ':(');
     }
-
-
-
-    let data = {
-      // user_id: this.auth.getUser()?.id,
-      provider_id: this.route.snapshot.params['id'],
-      // sender_id: this.auth.getUser()?.id,
-      received_id: this.route.snapshot.params['id'],
-      hours: this.orderForm.controls['hours'].value,
-      //description: this.orderForm.controls['description'].value,
-      description: this.description,
-      // lat: '1.2555',  // eng. ahmed
-      // lng: '0.2555',  // eng. ahmed
-      lat: this.lat,
-      lng: this.lng,
-      executed_at: '2022-2-12'
-
-    }
-    this.order.sendOrder(data).subscribe((res:any) => {
-      this.reviews = res.data.rate
-
-      this.toastr.success('Order has been created successfully', ':)');
-      this.router.navigateByUrl('/order')
-      // console.log(this.rateObject);
-    }, (error:any) => {
-      this.toastr.error('The order was not completed successfully');
-      // console.log(error)
-    })
-
   }
 
   createFav() {

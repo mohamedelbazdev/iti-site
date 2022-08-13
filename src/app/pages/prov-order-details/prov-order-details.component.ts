@@ -48,6 +48,10 @@ export class ProvOrderDetailsComponent implements OnInit {
     this.showOrder = res.data
     console.log(res.data)
     console.log(res.data?.lat)
+
+    this.lat = res.data?.lat
+    this.lng = res.data?.lng
+
     this.markerPosition = {
       lat: res.data?.lat,
       lng: res.data?.lng

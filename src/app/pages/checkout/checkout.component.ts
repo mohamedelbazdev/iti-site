@@ -76,6 +76,11 @@ export class CheckoutComponent implements OnInit {
     //   }
     // }
   }
+
+  get paymentFormControl() {
+    return this.paymentForm.controls;
+  }
+
   onSubmit() {
     this.submitted = true;
     if (this.paymentForm.valid) {
@@ -88,16 +93,15 @@ export class CheckoutComponent implements OnInit {
       }
       this.payment.payOrder(data).subscribe(res => {
         this.toastr.success('Payment done successfully', ':)');
-        this.router.navigateByUrl('/order')
+        this.router.navigateByUrl('/Confirm-Order')
       }, error => {
         this.toastr.error('Connection server error');
         console.log(error)
       })
     }
     else {
-      this.toastr.error('There is an error, please check the data', ':(');
-      console.log();
-
+      this.toastr.error(' please check your data !', ':(');
+     
     }
   }
 }

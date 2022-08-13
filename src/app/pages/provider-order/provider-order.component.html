@@ -31,7 +31,7 @@
         <tbody class="align-middle bg-dark">
         <tr  *ngFor="let order of featuredorders">
 
-          <td class="" style="width: 20%;">
+          <td class="" style="width: 15%;">
             <div class="product-image" style="width: 100%;">
                     <img
                         class="product-image__img w-100"
@@ -40,33 +40,38 @@
                     />
             </div>
           </td>
-                <td class="  ">
+
+                <td class="wishlist__column wishlist__column--remove pt-5">
                   <div
                       class="text-capitalize fw-bold"
                       >{{ order.user?.name }}</div
                   > </td>
-                  <td class="  ">
-                      <div class="bg-info p-2 w-25 m-auto text-white">
-                        {{ order.hours }}
-                      </div>
+
+              <td  class="wishlist__column wishlist__column--remove pt-5">
+                <div class="bg-info p-2 w-50 m-auto text-white">
+                  <span class=" fs-4">
+                    {{ order.hours }} : 
+                   </span>
+                   <i class="fas fa-clock"></i>
+
+                </div>
               </td>
-                <td class="  ">
-                  <div class="bg-success p-2 w-50 m-auto text-white">
-                      {{ order.total_amount }}</div>
-              </td>
-              <td class="   overflow-auto"
-              style="max-width: 150px; ">
-                <div class=""  >
-                  {{ order.description }}</div>
+              <td  class="wishlist__column wishlist__column--remove pt-5">
+                <div class="bg-info p-2  m-auto text-white">
+                    {{ order.total_amount|currency:'EGP : ' }}</div
+                >
             </td>
-          <td class=" ">
+            <td  class="wishlist__column wishlist__column--remove pt-5 overflow-auto"
+            style="max-width: 150px; ">
+              <div class=""  >
+                {{ order.description }}</div>
+          </td>
+          <td  class="wishlist__column wishlist__column--remove pt-5">
             <div class="">
-              {{ order.created_at | date :'medium' }}</div>
-        </td>
-              <!-- <td class="wishlist__column wishlist__column--product pt-5">
-                <button class="btn btn-success me-1">Accept</button>
-                <button class="btn btn-danger">Refuse</button>
-               </td> -->
+              {{ order.created_at | date:'MM/dd/yy h:mm a' }}</div
+            >
+          </td>
+
                <td class="wishlist__column wishlist__column--product pt-5">
                 <button routerLink="/pro-order-details/{{order.id}}"  class="btn btn-success me-1">Details</button>
 

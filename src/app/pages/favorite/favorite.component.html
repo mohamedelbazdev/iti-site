@@ -50,18 +50,19 @@
                   </div> -->
               </td>
               <td class="wishlist__column wishlist__column--product pt-5">
-                  <div
+                  <!-- <div>{{ fav.providers.mobile }}</div > -->
+                    <a class="h6 text-primary text-decoration-none fw-bold" href="tel:{{fav.providers.mobile}}"><i class="fa fa-phone-volume"></i> {{fav.providers.mobile}}</a>
+ </td>
 
-                      >{{ fav.providers.mobile }}</div
-                  >
 
 
-              </td>
+
+
               <td class="wishlist__column wishlist__column--stock pt-5 " >
                 <div >
                     <ng-container class=" pt-5" *ngIf=" fav.providers.status === 1; then first else second"></ng-container>
-                    <ng-template #first>active</ng-template>
-                    <ng-template #second>inactive</ng-template>
+                    <ng-template #first><div class="bg-success p-1">active</div></ng-template>
+                    <ng-template #second> <div class="bg-danger p-1">inactive</div></ng-template>
                 </div>
 
 

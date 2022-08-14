@@ -39,7 +39,6 @@ export class ContactUsComponent implements OnInit {
         this.toastr.success('Message sent successfully', ':)');
         this.contactForm.reset()
         this.submitted = false;
-
       }, () => {
         this.toastr.error('Connection server error');
         // console.log(error)

@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
     this.home.getProviders().subscribe(res => {
       this.providers = res.data
       this.spinner.hide();
-    },() => {
+    }, () => {
       this.spinner.hide();
     })
   }

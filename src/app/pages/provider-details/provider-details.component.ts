@@ -109,12 +109,11 @@ export class ProviderDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 2000);
+
 
     this.provider.showProvider(this.route.snapshot.params['id']).subscribe(res => {
       this.providerObject = res.data
+      this.spinner.hide();
     })
 
     this.rate.getOneRate(this.route.snapshot.params['id']).subscribe((res: any) => {
@@ -129,9 +128,7 @@ export class ProviderDetailsComponent implements OnInit {
 
   setRate() {
     this.spinner.show();
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 500);
+
     console.log(this.auth.getUser()?.id)
     console.log(this.auth.getUser())
     // @ts-ignore
@@ -143,20 +140,18 @@ export class ProviderDetailsComponent implements OnInit {
     }
     this.provider.setRate(data).subscribe(() => {
       this.toastr.success('send rating done', ':)');
+      this.spinner.hide();
     }, error => {
       this.toastr.error('Rated before or something went wrong');
       // console.log(error)
+      this.spinner.hide();
     })
   }
 
   createBooking() {
     this.submitted = true;
     if (this.orderForm.valid) {
-
       this.spinner.show();
-      setTimeout(() => {
-        this.spinner.hide();
-      }, 2000);
       let data = {
         // user_id: this.auth.getUser()?.id,
         provider_id: this.route.snapshot.params['id'],
@@ -186,6 +181,7 @@ export class ProviderDetailsComponent implements OnInit {
         this.router.navigateByUrl('/order')
       }, (error: any) => {
         this.toastr.error('The order was not completed successfully');
+        this.spinner.hide();
       })
     } else {
       this.toastr.error('Please check the data and try again', ':(');
@@ -194,12 +190,10 @@ export class ProviderDetailsComponent implements OnInit {
 
   createFav() {
     this.spinner.show();
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 500);
     this.favorite.create(this.route.snapshot.params['id']).subscribe(() => {
       // this.router.navigateByUrl('/Favorites')
       this.toastr.success('Add to favorite sucessed', ':)');
+      this.spinner.hide();
     }, (error: any) => {
       this.toastr.success('Remove favorite has been sucessefully');
       // console.log(error)

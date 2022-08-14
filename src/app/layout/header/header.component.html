@@ -1,7 +1,7 @@
 <div class="container-fluid d-block d-lg-none">
   <div class="row bg-secondary py-1 px-xl-5">
       <div class="col-lg-6 text-center text-lg-right">
-        <div class="d-inline-flex align-items-center d-block d-lg-none"> 
+        <div class="d-inline-flex align-items-center d-block d-lg-none">
             <span *ngIf="isLogin()"  class="px-0 nav-item text-white mr-4">Welcome <span class="text-capitalize text-warning">{{myUserCount.name}}</span></span>
             <a  *ngIf="isLogin() && isuser()" routerLink="/Favorites" class="btn px-0 position-relative mr-3">
               <i class="fas fa-heart text-white fa-lg"></i>
@@ -55,7 +55,7 @@
                     <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" class="nav-item border-b nav-link">Home</a>
                     <a *ngIf="isLogin() && isuser()" routerLink="/order" routerLinkActive="active"  class="nav-item border-b nav-link">Order</a>
                     <a *ngIf="isLogin() && !isuser()" routerLink="/provider-order" routerLinkActive="active" class="nav-item border-b nav-link">Provider Order</a>
-                    <a *ngIf="isLogin()" routerLink="/chat" routerLinkActive="active" href="/chat" class="nav-item border-b nav-link">Chat</a>
+                    <!-- <a *ngIf="isLogin()" routerLink="/chat" routerLinkActive="active" href="/chat" class="nav-item border-b nav-link">Chat</a> -->
                     <!-- <a *ngIf="isLogin()" routerLink="/checkout" routerLinkActive="active" class="nav-item border-b nav-link">Checkout</a> -->
                     <a  *ngIf="!isuser()" routerLink="/providers" routerLinkActive="active" class="nav-item border-b nav-link">Providers</a>
                     <!-- <a routerLink="/categories" routerLinkActive="active" class="nav-item border-b nav-link">Categories</a> -->

@@ -108,12 +108,19 @@ export class ProviderDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 32c5ea174be54285ec37966c96acd0fa7050992c
 
     this.provider.showProvider(this.route.snapshot.params['id']).subscribe(res => {
       this.providerObject = res.data
       this.spinner.hide();
+<<<<<<< HEAD
     }, () => {
       this.spinner.hide();
+=======
+>>>>>>> 32c5ea174be54285ec37966c96acd0fa7050992c
     })
 
     this.rate.getOneRate(this.route.snapshot.params['id']).subscribe((res: any) => {
@@ -131,6 +138,10 @@ export class ProviderDetailsComponent implements OnInit {
 
   setRate() {
     this.spinner.show();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 32c5ea174be54285ec37966c96acd0fa7050992c
     console.log(this.auth.getUser()?.id)
     console.log(this.auth.getUser())
     // @ts-ignore
@@ -143,8 +154,14 @@ export class ProviderDetailsComponent implements OnInit {
     this.provider.setRate(data).subscribe(() => {
       this.toastr.success('send rating done', ':)');
       this.spinner.hide();
+<<<<<<< HEAD
     }, () => {
       this.toastr.error('Rated before or something went wrong');
+=======
+    }, error => {
+      this.toastr.error('Rated before or something went wrong');
+      // console.log(error)
+>>>>>>> 32c5ea174be54285ec37966c96acd0fa7050992c
       this.spinner.hide();
     })
   }
@@ -153,9 +170,6 @@ export class ProviderDetailsComponent implements OnInit {
     this.submitted = true;
     if (this.orderForm.valid) {
       this.spinner.show();
-      setTimeout(() => {
-        this.spinner.hide();
-      }, 2000);
       let data = {
         // user_id: this.auth.getUser()?.id,
         provider_id: this.route.snapshot.params['id'],
@@ -185,6 +199,7 @@ export class ProviderDetailsComponent implements OnInit {
         this.router.navigateByUrl('/order')
       }, () => {
         this.toastr.error('The order was not completed successfully');
+        this.spinner.hide();
       })
     } else {
       this.toastr.error('Please check the data and try again', ':(');
@@ -198,8 +213,13 @@ export class ProviderDetailsComponent implements OnInit {
       this.providerObject.users.is_favorite_count = 1
       this.spinner.hide();
       this.toastr.success('Add to favorite sucessed', ':)');
+<<<<<<< HEAD
     }, () => {
       this.providerObject.users.is_favorite_count = 0
+=======
+      this.spinner.hide();
+    }, (error: any) => {
+>>>>>>> 32c5ea174be54285ec37966c96acd0fa7050992c
       this.toastr.success('Remove favorite has been sucessefully');
       this.spinner.hide();
     })

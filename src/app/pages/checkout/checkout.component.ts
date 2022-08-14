@@ -33,10 +33,10 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
     // this.invokeStripe();
     this.paymentForm = this.fb.group({
-      card_number: ['', Validators.required],
-      card_exp_month: ['', Validators.required],
-      card_exp_year: ['', Validators.required],
-      card_cvc: ['', Validators.required],
+      card_number: ['', [Validators.required ,Validators.minLength(16)]],
+      card_exp_month: ['',[Validators.required ,Validators.minLength(1),Validators.maxLength(2),Validators.min(1),Validators.max(12)]],
+      card_exp_year: ['',[ Validators.required ,Validators.minLength(2),Validators.maxLength(2),Validators.min(11),Validators.max(99)]],
+      card_cvc: ['',[ Validators.required,Validators.minLength(3),Validators.maxLength(3)]],
     });
 
     // makePayment(amount: any) {

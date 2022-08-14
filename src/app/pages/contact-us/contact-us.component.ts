@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
 import { ContactService } from "../../services/contact.service";
 
+
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
@@ -13,7 +14,7 @@ export class ContactUsComponent implements OnInit {
   contactForm: FormGroup;
   submitted = false;
 
-  constructor(private contact: ContactService, private toastr: ToastrService,) {
+  constructor(private contact: ContactService, private toastr: ToastrService) {
     this.contactForm = new FormGroup({
       'name': new FormControl('', [Validators.required]),
       'email': new FormControl('', [Validators.required, Validators.email]),
@@ -37,13 +38,17 @@ export class ContactUsComponent implements OnInit {
         // alert('done')
         this.toastr.success('Message sent successfully', ':)');
         this.contactForm.reset()
-      }, error => {
+        this.submitted = false;
+
+      }, () => {
         this.toastr.error('Connection server error');
         // console.log(error)
       })
     } else {
-      // alert('error')
       this.toastr.error('Please check the data and try again', ':(');
     }
   }
 }
+
+
+

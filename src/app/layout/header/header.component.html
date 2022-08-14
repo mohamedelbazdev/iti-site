@@ -55,7 +55,7 @@
                     <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" class="nav-item border-b nav-link">Home</a>
                     <a *ngIf="isLogin() && isuser()" routerLink="/order" routerLinkActive="active"  class="nav-item border-b nav-link">Order</a>
                     <a *ngIf="isLogin() && !isuser()" routerLink="/provider-order" routerLinkActive="active" class="nav-item border-b nav-link">Provider Order</a>
-                    <a *ngIf="isLogin()" routerLink="/chat" routerLinkActive="active" href="/chat" class="nav-item border-b nav-link">Chat</a>
+                    <!-- <a *ngIf="isLogin()" routerLink="/chat" routerLinkActive="active" href="/chat" class="nav-item border-b nav-link">Chat</a> -->
                     <!-- <a *ngIf="isLogin()" routerLink="/checkout" routerLinkActive="active" class="nav-item border-b nav-link">Checkout</a> -->
                     <a  *ngIf="!isuser()" routerLink="/providers" routerLinkActive="active" class="nav-item border-b nav-link">Providers</a>
                     <!-- <a routerLink="/categories" routerLinkActive="active" class="nav-item border-b nav-link">Categories</a> -->

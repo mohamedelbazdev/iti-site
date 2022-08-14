@@ -60,15 +60,13 @@ export class EditUserProfileComponent implements OnInit {
       // mobile: new FormControl('', [Validators.required]),
       // password: new FormControl('', [Validators.required]),
       // confirmedPassword: new FormControl('', [Validators.required]),
-      phone: new FormControl('', [Validators.required]),
+      mobile: new FormControl('', [Validators.required]),
 
       lat: new FormControl('', [Validators.required]),
       lng: new FormControl('', [Validators.required]),
     }
     );
   }
-
-
 
   get profileFormControl() {
     return this.profileForm.controls;
@@ -79,7 +77,7 @@ export class EditUserProfileComponent implements OnInit {
       this.profileForm.patchValue({
         name: res.data.name,
         email: res.data.email,
-        phone: res.data.phone,
+        mobile: res.data.mobile,
         lat: res.data.lat,
         lng: res.data.lng,
       });
@@ -91,7 +89,6 @@ export class EditUserProfileComponent implements OnInit {
       // this.lat = this.myProfile.lat
       // this.lat = this.myProfile.lng
       console.log(this.profileForm);
-
     })
   }
   onSave() {
@@ -106,13 +103,14 @@ export class EditUserProfileComponent implements OnInit {
     }
   }
 
-
   updateProfile() {
     this.submitted = true;
     if (this.profileForm.valid) {
-      // this.profile.updateProfile(this.profileForm.value).subscribe(() => {
-      // alert('done')
-      this.toastr.success('Edit done successfully', ':)');
+        this.profile.updateProfile(this.profileForm.value).subscribe(() => {
+          this.toastr.success('Edit done successfully', ':)');
+        }, () => {
+          this.toastr.error('There is an error, please check the data', ':(');
+        })
     }
     else {
       this.toastr.error('There is an error, please check the data', ':(');

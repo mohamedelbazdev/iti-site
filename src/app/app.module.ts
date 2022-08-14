@@ -38,6 +38,8 @@ import { ContactUsComponent } from "./pages/contact-us/contact-us.component";
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { ConfirmOrderComponent } from './pages/confirm-order/confirm-order.component';
 import { ProvOrderDetailsComponent } from './pages/prov-order-details/prov-order-details.component';
+import { SettingComponent } from './pages/setting/setting.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +69,8 @@ import { ProvOrderDetailsComponent } from './pages/prov-order-details/prov-order
     ChangePasswordComponent,
     ConfirmOrderComponent,
     ProvOrderDetailsComponent,
+    SettingComponent,
+    AboutUsComponent,
   ],
 
   imports: [

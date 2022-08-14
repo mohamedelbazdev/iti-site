@@ -22,6 +22,7 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { ConfirmOrderComponent } from './pages/confirm-order/confirm-order.component';
 import { ProvOrderDetailsComponent } from './pages/prov-order-details/prov-order-details.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 
 
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'change-password', component: ChangePasswordComponent },
   { path: 'Confirm-Order', component: ConfirmOrderComponent, },
   { path: 'pro-order-details/:id', component: ProvOrderDetailsComponent, },
+  { path : 'about', component: AboutUsComponent  },
 
 
 

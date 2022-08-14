@@ -66,11 +66,11 @@
                             </div>
                     </form>
                     <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
-                        <div class="d-flex justify-content-between">
+                        <div class="d-flex justify-content-between" >
                             <button (click)="createBooking()" class="btn bg-primary text-white mt-3 w-25 me-5"><i class="fa fa-address-card text-white  mr-1"></i>Book</button>
-                            <div class="mt-2">
+                            <div class="mt-2" >
                                 <ng-container class=" pt-5" *ngIf=" providerObject.users?.is_favorite_count === 0; then first else second"></ng-container>
-                                <ng-template #first> <a data-toggle="tooltip" data-placement="top" title="Remove favorite" class="" (click)="createFav()" href="javascript:void(0)"><i class="fas fa-heart text-dark fs-1" title="add favorite "></i></a>
+                                <ng-template #first> <a  data-toggle="tooltip" data-placement="top" title="Remove favorite" class="" (click)="createFav()" href="javascript:void(0)"><i class="fas fa-heart text-dark fs-1" title="add favorite "></i></a>
                                  </ng-template>
                                 <ng-template #second> <a data-toggle="tooltip" data-placement="top" title="Add to favorite" (click)="createFav()" href="javascript:void(0)" ><i class="fas fa-heart text-danger fs-1" title="remove favorite"></i></a>
                                </ng-template>

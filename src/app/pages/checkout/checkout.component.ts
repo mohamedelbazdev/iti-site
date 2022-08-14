@@ -95,13 +95,13 @@ export class CheckoutComponent implements OnInit {
         this.toastr.success('Payment done successfully', ':)');
         this.router.navigateByUrl('/Confirm-Order')
       }, error => {
-        this.toastr.error('Connection server error');
+        this.toastr.error();
         console.log(error)
       })
     }
     else {
       this.toastr.error(' please check your data !', ':(');
-     
+
     }
   }
 }

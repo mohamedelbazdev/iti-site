@@ -15,6 +15,7 @@ export class AuthService {
   public _loginUrl = `${environment.APIBaseURL}/auth/login`;
 
   public userCountUrl = `${environment.APIBaseURL}/users/count`;
+  public changePasswordUrl = `${environment.APIBaseURL}/users/profile/change_password`;
 
   constructor(private http: HttpClient, private router: Router, private toastr: ToastrService,) { }
 
@@ -24,7 +25,6 @@ export class AuthService {
       localStorage.setItem('count', JSON.stringify(res.data))
     })
   }
-
 
   loginUser(user: any) {
     return this.http.post<any>(this._loginUrl, user)
@@ -44,6 +44,10 @@ export class AuthService {
 
   getUser() {
     return JSON.parse(localStorage.getItem('user') ?? 'dfsfsdf')
+  }
+
+  changePassword(data:object) {
+    return this.http.post<any>(this.changePasswordUrl, data)
   }
 
   logoutUser() {

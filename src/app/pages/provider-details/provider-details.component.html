@@ -14,7 +14,7 @@
 
         <div class="col-lg-7 h-auto mb-30">
             <div class="h-100 bg-light p-30">
-                <h3>{{ providerObject.users['name'] }}</h3>
+                <h3>{{ providerObject.users?.name }}</h3>
                 <div class="d-flex mb-3">
                     <ngb-rating class="fs-5 text-warning" [rate]="providerObject.rate" [readonly] = true [max]="5"></ngb-rating>
                     <small class="pt-1">({{reviews.length}} Reviews)</small>
@@ -31,7 +31,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="form-label">The number of hours</label>
-                                    <input min="1" oninput="this.value = Math.abs(this.value)" type="number" formControlName="hours" class="form-control  border-0 text-center" min="1" value="1">
+                                    <input min="1" oninput="this.value = Math.abs(this.value) === 0 ? 1: Math.abs(this.value) " type="number" formControlName="hours" class="form-control  border-0 text-center" min="1" value="1">
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -69,10 +69,10 @@
                         <div class="d-flex justify-content-between">
                             <button (click)="createBooking()" class="btn bg-primary text-white mt-3 w-25 me-5"><i class="fa fa-address-card text-white  mr-1"></i>Book</button>
                             <div class="mt-2">
-                                <ng-container class=" pt-5" *ngIf=" providerObject.users.is_favorite_count === 0; then first else second"></ng-container>
+                                <ng-container class=" pt-5" *ngIf=" providerObject.users?.is_favorite_count === 0; then first else second"></ng-container>
                                 <ng-template #first> <a data-toggle="tooltip" data-placement="top" title="Remove favorite" class="" (click)="createFav()" href="javascript:void(0)"><i class="fas fa-heart text-dark fs-1" title="add favorite "></i></a>
                                  </ng-template>
-                                <ng-template #second> <a data-toggle="tooltip" data-placement="top" title="Add to favorite"class="" (click)="createFav()" href="javascript:void(0)" ><i class="fas fa-heart text-danger fs-1" title="remove favorite"></i></a>
+                                <ng-template #second> <a data-toggle="tooltip" data-placement="top" title="Add to favorite" (click)="createFav()" href="javascript:void(0)" ><i class="fas fa-heart text-danger fs-1" title="remove favorite"></i></a>
                                </ng-template>
                           </div>
                         </div>
@@ -101,7 +101,7 @@
 
                     <div class="row">
                         <div class="col-md-6">
-                            <h4 class="mb-4">{{reviews.length}} review for "{{ providerObject.users['name'] }}"</h4>
+                            <h4 class="mb-4">{{reviews.length}} review for "{{ providerObject.users?.name }}"</h4>
                             <div class="media mb-4" *ngFor="let review of reviews">
                                 <img src="{{review['user']['image']}}" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                                 <div class="media-body">

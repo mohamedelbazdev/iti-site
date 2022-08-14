@@ -44,8 +44,8 @@
 <div  class=" position-relative p-5 mb-3" style="background-color: #DDD;">
 
   <div class="position-absolute bottom-0 start-50 translate-middle-x p-3">
-    <button (click)="acceptOrder()" class=" btn btn-success  me-1 p-3">Accept</button>
-    <button (click)="rejectOrder()" class="btn btn-danger  p-3 ms-5">Refuse</button>
+    <button (click)="acceptOrder()" class=" btn btn-success  me-1 p-3"   [class.disabled]=" showOrder.status !== '0' && showOrder.paid === 0">Accept</button>
+    <button (click)="rejectOrder()" class="btn btn-danger  p-3 ms-5"  [class.disabled]=" showOrder.status !== '0' && showOrder.paid === 0">Refuse</button>
   </div>
 
 </div>

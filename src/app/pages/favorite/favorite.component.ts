@@ -35,13 +35,11 @@ export class FavoriteComponent implements OnInit {
   remove(providerId: number) {
     this.favorite.remove(providerId).subscribe(() => {
       this.spinner.show();
-      setTimeout(() => {
-        this.spinner.hide();
-      }, 500);
       let index = this.favorites.findIndex(data => data.provider_id == providerId)
       this.favorites.splice(index, 1)
       // alert('done')
       this.toastr.success('Remove Favorite Successed', ':(');
+      this.spinner.hide();
     })
   }
 }

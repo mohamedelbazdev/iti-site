@@ -70,7 +70,6 @@ export class ProviderDetailsComponent implements OnInit {
   //   }
   // }
 
-
   // end google map
 
   currentRate = 1;
@@ -78,7 +77,7 @@ export class ProviderDetailsComponent implements OnInit {
   // lat: number = 12;
   // lng: number = 15;
   providerObject: any = {}
-  rateObject: any = {}
+  // rateObject: any = {}
   id: any;
   hours: number = 1
 
@@ -109,17 +108,20 @@ export class ProviderDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 2000);
 
     this.provider.showProvider(this.route.snapshot.params['id']).subscribe(res => {
       this.providerObject = res.data
+      this.spinner.hide();
+    }, () => {
+      this.spinner.hide();
     })
 
     this.rate.getOneRate(this.route.snapshot.params['id']).subscribe((res: any) => {
       this.reviews = res.data.rate
+      this.spinner.hide();
       console.log(this.reviews);
+    }, ()=> {
+      this.spinner.hide();
     })
   }
 
@@ -129,9 +131,6 @@ export class ProviderDetailsComponent implements OnInit {
 
   setRate() {
     this.spinner.show();
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 500);
     console.log(this.auth.getUser()?.id)
     console.log(this.auth.getUser())
     // @ts-ignore
@@ -143,16 +142,16 @@ export class ProviderDetailsComponent implements OnInit {
     }
     this.provider.setRate(data).subscribe(() => {
       this.toastr.success('send rating done', ':)');
-    }, error => {
+      this.spinner.hide();
+    }, () => {
       this.toastr.error('Rated before or something went wrong');
-      // console.log(error)
+      this.spinner.hide();
     })
   }
 
   createBooking() {
     this.submitted = true;
     if (this.orderForm.valid) {
-
       this.spinner.show();
       setTimeout(() => {
         this.spinner.hide();
@@ -184,7 +183,7 @@ export class ProviderDetailsComponent implements OnInit {
         this.reviews = res.data.rate
         this.toastr.success('Order has been created successfully', ':)');
         this.router.navigateByUrl('/order')
-      }, (error: any) => {
+      }, () => {
         this.toastr.error('The order was not completed successfully');
       })
     } else {
@@ -194,16 +193,15 @@ export class ProviderDetailsComponent implements OnInit {
 
   createFav() {
     this.spinner.show();
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 500);
     this.favorite.create(this.route.snapshot.params['id']).subscribe(() => {
       // this.router.navigateByUrl('/Favorites')
+      this.providerObject.users.is_favorite_count = 1
+      this.spinner.hide();
       this.toastr.success('Add to favorite sucessed', ':)');
-    }, (error: any) => {
+    }, () => {
+      this.providerObject.users.is_favorite_count = 0
       this.toastr.success('Remove favorite has been sucessefully');
-      // console.log(error)
+      this.spinner.hide();
     })
   }
-
 }
